@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link } from "../router";
 import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WhatsAppButton, WhatsAppIcon, WHATSAPP_URL } from "./ui";
@@ -57,6 +57,19 @@ function PhonePreview({ guide = false }: { guide?: boolean }) {
 
 
 
+function PricingGrid() {
+  const { t } = useSettings();
+  const ref = useRef<HTMLDivElement>(null);
+  // On the mobile carousel, start with the featured (Standard) plan centred.
+  useEffect(() => {
+    const grid = ref.current;
+    const card = grid?.querySelector<HTMLElement>(".ph-price-card.featured");
+    if (!grid || !card || grid.scrollWidth <= grid.clientWidth) return;
+    grid.scrollLeft = card.offsetLeft - (grid.clientWidth - card.offsetWidth) / 2;
+  }, []);
+  return <div className="ph-pricing-grid" ref={ref}>{plans.map(plan => <article key={plan.name} className={`ph-price-card ${plan.featured ? "featured" : ""}`}><span className="ph-plan-label">{t(plan.label)}</span><h3>{t(plan.name)}</h3><p>{t(plan.description)}</p><div className="ph-plan-price">{plan.price}<span>{t("one-off setup")}</span></div><ul>{plan.features.map(feature => <li key={feature}><Icon name="check" size={16} />{t(feature)}</li>)}</ul><WhatsAppButton>Choose This Setup</WhatsAppButton></article>)}</div>;
+}
+
 export function RetainedSection({kind}:{kind:"discovery"|"apps"|"devices"|"support"|"plans"|"final"}) {
   const { t }=useSettings();
   switch(kind) { case "discovery": return (<section className="retained-ui ph-section ph-discovery">
@@ -67,7 +80,7 @@ case "apps": return (<section className="retained-ui ph-section ph-apps">
     </section>);
 case "devices": return (<section className="retained-ui ph-section ph-devices" id="compatible-devices"><div className="ph-wrap ph-split"><div className="ph-copy"><Kicker>{t("YOUR PLAYER. YOUR SCREEN. YOUR WORLD.")}</Kicker><h2>{t("At home.")}<br />{t("On the move.")}<br /><span>{t("On your terms.")}</span></h2><p>{t("You don’t have to start from scratch. Our services work with a range of popular streaming devices, smart TVs, phones and tablets. We’ll help you check yours.")}</p><WhatsAppButton>Check My Device</WhatsAppButton></div><div className="ph-device-scene"><div className="ph-device-desktop"><ViewingPreview small /></div><div className="ph-device-mobile"><PhonePreview /></div><div className="ph-device-tags"><span><Icon name="tv" size={16} /> Smart TV</span><span><Icon name="box" size={16} /> Fire Stick & MAG</span><span><Icon name="phone" size={16} /> Android & iOS</span></div></div></div></section>);
 case "support": return (<section className="retained-ui ph-section ph-support"><div className="ph-wrap ph-support-panel"><div className="ph-copy"><Kicker>{t("MADE BETTER, TOGETHER")}</Kicker><h2>{t("A person to help.")}<br /><span>{t("Not another problem to solve.")}</span></h2><p>{t("Not sure about a device? Want to know which service fits? Just send a message. We’ll keep the answers clear, the setup straightforward, and the support personal.")}</p><WhatsAppButton>Talk to Our Team</WhatsAppButton></div><div className="ph-chat"><div className="ph-chat-head"><span><WhatsAppIcon size={24} /></span><div>Tv Packages<small>{t("Setup conversation preview")}</small></div></div><div className="ph-chat-message outgoing">{t("Hi! Can you help me get started on my smart TV?")}<small>✓✓</small></div><div className="ph-chat-message">{t("Of course. Send us your TV model and tell us what you enjoy watching. We’ll guide you from there.")}</div><div className="ph-chat-chips"><span><Icon name="check" size={13} />{t("Device guidance")}</span><span><Icon name="check" size={13} />{t("Personal support")}</span></div></div></div></section>);
-case "plans": return (<section className="retained-ui ph-section ph-plans" id="packages"><div className="ph-wrap"><div className="ph-centered"><Kicker>{t("A LITTLE HELP GOES A LONG WAY")}</Kicker><h2>{t("Make your setup")}<br /><span>{t("feel premium.")}</span></h2><p>{t("Choose the level of setup support that suits you. Clear one-off fees, friendly guidance, and your own streaming subscriptions.")}</p></div><div className="ph-pricing-grid">{plans.map(plan => <article key={plan.name} className={`ph-price-card ${plan.featured ? "featured" : ""}`}><span className="ph-plan-label">{t(plan.label)}</span><h3>{t(plan.name)}</h3><p>{t(plan.description)}</p><div className="ph-plan-price">{plan.price}<span>{t("one-off setup")}</span></div><ul>{plan.features.map(feature => <li key={feature}><Icon name="check" size={16} />{t(feature)}</li>)}</ul><WhatsAppButton>Choose This Setup</WhatsAppButton></article>)}</div><p className="ph-price-note">{t("Setup fees only. Streaming subscriptions are paid directly to their providers.")}</p></div></section>);
+case "plans": return (<section className="retained-ui ph-section ph-plans" id="packages"><div className="ph-wrap"><div className="ph-centered"><Kicker>{t("A LITTLE HELP GOES A LONG WAY")}</Kicker><h2>{t("Make your setup")}<br /><span>{t("feel premium.")}</span></h2><p>{t("Choose the level of setup support that suits you. Clear one-off fees, friendly guidance, and your own streaming subscriptions.")}</p></div><PricingGrid /><p className="ph-price-note">{t("Setup fees only. Streaming subscriptions are paid directly to their providers.")}</p></div></section>);
 case "final": return (<section className="retained-ui ph-section ph-final" id="contact"><div className="ph-wrap ph-final-panel"><div><Kicker>{t("YOUR NEXT GREAT NIGHT IN STARTS HERE")}</Kicker><h2>{t("More to watch.")}<br /><span>{t("Less to figure out.")}</span></h2><p>{t("Tell us your device and what you love. We’ll take it from there.")}</p><WhatsAppButton>Let’s Get You Set Up</WhatsAppButton><a className="ph-contact-number" href={WHATSAPP_URL}>+44 7395 667292</a></div><div className="ph-final-image"><img src={family} alt="Couple exploring entertainment apps on their television at home" loading="lazy" /><IPTVLogo /></div></div></section>); }
 }
 export function HeroNotes(){const {t}=useSettings();return <div className="retained-ui retained-hero-notes">          <div className="ph-hero-notes"><span><Icon name="check" size={14} />{t("UK & worldwide TV")}</span><span><Icon name="check" size={14} />{t("Multi-device setup")}</span><span><Icon name="check" size={14} />{t("WhatsApp support")}</span></div>

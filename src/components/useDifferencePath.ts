@@ -53,6 +53,13 @@ export function useDifferencePath(page: string) {
       frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(frame); observer.disconnect(); };
+    // Mobile: the wavy connector is hidden, so highlight the big stacked steps one by one.
+    let current = -1;
+    const cycle = window.setInterval(() => {
+      if (!visible || document.hidden || motion.matches || svg.getClientRects().length) return;
+      current = (current + 1) % (nodes.length + 1);
+      nodes.forEach((node, index) => node.classList.toggle("difference-node-active", index === current));
+    }, 1800);
+    return () => { cancelAnimationFrame(frame); clearInterval(cycle); observer.disconnect(); };
   }, [page]);
 }

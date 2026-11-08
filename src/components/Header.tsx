@@ -7,13 +7,13 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   ["Home", "/"],
-  ["Products", "/#popular-products"],
   ["Services", "/services"],
+  ["Products", "/#popular-products"],
   ["Devices", "/#compatible-devices"],
   ["Packages", "/#packages"],
-  ["Blog", "/blog"],
   ["FAQs", "/#faqs"],
   ["Contact", "/#contact"],
+  ["Blog", "/blog"],
 ];
 
 export function Header() {
@@ -57,6 +57,10 @@ export function Header() {
         </Link>
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} aria-label="Main navigation">
           {navItems.map(navLink)}
+          <div className="nav-menu-tools">
+            <ThemeToggle />
+            <LanguageDropdown />
+          </div>
         </nav>
         <span className="nav-divider nav-divider-links" aria-hidden="true" />
         <div className="nav-actions">
