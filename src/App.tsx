@@ -21,6 +21,7 @@ import { useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { Typewriter } from "./components/Typewriter";
 import { ServiceCarousel } from "./components/ServiceCarousel";
 import { CompatibilityGrid } from "./components/CompatibilityGrid";
+import { PopularProducts } from "./components/PopularProducts";
 import { useScrollReveal } from "./components/useScrollReveal";
 import { useDifferencePath } from "./components/useDifferencePath";
 import { useSettings } from "./settings";
@@ -414,6 +415,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <PopularProducts />
 
       <section className="section hardware-section" aria-labelledby="hardware-title">
         <div className="container hardware-layout">

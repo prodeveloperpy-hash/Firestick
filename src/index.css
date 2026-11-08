@@ -4028,6 +4028,25 @@ html[data-theme="light"] .service-carousel img { filter: none; }
 .site-shell footer .footer-bottom > div > a { display: inline; margin: 0; }
 .site-shell .footer-bottom p { margin: 0; line-height: 1.4; }
 
+.popular-products-section { background: #090b10; }
+.popular-products-section .section-heading.centered { margin-bottom: 36px; }
+.popular-products-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; max-width: 1040px; margin: 0 auto; }
+.popular-product { overflow: hidden; border: 1px solid #ffffff14; border-radius: 24px; background: #050609; }
+.popular-product-media { position: relative; padding: 24px 32px 0; }
+.popular-product-media > img { display: block; width: 100%; height: 320px; object-fit: contain; }
+.product-discount { position: absolute; top: 18px; left: 18px; z-index: 1; border-radius: 9px; background: var(--fire); color: #1b0d03; padding: 7px 12px; font-size: 14px; font-weight: 800; }
+.popular-product-copy { padding: 24px 28px 30px; text-align: center; }
+.popular-product h3 { margin: 0 0 14px; font-size: 24px; font-weight: 800; color: #ffac65; }
+.popular-product-price { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px; }
+.popular-product-price del { color: #8c919f; font-size: 18px; }
+.popular-product-price strong { font-size: 28px; color: #fff; }
+.popular-product .whatsapp-button { display: inline-flex; }
+@media (max-width: 570px) {
+  .popular-products-grid { grid-template-columns: 1fr; gap: 20px; }
+  .popular-product-media > img { height: 280px; }
+  .popular-product h3 { font-size: 22px; }
+}
+
 .platform-section .channel-logo-card { min-height: 150px; padding: 16px; }
 .platform-section .channel-logo-card .platform-tile {
   border: 0;
