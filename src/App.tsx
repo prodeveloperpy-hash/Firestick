@@ -1,5 +1,6 @@
 import { useState } from "react";
 import heroStick from "./assets/hero-stick.png";
+import heroStickLight from "./assets/hero-stick-light.png";
 import deviceLineup from "./assets/devices-multi.jpg";
 import stepProduct from "./assets/steps/get-stick.jpg";
 import stepInstallation from "./assets/steps/easy-setup.jpg";
@@ -75,7 +76,7 @@ const highlightFeatures = [
 
 const HERO_PHRASES = [
   "All in One Place.",
-  "Live Sports & PPV.",
+  "Live Sports & IPTV.",
   "Movies & Series.",
   "On Every Screen.",
 ];
@@ -259,7 +260,7 @@ export default function App() {
 
 function HomePage() {
   const [openFaq, setOpenFaq] = useState(0);
-  const { t, lang } = useSettings();
+  const { t, lang, theme } = useSettings();
   usePageMeta(
     "Tv Packages | " + t("Premium IPTV Entertainment"),
     "Explore IPTV entertainment, compatible devices, and flexible plans, then contact a UK-based provider on WhatsApp for personalized guidance.",
@@ -288,7 +289,7 @@ function HomePage() {
             <div className="hero-features">
               {[
                 "UK & Worldwide Live TV",
-                "Sports & PPV Events",
+                "Sports & IPTV Events",
                 "Movies & TV Series",
                 "Multi-Device Compatibility",
               ].map((x) => (
@@ -321,7 +322,7 @@ function HomePage() {
             <IPTVLogo className="iptv-hero" />
             <div className="visual-glow" />
             <div className="hero-stick">
-              <img src={heroStick} alt="Tv Packages streaming stick and voice remote glowing in orange light" />
+              <img src={theme === "light" ? heroStickLight : heroStick} alt="Tv Packages streaming stick and voice remote" />
             </div>
           </div>
         </div>
@@ -352,9 +353,18 @@ function HomePage() {
             <IPTVLogo className="iptv-section-image" />
             <div className="product-glow" />
             <div className="image-frame">
-              <img
-                src={photos.product}
-                alt="Tv Packages streaming device and remote in front of a premium entertainment screen"
+              <video
+                className="product-video"
+                src="/FireStick.mp4"
+                poster={photos.product}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls={false}
+                disablePictureInPicture
+                preload="metadata"
+                aria-label="Tv Packages streaming device demonstration"
               />
             </div>
             <div className="floating-card product-chip chip-top">

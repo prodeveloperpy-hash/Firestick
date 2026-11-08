@@ -1,0 +1,3 @@
+Saved asset: src/assets/hero-stick-light.png
+Tool: built-in imagegen, transparent_background=true.
+Prompt: Use case: background-extraction. Edit target: supplied streaming device photo. Remove ALL background, black studio backdrop, orange light trails, table/floor, reflections and cast shadows. Output only the exact same streaming stick and diagonal remote in the exact same positions and proportions on a genuinely transparent alpha background. Preserve every button, device detail, realistic material and "Tv Packages" branding. Keep warm edge highlights on hardware subtle. No added objects, no halo, no white background. Original landscape aspect ratio and framing.
