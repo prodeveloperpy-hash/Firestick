@@ -301,20 +301,6 @@ function HomePage() {
             <div className="hero-stick">
               <img src={heroStick} alt="Tv Packages streaming stick and voice remote glowing in orange light" />
             </div>
-            <div className="floating-card live-card">
-              <span className="pulse" />
-              <span>
-                <strong>{t("Live entertainment")}</strong>
-                <small>{t("Across your favourite screens")}</small>
-              </span>
-            </div>
-            <div className="floating-card quality-card">
-              <Icon name="play" size={18} />
-              <span>
-                <strong>{t("Premium viewing")}</strong>
-                <small>{t("Simple. Flexible. Supported.")}</small>
-              </span>
-            </div>
           </div>
         </div>
         <div className="scroll-hint">
