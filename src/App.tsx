@@ -353,18 +353,9 @@ function HomePage() {
             <IPTVLogo className="iptv-section-image" />
             <div className="product-glow" />
             <div className="image-frame">
-              <video
-                className="product-video"
-                src="/FireStick.mp4"
-                poster={photos.product}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls={false}
-                disablePictureInPicture
-                preload="metadata"
-                aria-label="Tv Packages streaming device demonstration"
+              <img
+                src={photos.product}
+                alt="Tv Packages streaming stick and remote in front of a television"
               />
             </div>
             <div className="floating-card product-chip chip-top">
@@ -418,6 +409,24 @@ function HomePage() {
                 {t("How It Works")} <Icon name="arrow" size={18} />
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section hardware-section" aria-labelledby="hardware-title">
+        <div className="container hardware-layout">
+          <div className="hardware-copy">
+            <div className="eyebrow"><span /> {t("A closer look")}</div>
+            <h2 id="hardware-title">{t("Inside the ")}<em>{t("stick & remote.")}</em></h2>
+            <p>{t("See how the streaming stick and remote fit together, from their outer shells to the circuit boards and components inside.")}</p>
+            <div className="hardware-details">
+              <span><Icon name="layers" size={22} />{t("Exploded hardware view")}</span>
+              <span><Icon name="box" size={22} />{t("Streaming stick & remote")}</span>
+            </div>
+          </div>
+          <div className="hardware-video-frame">
+            <IPTVLogo className="iptv-section-image" />
+            <video className="product-video" src="/FireStick.mp4" autoPlay muted loop playsInline controls={false} disablePictureInPicture preload="metadata" aria-label="Exploded view showing the internal components of a streaming stick and remote" />
           </div>
         </div>
       </section>

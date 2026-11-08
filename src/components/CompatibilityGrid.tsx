@@ -1,19 +1,20 @@
 import { useSettings } from "../settings";
 import { Icon } from "./ui";
+import { LogoRail } from "./ChannelStrip";
 
 const platforms = [
-  { name: "Fire TV Stick", label: "fire tv stick", icon: "tv", color: "#ffac56" },
-  { name: "Samsung Smart TV", label: "SAMSUNG", detail: "SMART TV", icon: "tv", color: "#9dbbff" },
-  { name: "IPTV Smarters", label: "IPTV", detail: "SMARTERS", icon: "play", color: "#c7afff" },
-  { name: "Web Player", label: "WEB PLAYER", icon: "play", color: "#c7afff" },
-  { name: "Xbox", label: "XBOX", icon: "xbox", color: "#92db6a" },
-  { name: "NVIDIA Shield", label: "NVIDIA", detail: "SHIELD", icon: "box", color: "#a5dc67" },
-  { name: "Android", label: "android", icon: "android", color: "#a5dc67" },
-  { name: "LG Smart TV", label: "LG", detail: "SMART TV", icon: "tv", color: "#ff8eaf" },
-  { name: "Android TV", label: "android tv", icon: "android", color: "#a5dc67" },
-  { name: "iPhone and iPad", label: "iOS", detail: "iPhone · iPad", icon: "tablet", color: "#e1e5ee" },
-  { name: "Windows", label: "Windows", icon: "windows", color: "#79c5ff" },
-  { name: "Infomir MAG Box", label: "infomir", detail: "MAG BOX", icon: "box", color: "#ff8eaf" },
+  { name: "Fire TV Stick", label: "fire tv stick", icon: "tv", color: "#df6500" },
+  { name: "Samsung Smart TV", label: "SAMSUNG", detail: "SMART TV", icon: "tv", color: "#1428a0" },
+  { name: "IPTV Smarters", label: "IPTV", detail: "SMARTERS", icon: "play", color: "#6941ad" },
+  { name: "Web Player", label: "WEB PLAYER", icon: "play", color: "#7928b9" },
+  { name: "Xbox", label: "XBOX", icon: "xbox", color: "#107c10" },
+  { name: "NVIDIA Shield", label: "NVIDIA", detail: "SHIELD", icon: "box", color: "#5a8c00" },
+  { name: "Android", label: "android", icon: "android", color: "#397d32" },
+  { name: "LG Smart TV", label: "LG", detail: "SMART TV", icon: "tv", color: "#a50034" },
+  { name: "Android TV", label: "android tv", icon: "android", color: "#397d32" },
+  { name: "iPhone and iPad", label: "iOS", detail: "iPhone · iPad", icon: "tablet", color: "#202124" },
+  { name: "Windows", label: "Windows", icon: "windows", color: "#0078d4" },
+  { name: "Infomir MAG Box", label: "infomir", detail: "MAG BOX", icon: "box", color: "#bd234b" },
 ];
 
 function PlatformIcon({ name }: { name: string }) {
@@ -32,15 +33,13 @@ export function CompatibilityGrid() {
           <div className="eyebrow">{t("Compatible with all popular devices")}</div>
           <h2 id="platform-title">{t("Everything you need for perfect ")}<em>{t("IPTV entertainment.")}</em></h2>
         </div>
-        <ul className="platform-grid">
-          {platforms.map((platform) => (
-            <li className="platform-tile" key={platform.name} style={{ color: platform.color }} aria-label={platform.name}>
+        <LogoRail items={platforms.map((platform) => (
+            <div className="platform-tile" key={platform.name} style={{ color: platform.color }} aria-label={platform.name}>
               <div className="platform-symbol"><PlatformIcon name={platform.icon} /></div>
               <strong>{platform.label}</strong>
               {platform.detail && <span>{platform.detail}</span>}
-            </li>
-          ))}
-        </ul>
+            </div>
+          ))} />
       </div>
     </section>
   );

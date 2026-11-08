@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { useSettings } from "../settings";
 
 export const WHATSAPP_URL =
-  "https://wa.me/447000000000?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20IPTV%20services.";
+  "https://wa.me/447395667292?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20IPTV%20services.";
 
 export const Icon = ({ name, size = 22 }: { name: string; size?: number }) => {
   const paths: Record<string, ReactNode> = {
