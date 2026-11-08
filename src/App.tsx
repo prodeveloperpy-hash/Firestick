@@ -15,6 +15,7 @@ import { NotFoundPage } from "./pages/NotFound";
 import { useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { Typewriter } from "./components/Typewriter";
 import { useScrollReveal } from "./components/useScrollReveal";
+import { useSettings } from "./settings";
 
 const steps = [
   {
@@ -203,6 +204,7 @@ const faqs = [
 
 export default function App() {
   const path = usePath().replace(/\/+$/, "") || "/";
+  const { t } = useSettings();
   useScrollReveal(path);
 
   let page;
@@ -226,10 +228,9 @@ export default function App() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
-        aria-label="Chat with us on WhatsApp"
+        aria-label={t("Chat with us on WhatsApp")}
       >
-        <WhatsAppIcon size={24} />
-        <span>Chat with us</span>
+        <WhatsAppIcon size={28} />
       </a>
     </div>
   );
@@ -237,8 +238,9 @@ export default function App() {
 
 function HomePage() {
   const [openFaq, setOpenFaq] = useState(0);
+  const { t, lang } = useSettings();
   usePageMeta(
-    "Tv Packages | Premium IPTV Entertainment",
+    "Tv Packages | " + t("Premium IPTV Entertainment"),
     "Explore IPTV entertainment, compatible devices, and flexible plans, then contact a UK-based provider on WhatsApp for personalized guidance.",
   );
   useInitialHashScroll();
@@ -251,15 +253,16 @@ function HomePage() {
         <div className="container hero-grid">
           <div className="hero-copy">
             <div className="eyebrow">
-              <span /> Premium IPTV Entertainment
+              <span /> {t("Premium IPTV Entertainment")}
             </div>
-            <h1 aria-label="Your Ultimate Entertainment, All in One Place.">
-              <span aria-hidden="true">Your Ultimate Entertainment, </span>
-              <Typewriter phrases={HERO_PHRASES} />
+            <h1 aria-label={t("Your Ultimate Entertainment, ") + t("All in One Place.")}>
+              <span aria-hidden="true">{t("Your Ultimate Entertainment, ")}</span>
+              <Typewriter key={lang} phrases={HERO_PHRASES.map(t)} />
             </h1>
             <p className="hero-lead">
-              Enjoy live TV, sports, movies and entertainment across your favourite devices with
-              flexible IPTV solutions.
+              {t(
+                "Enjoy live TV, sports, movies and entertainment across your favourite devices with flexible IPTV solutions.",
+              )}
             </p>
             <div className="hero-features">
               {[
@@ -272,14 +275,14 @@ function HomePage() {
                   <span>
                     <Icon name="check" size={14} />
                   </span>
-                  {x}
+                  {t(x)}
                 </div>
               ))}
             </div>
             <div className="hero-actions">
               <WhatsAppButton>Enquire on WhatsApp</WhatsAppButton>
               <a className="secondary-button" href="#our-services">
-                Explore Our Services <Icon name="arrow" size={18} />
+                {t("Explore Our Services")} <Icon name="arrow" size={18} />
               </a>
             </div>
             <div className="trust-line">
@@ -288,8 +291,8 @@ function HomePage() {
                 <i>+</i>
               </span>
               <span>
-                <strong>Friendly, personal support</strong>
-                <small>Helping viewers across the UK & beyond</small>
+                <strong>{t("Friendly, personal support")}</strong>
+                <small>{t("Helping viewers across the UK & beyond")}</small>
               </span>
             </div>
           </div>
@@ -301,25 +304,25 @@ function HomePage() {
             <div className="floating-card live-card">
               <span className="pulse" />
               <span>
-                <strong>Live entertainment</strong>
-                <small>Across your favourite screens</small>
+                <strong>{t("Live entertainment")}</strong>
+                <small>{t("Across your favourite screens")}</small>
               </span>
             </div>
             <div className="floating-card quality-card">
               <Icon name="play" size={18} />
               <span>
-                <strong>Premium viewing</strong>
-                <small>Simple. Flexible. Supported.</small>
+                <strong>{t("Premium viewing")}</strong>
+                <small>{t("Simple. Flexible. Supported.")}</small>
               </span>
             </div>
           </div>
         </div>
         <div className="scroll-hint">
-          <span /> Scroll to explore
+          <span /> {t("Scroll to explore")}
         </div>
       </section>
 
-      <section className="trust-strip" aria-label="Why customers choose us">
+      <section className="trust-strip" aria-label={t("Why customers choose us")}>
         <div className="container trust-strip-inner">
           {[
             ["message", "WhatsApp-first support"],
@@ -329,7 +332,7 @@ function HomePage() {
           ].map(([icon, label]) => (
             <div key={label}>
               <Icon name={icon} size={20} />
-              <span>{label}</span>
+              <span>{t(label)}</span>
             </div>
           ))}
         </div>
@@ -348,29 +351,29 @@ function HomePage() {
             <div className="floating-card product-chip chip-top">
               <Icon name="play" size={16} />
               <span>
-                <strong>HD & 4K streaming</strong>
-                <small>On supported models</small>
+                <strong>{t("HD & 4K streaming")}</strong>
+                <small>{t("On supported models")}</small>
               </span>
             </div>
             <div className="floating-card product-chip chip-bottom">
               <Icon name="check" size={16} />
               <span>
-                <strong>Setup in minutes</strong>
-                <small>Guided on WhatsApp</small>
+                <strong>{t("Setup in minutes")}</strong>
+                <small>{t("Guided on WhatsApp")}</small>
               </span>
             </div>
           </div>
           <div className="product-copy">
             <div className="eyebrow">
-              <span /> IPTv product overview
+              <span /> {t("IPTv product overview")}
             </div>
             <h2>
-              Tv Packages. <em>Stream. Watch. Enjoy.</em>
+              Tv Packages. <em>{t("Stream. Watch. Enjoy.")}</em>
             </h2>
             <p>
-              Discover IPTv with a compact streaming stick that turns any TV with an HDMI port into a smart
-              entertainment hub. Plug it in, connect to Wi‑Fi and you’re ready for live TV, sports,
-              movies and series.
+              {t(
+                "Discover IPTv with a compact streaming stick that turns any TV with an HDMI port into a smart entertainment hub. Plug it in, connect to Wi‑Fi and you’re ready for live TV, sports, movies and series.",
+              )}
             </p>
             <div className="product-features">
               {[
@@ -384,8 +387,8 @@ function HomePage() {
                     <Icon name={icon} size={18} />
                   </span>
                   <div>
-                    <strong>{title}</strong>
-                    <small>{text}</small>
+                    <strong>{t(title)}</strong>
+                    <small>{t(text)}</small>
                   </div>
                 </div>
               ))}
@@ -393,7 +396,7 @@ function HomePage() {
             <div className="hero-actions">
               <WhatsAppButton>Ask About IPTv Packages</WhatsAppButton>
               <a className="secondary-button" href="#how-it-works">
-                How It Works <Icon name="arrow" size={18} />
+                {t("How It Works")} <Icon name="arrow" size={18} />
               </a>
             </div>
           </div>
@@ -403,9 +406,10 @@ function HomePage() {
       <section className="section highlights-section">
         <div className="container">
           <div className="section-heading centered">
-            <div className="eyebrow">Why Tv Packages</div>
+            <div className="eyebrow">{t("Why Tv Packages")}</div>
             <h2>
-              Small device. <em>Big entertainment.</em>
+              {t("Small device. ")}
+              <em>{t("Big entertainment.")}</em>
             </h2>
           </div>
           <div className="highlights-grid">
@@ -421,11 +425,12 @@ function HomePage() {
       <section className="section services" id="our-services">
         <div className="container">
           <div className="section-heading centered">
-            <div className="eyebrow">What we offer</div>
+            <div className="eyebrow">{t("What we offer")}</div>
             <h2>
-              Everything You Love. <em>All in One Place.</em>
+              {t("Everything You Love. ")}
+              <em>{t("All in One Place.")}</em>
             </h2>
-            <p>A complete entertainment experience designed around the way you watch.</p>
+            <p>{t("A complete entertainment experience designed around the way you watch.")}</p>
           </div>
           <div className="service-grid">
             {services.map((s) => (
@@ -434,18 +439,18 @@ function HomePage() {
                 <div className="icon-box">
                   <Icon name={s.icon} />
                 </div>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
+                <h3>{t(s.title)}</h3>
+                <p>{t(s.text)}</p>
                 <ul>
-                  {s.tags.map((t) => (
-                    <li key={t}>
+                  {s.tags.map((tag) => (
+                    <li key={tag}>
                       <Icon name="check" size={14} />
-                      {t}
+                      {t(tag)}
                     </li>
                   ))}
                 </ul>
                 <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                  Ask about this service <Icon name="arrow" size={16} />
+                  {t("Ask about this service")} <Icon name="arrow" size={16} />
                 </a>
               </article>
             ))}
@@ -467,19 +472,21 @@ function HomePage() {
                 <Icon name="check" size={17} />
               </span>
               <div>
-                <strong>Easy compatibility</strong>
-                <small>Built around your devices</small>
+                <strong>{t("Easy compatibility")}</strong>
+                <small>{t("Built around your devices")}</small>
               </div>
             </div>
           </div>
           <div className="devices-copy">
-            <div className="eyebrow">Watch your way</div>
+            <div className="eyebrow">{t("Watch your way")}</div>
             <h2>
-              Entertainment on <em>Every Screen</em>
+              {t("Entertainment on ")}
+              <em>{t("Every Screen")}</em>
             </h2>
             <p>
-              Enjoy your entertainment across compatible devices—at home, on the move, and wherever
-              you feel most comfortable.
+              {t(
+                "Enjoy your entertainment across compatible devices—at home, on the move, and wherever you feel most comfortable.",
+              )}
             </p>
             <div className="device-grid">
               {devices.map(([icon, label]) => (
@@ -487,13 +494,13 @@ function HomePage() {
                   <span>
                     <Icon name={icon} />
                   </span>
-                  {label}
+                  {t(label)}
                 </div>
               ))}
             </div>
             <p className="small-note">
-              <Icon name="check" size={15} /> Not sure if your device is compatible? We’ll help you
-              check.
+              <Icon name="check" size={15} />{" "}
+              {t("Not sure if your device is compatible? We’ll help you check.")}
             </p>
             <WhatsAppButton>Check My Device</WhatsAppButton>
           </div>
@@ -504,14 +511,16 @@ function HomePage() {
         <div className="container">
           <div className="section-heading split">
             <div>
-              <div className="eyebrow">The Tv Packages difference</div>
+              <div className="eyebrow">{t("The Tv Packages difference")}</div>
               <h2>
-                Entertainment made <em>simple.</em>
+                {t("Entertainment made ")}
+                <em>{t("simple.")}</em>
               </h2>
             </div>
             <p>
-              Premium viewing should feel effortless. From your first message to getting set up, we
-              keep everything clear and personal.
+              {t(
+                "Premium viewing should feel effortless. From your first message to getting set up, we keep everything clear and personal.",
+              )}
             </p>
           </div>
           {photos.home && (
@@ -522,20 +531,26 @@ function HomePage() {
                 loading="lazy"
               />
               <div className="home-banner-copy">
-                <strong>Home entertainment, upgraded.</strong>
-                <span>Movies, sports and live TV for the whole family.</span>
+                <strong>{t("Home entertainment, upgraded.")}</strong>
+                <span>{t("Movies, sports and live TV for the whole family.")}</span>
               </div>
             </div>
           )}
-          <div className="why-grid">
+          <div className="difference-path">
+            <svg className="difference-connector" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none" aria-hidden="true">
+              <path className="difference-track" d="M-150 230C0 230 0 70 150 70S300 230 450 230S600 70 750 70S900 230 1050 230S1200 70 1350 70" />
+              <path className="difference-flow" d="M-150 230C0 230 0 70 150 70S300 230 450 230S600 70 750 70S900 230 1050 230S1200 70 1350 70" pathLength="100" />
+            </svg>
             {why.map(([icon, title, text], i) => (
-              <article className="why-card" key={title}>
-                <span className="why-number">0{i + 1}</span>
-                <div className="icon-box">
-                  <Icon name={icon} />
+              <article className="difference-stop" key={title} style={{ animationDelay: `${i * 180}ms` }}>
+                <div className="difference-node">
+                  <span className="difference-ring">
+                    {icon === "message" ? <WhatsAppIcon size={30} /> : <Icon name={icon} size={30} />}
+                  </span>
+                  <span className="difference-number">0{i + 1}</span>
                 </div>
-                <h3>{title}</h3>
-                <p>{text}</p>
+                <h3>{t(title)}</h3>
+                <p>{t(text)}</p>
               </article>
             ))}
           </div>
@@ -545,25 +560,28 @@ function HomePage() {
       <section className="section process-section" id="how-it-works">
         <div className="container">
           <div className="section-heading centered">
-            <div className="eyebrow">Recommended steps</div>
+            <div className="eyebrow">{t("Recommended steps")}</div>
             <h2>
-              Watching tonight in <em>four easy steps.</em>
+              {t("Watching tonight in ")}
+              <em>{t("four easy steps.")}</em>
             </h2>
-            <p>Follow our recommended setup. Our team is with you on WhatsApp at every step.</p>
+            <p>{t("Follow our recommended setup. Our team is with you on WhatsApp at every step.")}</p>
           </div>
           <div className="steps-grid">
             {steps.map((step, i) => (
               <article className="step-card why-card" key={step.title}>
                 <div className="step-visual">
                   {step.visual}
-                  <span className="step-badge">Step {String(i + 1).padStart(2, "0")}</span>
+                  <span className="step-badge">
+                    {t("Step")} {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
                 <div className="step-body">
                   <div className="icon-box">
                     <Icon name={step.icon} />
                   </div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
+                  <h3>{t(step.title)}</h3>
+                  <p>{t(step.text)}</p>
                 </div>
               </article>
             ))}
@@ -578,21 +596,22 @@ function HomePage() {
         <div className="pricing-glow" />
         <div className="container">
           <div className="section-heading centered">
-            <div className="eyebrow">Setup packages</div>
+            <div className="eyebrow">{t("Setup packages")}</div>
             <h2>
-              Choose Your <em>Setup Package</em>
+              {t("Choose Your ")}
+              <em>{t("Setup Package")}</em>
             </h2>
-            <p>Simple one-off pricing. Tell us your device and we’ll help you pick the right fit.</p>
+            <p>{t("Simple one-off pricing. Tell us your device and we’ll help you pick the right fit.")}</p>
           </div>
           <div className="pricing-grid">
             {plans.map((plan) => (
               <article className={`price-card ${plan.featured ? "featured" : ""}`} key={plan.name}>
-                {plan.featured && <span className="popular">Most popular</span>}
-                <span className="plan-label">{plan.label}</span>
-                <h3>{plan.name}</h3>
-                <p>{plan.description}</p>
+                {plan.featured && <span className="popular">{t("Most popular")}</span>}
+                <span className="plan-label">{t(plan.label)}</span>
+                <h3>{t(plan.name)}</h3>
+                <p>{t(plan.description)}</p>
                 <div className="price">
-                  {plan.price} <span>one-off setup fee</span>
+                  {plan.price} <span>{t("one-off setup fee")}</span>
                 </div>
                 <div className="divider" />
                 <ul>
@@ -601,7 +620,7 @@ function HomePage() {
                       <span>
                         <Icon name="check" size={14} />
                       </span>
-                      {f}
+                      {t(f)}
                     </li>
                   ))}
                 </ul>
@@ -610,8 +629,9 @@ function HomePage() {
             ))}
           </div>
           <p className="pricing-note">
-            Setup fees only. Streaming subscriptions such as Netflix, Sky, NOW and TNT Sports are
-            paid directly to those providers.
+            {t(
+              "Setup fees only. Streaming subscriptions such as Netflix, Sky, NOW and TNT Sports are paid directly to those providers.",
+            )}
           </p>
         </div>
       </section>
@@ -619,11 +639,12 @@ function HomePage() {
       <section className="section faq-section" id="faqs">
         <div className="container faq-layout">
           <div className="faq-intro">
-            <div className="eyebrow">Common questions</div>
+            <div className="eyebrow">{t("Common questions")}</div>
             <h2>
-              Everything you need to <em>know.</em>
+              {t("Everything you need to ")}
+              <em>{t("know.")}</em>
             </h2>
-            <p>Can’t find your answer? Send us a message and our team will be happy to help.</p>
+            <p>{t("Can’t find your answer? Send us a message and our team will be happy to help.")}</p>
             <WhatsAppButton>Ask Us on WhatsApp</WhatsAppButton>
           </div>
           <div className="accordion">
@@ -634,13 +655,13 @@ function HomePage() {
                   aria-expanded={openFaq === i}
                 >
                   <span>{String(i + 1).padStart(2, "0")}</span>
-                  {q}
+                  {t(q)}
                   <i>
                     <Icon name={openFaq === i ? "close" : "chevron"} size={18} />
                   </i>
                 </button>
                 <div className="faq-answer">
-                  <p>{a}</p>
+                  <p>{t(a)}</p>
                 </div>
               </article>
             ))}
@@ -655,11 +676,12 @@ function HomePage() {
               <WhatsAppIcon size={32} />
             </div>
             <div>
-              <div className="eyebrow">We’re ready when you are</div>
-              <h2>Ready to Upgrade Your Entertainment?</h2>
+              <div className="eyebrow">{t("We’re ready when you are")}</div>
+              <h2>{t("Ready to Upgrade Your Entertainment?")}</h2>
               <p>
-                Tell us which device you use and what entertainment you’re looking for. Our team is
-                ready to help.
+                {t(
+                  "Tell us which device you use and what entertainment you’re looking for. Our team is ready to help.",
+                )}
               </p>
             </div>
             <WhatsAppButton>Enquire Now on WhatsApp</WhatsAppButton>

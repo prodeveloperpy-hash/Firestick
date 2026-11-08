@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useSettings } from "../settings";
 import { WhatsAppButton, WhatsAppIcon } from "./ui";
 
 export function PageHero({
@@ -32,6 +33,7 @@ export function CtaSection({
   title?: string;
   text?: string;
 }) {
+  const { t } = useSettings();
   return (
     <section className="cta-section">
       <div className="container">
@@ -40,9 +42,9 @@ export function CtaSection({
             <WhatsAppIcon size={32} />
           </div>
           <div>
-            <div className="eyebrow">We’re ready when you are</div>
-            <h2>{title}</h2>
-            <p>{text}</p>
+            <div className="eyebrow">{t("We’re ready when you are")}</div>
+            <h2>{t(title)}</h2>
+            <p>{t(text)}</p>
           </div>
           <WhatsAppButton>Enquire Now on WhatsApp</WhatsAppButton>
         </div>

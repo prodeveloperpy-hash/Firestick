@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useSettings } from "../settings";
 
 export const WHATSAPP_URL =
   "https://wa.me/447000000000?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20IPTV%20services.";
@@ -101,6 +102,13 @@ export const Icon = ({ name, size = 22 }: { name: string; size?: number }) => {
       </>
     ),
     back: <path d="M19 12H5M10 7l-5 5 5 5" />,
+    moon: <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />,
+    sun: (
+      <>
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+      </>
+    ),
     globe: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -138,6 +146,7 @@ export function WhatsAppButton({
   children: ReactNode;
   className?: string;
 }) {
+  const { t } = useSettings();
   return (
     <a
       href={WHATSAPP_URL}
@@ -146,7 +155,7 @@ export function WhatsAppButton({
       className={`whatsapp-button ${className}`}
     >
       <WhatsAppIcon size={19} />
-      {children}
+      {typeof children === "string" ? t(children) : children}
       <Icon name="arrow" size={18} />
     </a>
   );
@@ -155,12 +164,12 @@ export function WhatsAppButton({
 export function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
-      <svg width="26" height="26" viewBox="0 0 64 64">
-        <path
-          fill="#fff"
-          d="M34 7c1.6 8-3 12-6.8 16.2C23.6 27.2 20 31.4 20 38a12 12 0 0 0 24 0c0-5.2-2.3-9.4-5.4-12.6-.5 3.4-2 5.8-4.5 7.2 1-6.8-.6-13.4-.1-25.6z"
-        />
-        <path fill="#5b3fe0" d="M28.5 31.5 40 38.5l-11.5 7z" />
+      <svg width="44" height="44" viewBox="0 0 320 320" fill="currentColor">
+        <path d="m143 110-29-63m55 63 22-57" fill="none" stroke="currentColor" strokeWidth="7" strokeLinecap="round" />
+        <circle cx="110" cy="38" r="16" />
+        <circle cx="194" cy="50" r="13" />
+        <path d="M127 132v-10a30 23 0 0 1 60 0v10Z" />
+        <path fillRule="evenodd" d="M91 124h138a78 78 0 0 1 78 78v35a78 78 0 0 1-78 78H91a78 78 0 0 1-78-78v-35a78 78 0 0 1 78-78Zm-10 34a40 40 0 0 0-40 40v44a40 40 0 0 0 40 40h115a40 40 0 0 0 40-40v-44a40 40 0 0 0-40-40H81Zm191 19a14 14 0 1 0 0 28 14 14 0 0 0 0-28Zm0 56a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z" />
       </svg>
     </span>
   );
