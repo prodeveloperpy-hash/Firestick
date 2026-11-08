@@ -1,6 +1,6 @@
 import { Link } from "../router";
 import { useSettings } from "../settings";
-import { BrandMark, Icon, WHATSAPP_URL, WhatsAppIcon } from "./ui";
+import { BrandMark, Icon, IPTVLogo, WHATSAPP_URL, WhatsAppIcon } from "./ui";
 
 export function Footer() {
   const { t } = useSettings();
@@ -14,6 +14,7 @@ export function Footer() {
               TV <span>PACKAGES</span>
             </span>
           </Link>
+          <IPTVLogo className="iptv-footer" />
           <p>
             {t(
               "Flexible IPTV entertainment solutions with friendly, personal support for viewers across the UK and beyond.",

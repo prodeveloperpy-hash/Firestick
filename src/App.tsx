@@ -6,14 +6,19 @@ import stepInstallation from "./assets/steps/easy-setup.jpg";
 import stepHome from "./assets/steps/endless.jpg";
 import stepSupport from "./assets/steps/whatsapp-support.jpg";
 import hlPortable from "./assets/highlights/portable.jpg";
+import svcLive from "./assets/services/live-tv.jpg";
+import svcSports from "./assets/services/sports.jpg";
+import svcMovies from "./assets/services/movies-series.jpg";
+import svcApps from "./assets/services/apps.jpg";
 import { photos } from "./photos";
-import { Icon, WHATSAPP_URL, WhatsAppButton, WhatsAppIcon } from "./components/ui";
+import { Icon, IPTVLogo, WHATSAPP_URL, WhatsAppButton, WhatsAppIcon } from "./components/ui";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { BlogPage, BlogPostPage } from "./pages/Blog";
 import { NotFoundPage } from "./pages/NotFound";
 import { useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { Typewriter } from "./components/Typewriter";
+import { ServiceCarousel } from "./components/ServiceCarousel";
 import { useScrollReveal } from "./components/useScrollReveal";
 import { useSettings } from "./settings";
 
@@ -60,8 +65,11 @@ const steps = [
   },
 ];
 
-const highlights = [
-  { src: hlPortable, alt: "Compact and portable: take your entertainment anywhere." },
+const highlightFeatures = [
+  ["box", "Portable design", "Take it anywhere with a TV"],
+  ["play", "Stream in HD", "Crisp picture, 4K on supported models"],
+  ["globe", "Wi‑Fi ready", "Connects to your home network"],
+  ["clock", "Setup in minutes", "Guided on WhatsApp"],
 ];
 
 const HERO_PHRASES = [
@@ -75,6 +83,8 @@ const services = [
   {
     icon: "tv",
     number: "01",
+    image: svcLive,
+    imageAlt: "Tv Packages IPTv live television guide with news, entertainment and international programmes",
     title: "Live TV Channels",
     text: "Stay connected to the programmes that matter, from familiar UK favourites to international entertainment.",
     tags: ["UK channels", "International TV", "News & entertainment"],
@@ -82,6 +92,8 @@ const services = [
   {
     icon: "trophy",
     number: "02",
+    image: svcSports,
+    imageAlt: "Friends watching live football on their television with Tv Packages IPTv",
     title: "Premium Sports",
     text: "Follow football, combat sports and major live events on supported sports channels and services.",
     tags: ["Football", "TNT Sports", "UFC, Boxing & PPV"],
@@ -89,6 +101,8 @@ const services = [
   {
     icon: "film",
     number: "03",
+    image: svcMovies,
+    imageAlt: "Tv Packages IPTv movie and TV series library on a living-room television",
     title: "Movies & TV Series",
     text: "Settle in for on-demand movies, binge-worthy series and entertainment for every mood.",
     tags: ["Movies", "TV series", "On-demand content"],
@@ -96,6 +110,8 @@ const services = [
   {
     icon: "apps",
     number: "04",
+    image: svcApps,
+    imageAlt: "Streaming app icons on a television with a Tv Packages IPTv device and remote",
     title: "Entertainment Apps",
     text: "Enjoy broad streaming app compatibility, subject to supported subscriptions and access.",
     tags: ["Flexible access", "Easy navigation", "Popular apps"],
@@ -297,6 +313,7 @@ function HomePage() {
             </div>
           </div>
           <div className="hero-visual">
+            <IPTVLogo className="iptv-hero" />
             <div className="visual-glow" />
             <div className="hero-stick">
               <img src={heroStick} alt="Tv Packages streaming stick and voice remote glowing in orange light" />
@@ -327,6 +344,7 @@ function HomePage() {
       <section className="section product-section" id="product">
         <div className="container product-layout">
           <div className="product-visual">
+            <IPTVLogo className="iptv-section-image" />
             <div className="product-glow" />
             <div className="image-frame">
               <img
@@ -390,20 +408,54 @@ function HomePage() {
       </section>
 
       <section className="section highlights-section">
-        <div className="container">
-          <div className="section-heading centered">
-            <div className="eyebrow">{t("Why Tv Packages")}</div>
+        <div className="container hl-layout">
+          <div className="hl-copy">
+            <div className="eyebrow">
+              <span /> {t("Why Tv Packages")}
+            </div>
             <h2>
               {t("Small device. ")}
               <em>{t("Big entertainment.")}</em>
             </h2>
+            <div className="hl-features">
+              {highlightFeatures.map(([icon, title, text]) => (
+                <div className="hl-feature" key={title}>
+                  <span>
+                    <Icon name={icon} size={22} />
+                  </span>
+                  <div>
+                    <strong>{t(title)}</strong>
+                    <small>{t(text)}</small>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <WhatsAppButton>Ask About IPTv Packages</WhatsAppButton>
           </div>
-          <div className="highlights-grid">
-            {highlights.map((h) => (
-              <figure className="highlight-tile why-card" key={h.alt}>
-                <img src={h.src} alt={h.alt} loading="lazy" />
-              </figure>
-            ))}
+          <div className="hl-visual">
+            <IPTVLogo className="iptv-section-image" />
+            <div className="hl-glow" />
+            <figure className="hl-frame">
+              <img
+                src={hlPortable}
+                alt="Compact and portable: take your entertainment anywhere."
+                loading="lazy"
+              />
+            </figure>
+            <div className="hl-chip hl-chip-top">
+              <Icon name="box" size={18} />
+              <span>
+                <strong>{t("Portable design")}</strong>
+                <small>{t("Take it anywhere with a TV")}</small>
+              </span>
+            </div>
+            <div className="hl-chip hl-chip-bottom">
+              <Icon name="clock" size={18} />
+              <span>
+                <strong>{t("Setup in minutes")}</strong>
+                <small>{t("Guided on WhatsApp")}</small>
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -418,30 +470,8 @@ function HomePage() {
             </h2>
             <p>{t("A complete entertainment experience designed around the way you watch.")}</p>
           </div>
-          <div className="service-grid">
-            {services.map((s) => (
-              <article className="service-card" key={s.title}>
-                <span className="card-number">{s.number}</span>
-                <div className="icon-box">
-                  <Icon name={s.icon} />
-                </div>
-                <h3>{t(s.title)}</h3>
-                <p>{t(s.text)}</p>
-                <ul>
-                  {s.tags.map((tag) => (
-                    <li key={tag}>
-                      <Icon name="check" size={14} />
-                      {t(tag)}
-                    </li>
-                  ))}
-                </ul>
-                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                  {t("Ask about this service")} <Icon name="arrow" size={16} />
-                </a>
-              </article>
-            ))}
-          </div>
         </div>
+        <ServiceCarousel items={services} />
       </section>
 
       <section className="section devices-section" id="compatible-devices">
@@ -558,6 +588,7 @@ function HomePage() {
               <article className="step-card why-card" key={step.title}>
                 <div className="step-visual">
                   {step.visual}
+                  <IPTVLogo className="iptv-media-badge" />
                   <span className="step-badge">
                     {t("Step")} {String(i + 1).padStart(2, "0")}
                   </span>

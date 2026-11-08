@@ -161,6 +161,18 @@ export function WhatsAppButton({
   );
 }
 
+export function IPTVLogo({ className = "" }: { className?: string }) {
+  return (
+    <span className={`iptv-logo ${className}`}>
+      <svg viewBox="0 0 120 100" fill="currentColor" role="img" aria-label="IPTV">
+        <path d="M24 41V30c0-10 7-16 18-16h55c10 0 16 6 16 16v47c0 10-6 16-16 16H42c-11 0-18-6-18-16" fill="none" stroke="currentColor" strokeWidth="6" strokeLinecap="round" />
+        <path d="m58 15-7-13 15 10L79 0l-3 15Z" />
+        <text x="4" y="70" fontFamily="Arial, sans-serif" fontSize="36" fontWeight="900" letterSpacing="-2">IPTV</text>
+      </svg>
+    </span>
+  );
+}
+
 export function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
