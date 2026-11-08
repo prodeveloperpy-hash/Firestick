@@ -13,6 +13,7 @@ const SELECTOR = [
   ".price-card",
   ".post-card",
   ".location-card",
+  ".difference-path",
 ].join(",");
 
 /** Fades text and cards up as they scroll into view. Re-runs on every page change. */
