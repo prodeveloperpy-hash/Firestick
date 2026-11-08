@@ -27,7 +27,7 @@ export function Footer() {
         <div>
           <h4>{t("Explore")}</h4>
           <Link href="/">{t("Home")}</Link>
-          <Link href="/#our-services">{t("Our Services")}</Link>
+          <Link href="/services">{t("Our Services")}</Link>
           <Link href="/#compatible-devices">{t("Compatible Devices")}</Link>
           <Link href="/#packages">{t("Packages")}</Link>
           <Link href="/blog">{t("Blog")}</Link>

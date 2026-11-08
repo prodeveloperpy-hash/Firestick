@@ -22,6 +22,7 @@ import { Typewriter } from "./components/Typewriter";
 import { ServiceCarousel } from "./components/ServiceCarousel";
 import { CompatibilityGrid } from "./components/CompatibilityGrid";
 import { PopularProducts } from "./components/PopularProducts";
+import { PageHero, CtaSection } from "./components/PageParts";
 import { useScrollReveal } from "./components/useScrollReveal";
 import { useDifferencePath } from "./components/useDifferencePath";
 import { useSettings } from "./settings";
@@ -88,7 +89,7 @@ const services = [
     icon: "tv",
     number: "01",
     image: svcLive,
-    imageAlt: "Tv Packages IPTv live television guide with news, entertainment and international programmes",
+    imageAlt: "Broadcast news studio with London skyline and a world map",
     title: "Live TV Channels",
     text: "Stay connected to the programmes that matter, from familiar UK favourites to international entertainment.",
     tags: ["UK + worldwide live TV", "All Sky channels", "News & entertainment"],
@@ -98,7 +99,7 @@ const services = [
     icon: "trophy",
     number: "02",
     image: svcSports,
-    imageAlt: "Friends watching live football on their television with Tv Packages IPTv",
+    imageAlt: "Live football match in a floodlit stadium",
     title: "Premium Sports",
     text: "Follow football, combat sports and major live events on supported sports channels and services.",
     tags: ["All sports channels", "All football events", "PPV events"],
@@ -108,7 +109,7 @@ const services = [
     icon: "film",
     number: "03",
     image: svcMovies,
-    imageAlt: "Tv Packages IPTv movie and TV series library on a living-room television",
+    imageAlt: "Professional cinema camera on a film production set",
     title: "Movies & TV Series",
     text: "Settle in for on-demand movies, binge-worthy series and entertainment for every mood.",
     tags: ["Movies", "TV series", "On-demand content"],
@@ -118,7 +119,7 @@ const services = [
     icon: "apps",
     number: "04",
     image: svcApps,
-    imageAlt: "Streaming app icons on a television with a Tv Packages IPTv device and remote",
+    imageAlt: "Remote, phone and tablet ready for home entertainment",
     title: "Entertainment Apps",
     text: "Enjoy broad streaming app compatibility, subject to supported subscriptions and access.",
     tags: ["Streaming apps", "Multi-device access", "18+ adult content"],
@@ -235,6 +236,8 @@ export default function App() {
   let page;
   if (path === "/") {
     page = <HomePage />;
+  } else if (path === "/services") {
+    page = <ServicesPage />;
   } else if (path === "/blog") {
     page = <BlogPage />;
   } else if (path.startsWith("/blog/")) {
@@ -258,6 +261,21 @@ export default function App() {
         <WhatsAppIcon size={28} />
       </a>
     </div>
+  );
+}
+
+function ServicesPage() {
+  const { t } = useSettings();
+  usePageMeta("Services | Tv Packages", "Explore live TV, sports, movies, series and entertainment apps with Tv Packages. Get compatible-device guidance and personal support on WhatsApp.");
+  useInitialHashScroll();
+  return (
+    <main>
+      <PageHero eyebrow={t("Our Services")} title={<>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></>} lead={t("Explore live TV, premium sports, movies, series and entertainment apps across your compatible devices.")} />
+      <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
+        <ServiceCarousel items={services} />
+      </section>
+      <CtaSection />
+    </main>
   );
 }
 
@@ -348,6 +366,17 @@ function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="section services" id="our-services">
+        <div className="container">
+          <div className="section-heading centered">
+            <div className="eyebrow">{t("What we offer")}</div>
+            <h2>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></h2>
+            <p>{t("A complete entertainment experience designed around the way you watch.")}</p>
+          </div>
+        </div>
+        <ServiceCarousel items={services} />
       </section>
 
       <section className="section product-section" id="product">
@@ -487,20 +516,6 @@ function HomePage() {
             </div>
           </div>
         </div>
-      </section>
-
-      <section className="section services" id="our-services">
-        <div className="container">
-          <div className="section-heading centered">
-            <div className="eyebrow">{t("What we offer")}</div>
-            <h2>
-              {t("Everything You Love. ")}
-              <em>{t("All in One Place.")}</em>
-            </h2>
-            <p>{t("A complete entertainment experience designed around the way you watch.")}</p>
-          </div>
-        </div>
-        <ServiceCarousel items={services} />
       </section>
 
       <section className="section devices-section" id="compatible-devices">

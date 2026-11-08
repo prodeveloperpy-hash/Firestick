@@ -1,0 +1,13 @@
+Tool: built-in imagegen. Service-specific photographic backgrounds without embedded text or logos.
+
+Saved: src/assets/services/live-tv.jpg
+Prompt: Photorealistic editorial landscape 16:9 photograph for live television service background. A professional modern broadcast news studio with an empty anchor desk, large screen showing London skyline and world map, no people close-up, no text, no logos, no watermarks. Composition focus in right half, left half darker and quieter for website overlay. Authentic neutral blue studio lighting, polished but realistic, no neon, no television device frame.
+
+Saved: src/assets/services/sports.jpg
+Prompt: Photorealistic sports editorial landscape 16:9 image: exciting wide football stadium viewed at pitch level at dusk with real grass texture, small players in distance, packed stands, floodlights, energetic live match atmosphere. No identifiable athletes, no team logos, no text or watermarks, no television frame. Action and brighter stadium in right half, darker open left half suitable for website text overlay. Real sports photography.
+
+Saved: src/assets/services/movies-series.jpg
+Prompt: Photorealistic cinematic landscape 16:9 image for movies and television entertainment: atmospheric behind-the-scenes film set, professional cinema camera in right foreground, clapperboard without lettering beside it, softly blurred warm studio lights and a city street set in background. Realistic filmmaking equipment, sophisticated deep blue and warm amber palette, darker quiet left half for website overlay. No text, no logos, no watermarks, no TV screen, not illustration.
+
+Saved: src/assets/services/apps.jpg
+Prompt: Photorealistic landscape 16:9 editorial photo for entertainment apps: tasteful black television remote on oak coffee table and a smartphone and tablet showing simple abstract colorful media thumbnails without text, cosy modern living room subtly blurred behind. Devices concentrated on right half, quiet dark left half for website text. Natural early evening light, authentic realistic home materials, restrained colors, no brand logos, no lettering, no watermarks, no neon. Avoid large screen within screen composition.

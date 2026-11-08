@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WHATSAPP_URL } from "./ui";
+import { ServiceBrandTile } from "./ServiceBrandTile";
 
 type Service = { icon: string; number: string; image: string; imageAlt: string; title: string; text: string; tags: string[]; showcase: string[][] };
 
@@ -73,6 +74,11 @@ export function ServiceCarousel({ items }: { items: Service[] }) {
     <div ref={root} className="service-carousel" role="region" aria-roledescription="carousel" aria-label={t("What we offer")}
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
+      <div className="service-category-tabs" aria-label={t("Choose a service")}>
+        {items.map((service, index) => <button type="button" key={service.title} onClick={() => go(index)} aria-pressed={index === active}>
+          <Icon name={service.icon} size={24} /><span>{t(service.title)}</span>
+        </button>)}
+      </div>
       <div className="service-carousel-window"
         onTouchStart={(event) => { touchX.current = event.touches[0].clientX; }}
         onTouchEnd={(event) => {
@@ -86,14 +92,11 @@ export function ServiceCarousel({ items }: { items: Service[] }) {
           onTransitionEnd={(event) => { if (event.target === event.currentTarget && event.propertyName === "transform") finishTransition(); }}>
           {[items[items.length - 1], ...items, items[0]].map((service, index) => (
             <article key={`${service.title}-${index}`} className="service-slide" aria-roledescription="slide" aria-label={`${(index - 1 + items.length) % items.length + 1} / ${items.length}: ${t(service.title)}`} aria-hidden={index !== position} inert={index !== position}>
-              <img className="service-slide-image" src={service.image} alt={service.imageAlt} loading={index === 0 ? "eager" : "lazy"} />
+              <img className="service-slide-image" src={service.image} alt={service.imageAlt} loading={index <= 1 ? "eager" : "lazy"} />
               <IPTVLogo className="service-slide-logo" />
               <div className="service-showcase" aria-label={t("Channels and apps")}>
                 {service.showcase.map(([icon, label, brand]) => (
-                  <div className={`service-brand-tile service-brand-${brand}`} key={label}>
-                    <Icon name={icon} size={26} />
-                    <strong>{label}</strong>
-                  </div>
+                  <ServiceBrandTile key={label} icon={icon} label={label} brand={brand} />
                 ))}
               </div>
               <div className="service-slide-copy">

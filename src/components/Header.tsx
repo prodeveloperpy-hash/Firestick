@@ -8,7 +8,7 @@ import { ThemeToggle } from "./ThemeToggle";
 const navItems = [
   ["Home", "/"],
   ["Products", "/#popular-products"],
-  ["Services", "/#our-services"],
+  ["Services", "/services"],
   ["Devices", "/#compatible-devices"],
   ["Packages", "/#packages"],
   ["Blog", "/blog"],
@@ -38,7 +38,7 @@ export function Header() {
   const close = () => setMenuOpen(false);
 
   const navLink = ([label, href]: string[]) => {
-    const active = href === "/blog" ? path.startsWith("/blog") : false;
+    const active = href === "/blog" ? path.startsWith("/blog") : href === "/services" && path === "/services";
     return (
       <Link key={label} href={href} onClick={close} className={active ? "active" : undefined}>
         {t(label)}

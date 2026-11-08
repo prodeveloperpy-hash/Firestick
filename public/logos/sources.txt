@@ -1,0 +1,16 @@
+Original logo geometry sources (downloaded 2026-11-08):
+
+Netflix, HBO, Amazon Prime, Sky and UFC:
+https://github.com/simple-icons/simple-icons/tree/14.0.0/icons
+Distributed by Simple Icons under CC0; original trademarks belong to their respective owners.
+Brand fills applied without changing geometry.
+
+Disney+:
+https://commons.wikimedia.org/wiki/File:Disney%2B_logo.svg
+https://upload.wikimedia.org/wikipedia/commons/3/3e/Disney%2B_logo.svg
+
+TNT Sports UK:
+https://commons.wikimedia.org/wiki/File:TNT_Sports_(2023).svg
+https://upload.wikimedia.org/wikipedia/commons/8/83/TNT_Sports_%282023%29.svg
+
+Wikimedia source pages identify these as public-domain text logos; trademarks remain with their respective owners.

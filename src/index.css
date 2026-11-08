@@ -4255,3 +4255,62 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
   .navbar .nav-links a { padding: 9px 7px; font-size: 12px; }
   .navbar .brand { font-size: 16px; gap: 7px; }
 }
+
+/* Services: visible categories and high-contrast channel cards. */
+.services.section { padding-top: 64px; padding-bottom: 64px; }
+.services .section-heading.centered { margin-bottom: 32px; }
+.service-category-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 0 var(--section-inset) 24px; }
+.service-category-tabs button { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 14px; border: 1px solid #ffffff24; border-radius: 14px; background: #151a25; color: #f4f5fa; font-size: 17px; font-weight: 700; cursor: pointer; }
+.service-category-tabs button[aria-pressed="true"] { background: #ff9a3c; color: #211004; border-color: #ff9a3c; }
+.service-category-tabs button:focus-visible { outline: 2px solid #ffad68; outline-offset: 4px; }
+.service-carousel .service-slide { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: end; height: auto; min-height: 680px; padding-top: 96px; }
+.service-carousel .service-slide-image { z-index: 0; object-position: center; }
+.service-carousel .service-slide::after { z-index: 1; background: linear-gradient(90deg, #070b14f2 0%, #070b14b0 40%, #070b1440 100%), linear-gradient(0deg, #070b14ed, transparent 80%); }
+.service-carousel .service-slide-logo { z-index: 3; top: 22px; right: 24px; }
+.service-carousel .service-slide-copy { position: relative; z-index: 2; grid-column: 1; grid-row: 1; padding-top: 40px; padding-bottom: 110px; }
+.service-carousel .service-slide-copy > h3, .service-carousel .service-slide-copy > p { max-width: 640px; }
+.service-carousel .service-showcase { position: relative; z-index: 2; grid-column: 2; grid-row: 1; align-self: center; top: auto; left: auto; right: auto; width: auto; margin: 0 32px 100px 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.service-carousel .service-brand-tile { min-height: 142px; background: #fafbff; border: 1px solid #fff; box-shadow: 0 16px 36px #0005; color: #152038; }
+.service-carousel .service-brand-tile > svg { color: inherit; }
+.service-carousel .service-brand-tile strong { font-size: clamp(23px, 2.4vw, 38px); font-weight: 800; }
+.service-carousel .service-brand-netflix { color: #cf1427; }
+.service-carousel .service-brand-hbo { color: #141414; }
+.service-carousel .service-brand-disney { color: #162d66; }
+.service-carousel .service-brand-prime { color: #0879a4; }
+.service-carousel .service-brand-sky { color: #bf217a; }
+.service-carousel .service-brand-ufc { color: #ca1526; }
+.service-carousel .service-brand-tnt, .service-carousel .service-brand-sports { color: #602ca0; }
+.service-carousel .service-brand-live { color: #116b60; }
+.service-carousel .service-brand-adults { color: #8b4513; }
+.service-carousel-controls { z-index: 4; }
+@media (max-width: 900px) {
+  .service-category-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-category-tabs button { font-size: 15px; padding: 14px 10px; }
+  .service-carousel .service-slide { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .service-carousel .service-showcase { grid-column: 1; grid-row: 1; margin: 0 var(--section-inset) 24px; }
+  .service-carousel .service-brand-tile { min-height: 108px; }
+  .service-carousel .service-slide-copy { grid-column: 1; grid-row: 2; padding-top: 0; padding-bottom: 100px; }
+  .service-carousel .service-slide h3 { font-size: 38px; }
+}
+@media (max-width: 570px) {
+  .service-category-tabs button { gap: 8px; font-size: 13px; }
+  .service-carousel .service-brand-tile { min-height: 96px; padding: 14px 8px; gap: 8px; }
+  .service-carousel .service-brand-tile strong { font-size: 20px; max-width: 100%; overflow-wrap: anywhere; }
+}
+
+.service-carousel .service-brand-tile > .service-channel-logo {
+  display: block;
+  width: min(180px, 82%);
+  height: 80px;
+  object-fit: contain;
+}
+.services-page-carousel { padding-top: 32px; padding-bottom: 64px; }
+.service-carousel .service-brand-prime > .service-channel-logo {
+  width: 100%;
+  height: 140px;
+  transform: scale(1.2);
+}
+@media (max-width: 570px) {
+  .service-carousel .service-brand-tile > .service-channel-logo { width: 85%; height: 58px; }
+  .service-carousel .service-brand-prime > .service-channel-logo { width: 100%; height: 96px; transform: scale(1.15); }
+}
