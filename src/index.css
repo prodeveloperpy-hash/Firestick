@@ -3005,6 +3005,19 @@ section[id] { scroll-margin-top: 90px; }
 .hardware-details > span { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: #b8bfce; }
 .hardware-details svg { color: var(--fire); }
 .hardware-video-frame { position: relative; border-radius: 20px; overflow: hidden; }
+.hardware-video-frame > .iptv-section-image {
+  top: auto;
+  bottom: 0;
+  right: 0;
+  width: 13%;
+  min-width: 72px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+  border-radius: 16px 0 0 0;
+  background: #090c12;
+  filter: none;
+  z-index: 4;
+}
 @media (max-width: 820px) {
   .hardware-layout { grid-template-columns: 1fr; gap: 24px; }
 }
