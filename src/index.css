@@ -4277,6 +4277,30 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
   object-fit: contain;
 }
 .services-page-carousel { padding-top: 32px; padding-bottom: 64px; }
+.site-shell .navbar.scrolled {
+  background: rgba(8, 11, 18, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+}
+.site-shell .navbar.scrolled::before {
+  content: "";
+  position: absolute;
+  inset: -14px 0 auto;
+  height: 14px;
+  background: inherit;
+  pointer-events: none;
+}
+@media (max-width: 820px) {
+  .site-shell .navbar.scrolled::before {
+    top: -8px;
+    height: 8px;
+  }
+}
+.site-shell .navbar {
+  transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
 @media (min-width: 821px) and (max-width: 1100px) {
   .site-shell .navbar .nav-inner { display: flex; justify-content: space-between; }
   .navbar .menu-toggle { display: grid; }
