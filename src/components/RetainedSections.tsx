@@ -35,7 +35,7 @@ function ViewingPreview({ small = false }: { small?: boolean }) {
   ];
   const current = options[selected];
   return <div className={`ph-preview ${small ? "ph-preview-small" : ""}`}>
-    <div className="ph-preview-bar"><span className="ph-preview-brand">TV<span>PACKAGES</span></span><div className="ph-window-dots"><i /><i /><i /></div></div>
+    <div className="ph-preview-bar"><span className="ph-preview-brand"><img src="/logo-mark.svg" width="32" height="26" alt="" /><span>TV<span>PACKAGES</span></span></span><div className="ph-window-dots"><i /><i /><i /></div></div>
     <div className="ph-preview-nav" aria-label="Viewing preview categories">{options.map((option, index) => <button type="button" key={option.label} aria-pressed={selected === index} onClick={() => setSelected(index)}>{option.label}</button>)}</div>
     <div className="ph-preview-feature">
       <img src={current.image} alt="" />

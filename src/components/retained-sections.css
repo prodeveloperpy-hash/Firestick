@@ -66,8 +66,9 @@
 /* Responsive TV/browser interface preview. */
 .ph-preview { position: relative; width: 100%; border: 1px solid #ffffff20; border-radius: 14px; background: #101620; box-shadow: 0 40px 80px #0006, 0 0 70px #305f8530; overflow: hidden; }
 .ph-preview-bar { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; border-bottom: 1px solid #ffffff0a; }
-.ph-preview-brand { font-size: 10px; font-weight: 900; letter-spacing: -.04em; color: #ff9560; }
-.ph-preview-brand > span { color: #eee; margin-left: 2px; }
+.ph-preview-brand { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 900; letter-spacing: -.04em; color: #ff9560; }
+.ph-preview-brand > img { display: block; width: 32px; height: 26px; object-fit: contain; flex-shrink: 0; }
+.ph-preview-brand > span > span { color: #eee; margin-left: 2px; }
 .ph-window-dots { display: flex; gap: 4px; }
 .ph-window-dots i { width: 4px; height: 4px; border-radius: 50%; background: #586477; }
 .ph-preview-nav { display: flex; gap: 7px; padding: 10px 14px; }
