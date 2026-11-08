@@ -3515,3 +3515,11 @@ html[data-theme="light"] .cta-panel {
   padding: 0;
   justify-content: center;
 }
+
+/* ---------- Overall scale ----------
+   The type and spacing are sized for a very large display, which looks "zoomed in" on
+   laptops. Scale the whole page down on desktop. Tweak --site-zoom (1 = original size). */
+:root { --site-zoom: 0.85; }
+@media (min-width: 1025px) {
+  html { zoom: var(--site-zoom); }
+}
