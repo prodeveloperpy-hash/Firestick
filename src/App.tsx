@@ -22,6 +22,7 @@ import { Typewriter } from "./components/Typewriter";
 import { ServiceCarousel } from "./components/ServiceCarousel";
 import { CompatibilityGrid } from "./components/CompatibilityGrid";
 import { useScrollReveal } from "./components/useScrollReveal";
+import { useDifferencePath } from "./components/useDifferencePath";
 import { useSettings } from "./settings";
 
 const steps = [
@@ -228,6 +229,7 @@ export default function App() {
   const path = usePath().replace(/\/+$/, "") || "/";
   const { t } = useSettings();
   useScrollReveal(path);
+  useDifferencePath(path);
 
   let page;
   if (path === "/") {
@@ -581,7 +583,7 @@ function HomePage() {
           <div className="difference-path">
             <svg className="difference-connector" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none" aria-hidden="true">
               <path className="difference-track" d="M-150 230C0 230 0 70 150 70S300 230 450 230S600 70 750 70S900 230 1050 230S1200 70 1350 70" />
-              <path className="difference-flow" d="M-150 230C0 230 0 70 150 70S300 230 450 230S600 70 750 70S900 230 1050 230S1200 70 1350 70" pathLength="100" />
+              <path className="difference-flow" d="" />
             </svg>
             {why.map(([icon, title, text], i) => (
               <article className="difference-stop" key={title} style={{ animationDelay: `${i * 180}ms` }}>
