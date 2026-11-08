@@ -32,14 +32,14 @@ function PostCard({ post }: { post: Post }) {
 
 export function BlogPage() {
   usePageMeta(
-    "Blog | Firestick",
+    "Blog | Tv Packages",
     "Setup guides, streaming tips and device advice to help you get the most from your IPTV entertainment.",
   );
 
   return (
     <main>
       <PageHero
-        eyebrow="Firestick blog"
+        eyebrow="Tv Packages blog"
         title={
           <>
             Guides, tips & <em>streaming advice.</em>
@@ -89,7 +89,7 @@ function Block({ block }: { block: PostBlock }) {
 export function BlogPostPage({ slug }: { slug: string }) {
   const post = posts.find((p) => p.slug === slug);
   usePageMeta(
-    post ? `${post.title} | Firestick Blog` : "Article not found | Firestick",
+    post ? `${post.title} | Tv Packages Blog` : "Article not found | Tv Packages",
     post?.excerpt ?? "",
   );
   if (!post) return <NotFoundPage />;

@@ -1,0 +1,19 @@
+Image edits used the built-in imagegen tool.
+
+Saved assets:
+hero-stick.png
+firestick-remote.jpg (JPEG version of the edited hero)
+steps/get-stick.jpg
+steps/easy-setup.jpg
+steps/streaming-apps.jpg
+steps/endless.jpg
+highlights/portable.jpg
+
+Hero prompt:
+Use case: text-localization. Edit target: supplied product photo. Replace every "fire tv" logo on both stick and remote with exact text "Tv Packages", removing Amazon smile arrows. Preserve devices, composition, materials, orange lighting and background exactly. Keep original aspect ratio. Save edited image.
+
+Step and highlight images prompt:
+Use case: text-localization. Edit the supplied image only. Replace ALL Fire TV / fire tv logos and Amazon Fire TV Stick headings with exact brand text "Tv Packages". Remove Amazon name and smile arrows associated with this device branding. On device and remote print "Tv Packages" with a small "IPTv" beneath. Where a heading says Popular on Fire TV use "Popular on Tv Packages". Preserve all other text, third party app logos, composition, objects, colors, lighting and original aspect ratio. Ensure no Fire TV branding remains.
+
+Final portable correction prompt:
+Change only the headline at top from "Compact & Tv Packages" to exact "Compact & Portable". Keep Compact & white and Portable orange. Preserve everything else exactly, especially Tv Packages and IPTv printed on the device. Same dimensions.

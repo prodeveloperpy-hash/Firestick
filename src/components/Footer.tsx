@@ -1,5 +1,4 @@
 import { Link } from "../router";
-import { locations } from "../data/locations";
 import { BrandMark, Icon, WHATSAPP_URL, WhatsAppIcon } from "./ui";
 
 export function Footer() {
@@ -7,15 +6,15 @@ export function Footer() {
     <footer>
       <div className="container footer-grid">
         <div className="footer-about">
-          <Link href="/" className="brand" aria-label="Firestick home">
+          <Link href="/" className="brand" aria-label="Tv Packages home">
             <BrandMark />
             <span>
-              FIRE<span>STICK</span>
+              TV <span>PACKAGES</span>
             </span>
           </Link>
           <p>
             Flexible IPTV entertainment solutions with friendly, personal support for viewers across
-            the UK, Pakistan and beyond.
+            the UK and beyond.
           </p>
           <div className="region">
             <Icon name="globe" size={18} /> UK based • Worldwide entertainment
@@ -28,14 +27,6 @@ export function Footer() {
           <Link href="/#compatible-devices">Compatible Devices</Link>
           <Link href="/#packages">Packages</Link>
           <Link href="/blog">Blog</Link>
-        </div>
-        <div>
-          <h4>Locations</h4>
-          {locations.slice(0, 6).map((loc) => (
-            <Link key={loc.slug} href={`/locations/${loc.slug}`}>
-              IPTV in {loc.city}
-            </Link>
-          ))}
         </div>
         <div>
           <h4>Get in touch</h4>
@@ -52,7 +43,7 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Firestick. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Tv Packages. All rights reserved.</span>
         <div>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms & Conditions</a>

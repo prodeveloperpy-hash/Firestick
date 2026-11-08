@@ -11,7 +11,6 @@ import { Icon, WHATSAPP_URL, WhatsAppButton, WhatsAppIcon } from "./components/u
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { BlogPage, BlogPostPage } from "./pages/Blog";
-import { LocationPage } from "./pages/Location";
 import { NotFoundPage } from "./pages/NotFound";
 import { useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { Typewriter } from "./components/Typewriter";
@@ -20,9 +19,9 @@ import { useScrollReveal } from "./components/useScrollReveal";
 const steps = [
   {
     icon: "tv",
-    title: "Get Your Fire TV Stick",
+    title: "Get Your Tv Packages Device",
     text: "Any recent Fire TV Stick works, including 4K models. Not sure which one? Ask us first.",
-    visual: <img src={stepProduct} alt="Fire TV Stick and remote close-up" loading="lazy" />,
+    visual: <img src={stepProduct} alt="Tv Packages IPTv streaming stick and remote" loading="lazy" />,
   },
   {
     icon: "devices",
@@ -31,7 +30,7 @@ const steps = [
     visual: (
       <img
         src={stepInstallation}
-        alt="Fire TV Stick plugged into the HDMI port of a TV"
+        alt="Tv Packages IPTv streaming stick plugged into a TV HDMI port"
         loading="lazy"
       />
     ),
@@ -42,7 +41,7 @@ const steps = [
     text: "Tell us your device and what you love to watch. We recommend a plan and send your setup details.",
     visual: (
       <>
-        <img src={stepCompatibility} alt="Popular streaming apps on Fire TV Stick: Prime Video, Netflix, YouTube and more" loading="lazy" />
+        <img src={stepCompatibility} alt="Tv Packages IPTv device with popular streaming apps" loading="lazy" />
       </>
     ),
   },
@@ -213,8 +212,6 @@ export default function App() {
     page = <BlogPage />;
   } else if (path.startsWith("/blog/")) {
     page = <BlogPostPage slug={path.slice("/blog/".length)} />;
-  } else if (path.startsWith("/locations/")) {
-    page = <LocationPage slug={path.slice("/locations/".length)} />;
   } else {
     page = <NotFoundPage />;
   }
@@ -241,7 +238,7 @@ export default function App() {
 function HomePage() {
   const [openFaq, setOpenFaq] = useState(0);
   usePageMeta(
-    "Firestick | Premium IPTV Entertainment",
+    "Tv Packages | Premium IPTV Entertainment",
     "Explore IPTV entertainment, compatible devices, and flexible plans, then contact a UK-based provider on WhatsApp for personalized guidance.",
   );
   useInitialHashScroll();
@@ -288,7 +285,6 @@ function HomePage() {
             <div className="trust-line">
               <span className="avatar-stack">
                 <i>UK</i>
-                <i>PK</i>
                 <i>+</i>
               </span>
               <span>
@@ -300,7 +296,7 @@ function HomePage() {
           <div className="hero-visual">
             <div className="visual-glow" />
             <div className="hero-stick">
-              <img src={heroStick} alt="Fire TV Stick with its voice remote glowing in orange light" />
+              <img src={heroStick} alt="Tv Packages streaming stick and voice remote glowing in orange light" />
             </div>
             <div className="floating-card live-card">
               <span className="pulse" />
@@ -346,7 +342,7 @@ function HomePage() {
             <div className="image-frame">
               <img
                 src={photos.product}
-                alt="Fire TV Stick and remote in front of a TV showing a premium streaming home screen"
+                alt="Tv Packages streaming device and remote in front of a premium entertainment screen"
               />
             </div>
             <div className="floating-card product-chip chip-top">
@@ -366,13 +362,13 @@ function HomePage() {
           </div>
           <div className="product-copy">
             <div className="eyebrow">
-              <span /> Product overview
+              <span /> IPTv product overview
             </div>
             <h2>
-              Fire TV Stick. <em>Stream. Watch. Enjoy.</em>
+              Tv Packages. <em>Stream. Watch. Enjoy.</em>
             </h2>
             <p>
-              A compact streaming stick that turns any TV with an HDMI port into a smart
+              Discover IPTv with a compact streaming stick that turns any TV with an HDMI port into a smart
               entertainment hub. Plug it in, connect to Wi‑Fi and you’re ready for live TV, sports,
               movies and series.
             </p>
@@ -395,7 +391,7 @@ function HomePage() {
               ))}
             </div>
             <div className="hero-actions">
-              <WhatsAppButton>Ask About Fire TV Stick</WhatsAppButton>
+              <WhatsAppButton>Ask About IPTv Packages</WhatsAppButton>
               <a className="secondary-button" href="#how-it-works">
                 How It Works <Icon name="arrow" size={18} />
               </a>
@@ -407,7 +403,7 @@ function HomePage() {
       <section className="section highlights-section">
         <div className="container">
           <div className="section-heading centered">
-            <div className="eyebrow">Why Fire TV Stick</div>
+            <div className="eyebrow">Why Tv Packages</div>
             <h2>
               Small device. <em>Big entertainment.</em>
             </h2>
@@ -508,7 +504,7 @@ function HomePage() {
         <div className="container">
           <div className="section-heading split">
             <div>
-              <div className="eyebrow">The Firestick difference</div>
+              <div className="eyebrow">The Tv Packages difference</div>
               <h2>
                 Entertainment made <em>simple.</em>
               </h2>
