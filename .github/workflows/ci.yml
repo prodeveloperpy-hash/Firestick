@@ -15,6 +15,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Check images are real files
+        run: |
+          if grep -R -l "git-lfs.github.com" src/assets --include='*.png' --include='*.jpg' --include='*.jpeg' --include='*.webp'; then
+            echo "Image files are still Git LFS pointers."
+            exit 1
+          fi
 
       - name: Setup Node
         uses: actions/setup-node@v4
