@@ -4,7 +4,7 @@ import deviceLineup from "./assets/devices-multi.jpg";
 import stepProduct from "./assets/steps/get-stick.jpg";
 import stepInstallation from "./assets/steps/easy-setup.jpg";
 import stepHome from "./assets/steps/endless.jpg";
-import stepCompatibility from "./assets/steps/streaming-apps.jpg";
+import stepSupport from "./assets/steps/whatsapp-support.jpg";
 import hlPortable from "./assets/highlights/portable.jpg";
 import { photos } from "./photos";
 import { Icon, WHATSAPP_URL, WhatsAppButton, WhatsAppIcon } from "./components/ui";
@@ -22,7 +22,7 @@ const steps = [
     icon: "tv",
     title: "Get Your Tv Packages Device",
     text: "Any recent Fire TV Stick works, including 4K models. Not sure which one? Ask us first.",
-    visual: <img src={stepProduct} alt="Tv Packages IPTv streaming stick and remote" loading="lazy" />,
+    visual: <img src={stepProduct} alt="Tv Packages IPTv streaming stick and remote on a coffee table" loading="lazy" />,
   },
   {
     icon: "devices",
@@ -31,7 +31,7 @@ const steps = [
     visual: (
       <img
         src={stepInstallation}
-        alt="Tv Packages IPTv streaming stick plugged into a TV HDMI port"
+        alt="Connecting a Tv Packages IPTv streaming stick to a television HDMI port"
         loading="lazy"
       />
     ),
@@ -42,7 +42,7 @@ const steps = [
     text: "Tell us your device and what you love to watch. We recommend a plan and send your setup details.",
     visual: (
       <>
-        <img src={stepCompatibility} alt="Tv Packages IPTv device with popular streaming apps" loading="lazy" />
+        <img src={stepSupport} alt="Messaging a support adviser from a smartphone at home" loading="lazy" />
       </>
     ),
   },
@@ -53,7 +53,7 @@ const steps = [
     visual: (
       <img
         src={stepHome}
-        alt="Family enjoying entertainment together in their living room"
+        alt="Couple viewing Tv Packages IPTv and streaming service apps on their living-room television"
         loading="lazy"
       />
     ),
@@ -578,7 +578,7 @@ function HomePage() {
                 </div>
                 <div className="step-body">
                   <div className="icon-box">
-                    <Icon name={step.icon} />
+                    {step.icon === "message" ? <WhatsAppIcon /> : <Icon name={step.icon} />}
                   </div>
                   <h3>{t(step.title)}</h3>
                   <p>{t(step.text)}</p>
