@@ -2,7 +2,9 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WHATSAPP_URL } from "./ui";
 
-type Service = { icon: string; number: string; image: string; imageAlt: string; title: string; text: string; tags: string[] };
+type Service = { icon: string; number: string; image: string; imageAlt: string; title: string; text: string; tags: string[]; showcase: string[][] };
+
+const supportedDevices = [["tv", "Fire Stick"], ["tv", "Smart TV"], ["phone", "Android"], ["box", "MAG / Msg Box"], ["tablet", "Tablet"], ["phone", "iPhone"], ["tablet", "iPad"]];
 
 export function ServiceCarousel({ items }: { items: Service[] }) {
   const { t } = useSettings();
@@ -86,11 +88,23 @@ export function ServiceCarousel({ items }: { items: Service[] }) {
             <article key={`${service.title}-${index}`} className="service-slide" aria-roledescription="slide" aria-label={`${(index - 1 + items.length) % items.length + 1} / ${items.length}: ${t(service.title)}`} aria-hidden={index !== position} inert={index !== position}>
               <img className="service-slide-image" src={service.image} alt={service.imageAlt} loading={index === 0 ? "eager" : "lazy"} />
               <IPTVLogo className="service-slide-logo" />
+              <div className="service-showcase" aria-label={t("Channels and apps")}>
+                {service.showcase.map(([icon, label, brand]) => (
+                  <div className={`service-brand-tile service-brand-${brand}`} key={label}>
+                    <Icon name={icon} size={26} />
+                    <strong>{label}</strong>
+                  </div>
+                ))}
+              </div>
               <div className="service-slide-copy">
                 <span className="service-slide-kicker"><Icon name={service.icon} size={20} /> {service.number} / {String(items.length).padStart(2, "0")}</span>
                 <h3>{t(service.title)}</h3>
                 <p>{t(service.text)}</p>
-                <ul>{service.tags.map((tag) => <li key={tag}>{t(tag)}</li>)}</ul>
+                <ul>{service.tags.map((tag) => <li key={tag}><Icon name="check" size={15} />{t(tag)}</li>)}</ul>
+                <div className="service-supported-devices">
+                  <span>{t("Load your compatible device")}</span>
+                  <div>{supportedDevices.map(([icon, label]) => <span key={label}><Icon name={icon} size={16} />{label}</span>)}</div>
+                </div>
                 <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
               </div>
             </article>

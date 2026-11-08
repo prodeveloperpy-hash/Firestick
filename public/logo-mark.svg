@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="#211f20">
-<path d="m143 110-29-63m55 63 22-57" fill="none" stroke="#211f20" stroke-width="7" stroke-linecap="round"/>
-<circle cx="110" cy="38" r="16"/><circle cx="194" cy="50" r="13"/>
-<path d="M127 132v-10a30 23 0 0 1 60 0v10Z"/>
-<path fill-rule="evenodd" d="M91 124h138a78 78 0 0 1 78 78v35a78 78 0 0 1-78 78H91a78 78 0 0 1-78-78v-35a78 78 0 0 1 78-78Zm-10 34a40 40 0 0 0-40 40v44a40 40 0 0 0 40 40h115a40 40 0 0 0 40-40v-44a40 40 0 0 0-40-40H81Zm191 19a14 14 0 1 0 0 28 14 14 0 0 0 0-28Zm0 56a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z"/>
-<path d="M104 294h91m-76 9h61" stroke="#d3d3d3" stroke-width="3.5" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="48 30 402 308" fill="none">
+<title>Tv Packages monogram</title>
+<g stroke="#ff9a3c" stroke-width="10" stroke-linejoin="miter">
+<path d="M87 44H249L274 88H222L274 183L248 230L169 88H112Z" fill="#ffb36b"/>
+<path d="M87 44 60 88 87 137 112 88Z" fill="#191526"/>
+<path d="M112 88H169L137 137H87Z" fill="#8758ff"/>
+<path d="M169 88 248 230 357 44 382 88 248 316 137 137Z" fill="#191526"/>
+<path d="M357 44H409L437 88H382Z" fill="#ffb36b"/>
+<path d="M382 88H437L302 323H248L248 316Z" fill="#8758ff"/>
+</g>
 </svg>

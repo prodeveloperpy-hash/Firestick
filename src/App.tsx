@@ -19,6 +19,7 @@ import { NotFoundPage } from "./pages/NotFound";
 import { useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { Typewriter } from "./components/Typewriter";
 import { ServiceCarousel } from "./components/ServiceCarousel";
+import { CompatibilityGrid } from "./components/CompatibilityGrid";
 import { useScrollReveal } from "./components/useScrollReveal";
 import { useSettings } from "./settings";
 
@@ -87,7 +88,8 @@ const services = [
     imageAlt: "Tv Packages IPTv live television guide with news, entertainment and international programmes",
     title: "Live TV Channels",
     text: "Stay connected to the programmes that matter, from familiar UK favourites to international entertainment.",
-    tags: ["UK channels", "International TV", "News & entertainment"],
+    tags: ["UK + worldwide live TV", "All Sky channels", "News & entertainment"],
+    showcase: [["tv", "UK + Worldwide", "live"], ["tv", "sky", "sky"], ["film", "Entertainment", "live"], ["globe", "International TV", "live"]],
   },
   {
     icon: "trophy",
@@ -96,7 +98,8 @@ const services = [
     imageAlt: "Friends watching live football on their television with Tv Packages IPTv",
     title: "Premium Sports",
     text: "Follow football, combat sports and major live events on supported sports channels and services.",
-    tags: ["Football", "TNT Sports", "UFC, Boxing & PPV"],
+    tags: ["All sports channels", "All football events", "PPV events"],
+    showcase: [["trophy", "TNT Sports", "tnt"], ["trophy", "UFC", "ufc"], ["trophy", "Boxing + PPV", "sports"], ["trophy", "Football", "sports"]],
   },
   {
     icon: "film",
@@ -106,6 +109,7 @@ const services = [
     title: "Movies & TV Series",
     text: "Settle in for on-demand movies, binge-worthy series and entertainment for every mood.",
     tags: ["Movies", "TV series", "On-demand content"],
+    showcase: [["film", "NETFLIX", "netflix"], ["film", "HBO", "hbo"], ["film", "Disney+", "disney"], ["play", "prime video", "prime"]],
   },
   {
     icon: "apps",
@@ -114,7 +118,8 @@ const services = [
     imageAlt: "Streaming app icons on a television with a Tv Packages IPTv device and remote",
     title: "Entertainment Apps",
     text: "Enjoy broad streaming app compatibility, subject to supported subscriptions and access.",
-    tags: ["Flexible access", "Easy navigation", "Popular apps"],
+    tags: ["Streaming apps", "Multi-device access", "18+ adult content"],
+    showcase: [["apps", "NETFLIX", "netflix"], ["apps", "Disney+", "disney"], ["play", "Amazon Prime", "prime"], ["film", "18+ Adults", "adults"]],
   },
 ];
 
@@ -522,6 +527,8 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      <CompatibilityGrid />
 
       <section className="section why-section">
         <div className="container">

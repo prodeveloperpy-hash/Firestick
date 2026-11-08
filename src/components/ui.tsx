@@ -176,13 +176,7 @@ export function IPTVLogo({ className = "" }: { className?: string }) {
 export function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
-      <svg width="44" height="44" viewBox="0 0 320 320" fill="currentColor">
-        <path d="m143 110-29-63m55 63 22-57" fill="none" stroke="currentColor" strokeWidth="7" strokeLinecap="round" />
-        <circle cx="110" cy="38" r="16" />
-        <circle cx="194" cy="50" r="13" />
-        <path d="M127 132v-10a30 23 0 0 1 60 0v10Z" />
-        <path fillRule="evenodd" d="M91 124h138a78 78 0 0 1 78 78v35a78 78 0 0 1-78 78H91a78 78 0 0 1-78-78v-35a78 78 0 0 1 78-78Zm-10 34a40 40 0 0 0-40 40v44a40 40 0 0 0 40 40h115a40 40 0 0 0 40-40v-44a40 40 0 0 0-40-40H81Zm191 19a14 14 0 1 0 0 28 14 14 0 0 0 0-28Zm0 56a14 14 0 1 0 0 28 14 14 0 0 0 0-28Z" />
-      </svg>
+      <img src="/logo-mark.svg" width="54" height="44" alt="" />
     </span>
   );
 }
