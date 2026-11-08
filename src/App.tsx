@@ -137,32 +137,40 @@ const why = [
 
 const plans = [
   {
-    name: "Basic Plan",
+    name: "Basic Setup",
     label: "ESSENTIAL",
-    description: "A simple starting point for everyday entertainment.",
-    features: ["Live TV access", "Movies & TV series", "Single-device option", "Setup guidance"],
+    description: "Get one device up and running with the official free apps.",
+    price: "£10",
+    features: [
+      "1 device (Fire TV Stick, smart TV, tablet or phone)",
+      "Wi‑Fi connection and account sign-in",
+      "BBC iPlayer, ITVX, Channel 4 and My5",
+    ],
   },
   {
-    name: "Premium Plan",
+    name: "Standard Setup",
     label: "MOST POPULAR",
-    description: "A complete entertainment experience for keen viewers.",
+    description: "Everything in Basic, plus the big streaming apps and family controls.",
+    price: "£20",
     features: [
-      "Live TV access",
-      "Sports & entertainment",
-      "Movies & TV series",
-      "Priority WhatsApp support",
+      "Everything in Basic Setup",
+      "Netflix, Prime Video and Disney+ installed and signed in",
+      "Freely, Pluto TV and Samsung TV Plus where supported",
+      "Parental controls and family profiles",
     ],
     featured: true,
   },
   {
-    name: "Ultimate Plan",
+    name: "Premium Setup",
     label: "ALL-ROUND",
-    description: "Maximum flexibility for entertainment across your home.",
+    description: "A full home setup with extra support after we finish.",
+    price: "£30",
     features: [
-      "Complete entertainment access",
-      "Flexible device options",
-      "Premium support",
-      "Guided setup",
+      "Everything in Standard Setup",
+      "Up to 3 devices",
+      "NOW, Sky Go and TNT Sports app sign-in (your own subscription needed)",
+      "Personal quick-start guide",
+      "7 days of follow-up support",
     ],
   },
 ];
@@ -574,11 +582,11 @@ function HomePage() {
         <div className="pricing-glow" />
         <div className="container">
           <div className="section-heading centered">
-            <div className="eyebrow">Flexible options</div>
+            <div className="eyebrow">Setup packages</div>
             <h2>
-              Choose Your <em>Entertainment Plan</em>
+              Choose Your <em>Setup Package</em>
             </h2>
-            <p>Tell us what you love to watch and we’ll help you find the right fit.</p>
+            <p>Simple one-off pricing. Tell us your device and we’ll help you pick the right fit.</p>
           </div>
           <div className="pricing-grid">
             {plans.map((plan) => (
@@ -588,7 +596,7 @@ function HomePage() {
                 <h3>{plan.name}</h3>
                 <p>{plan.description}</p>
                 <div className="price">
-                  Contact <span>for Pricing</span>
+                  {plan.price} <span>one-off setup fee</span>
                 </div>
                 <div className="divider" />
                 <ul>
@@ -601,13 +609,13 @@ function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <WhatsAppButton>Enquire About This Plan</WhatsAppButton>
+                <WhatsAppButton>Order on WhatsApp</WhatsAppButton>
               </article>
             ))}
           </div>
           <p className="pricing-note">
-            All packages are tailored to your needs and compatible devices. Contact us for current
-            options.
+            Setup fees only. Streaming subscriptions such as Netflix, Sky, NOW and TNT Sports are
+            paid directly to those providers.
           </p>
         </div>
       </section>
