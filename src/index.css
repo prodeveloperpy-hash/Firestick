@@ -3089,6 +3089,20 @@ html[data-theme="light"] .cta-panel {
   background-blend-mode: normal;
 }
 
+/* The product photo is shot on black. In light mode, fade that studio
+   background into the page and sit a warm halo behind it. #3b1800 inverts
+   to a soft peach under the light-theme filter. */
+html[data-theme="light"] .hero-stick img {
+  -webkit-mask-image: radial-gradient(ellipse 68% 58% at 50% 42%, #000 58%, transparent 100%);
+  mask-image: radial-gradient(ellipse 68% 58% at 50% 42%, #000 58%, transparent 100%);
+}
+html[data-theme="light"] .visual-glow {
+  background: #3b1800;
+  opacity: 0.85;
+  inset: 16% 4% 6%;
+  filter: blur(70px);
+}
+
 /* =========================================================
    PREMIUM NAVBAR, THEME SWITCH & LANGUAGE MENU
    ========================================================= */
