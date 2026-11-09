@@ -6,6 +6,7 @@ import { plans } from "../data/home";
 import sports from "../assets/services/sports.jpg";
 import live from "../assets/services/live-tv.jpg";
 import movies from "../assets/services/movies-series.jpg";
+import adults from "../assets/services/adults.jpg";
 import family from "../assets/steps/endless.jpg";
 import "./retained-sections.css";
 
@@ -32,6 +33,7 @@ function ViewingPreview({ small = false }: { small?: boolean }) {
     { label: "Live TV", image: live, title: "A world of television.", subtitle: "UK favourites. International entertainment.", icon: "tv" },
     { label: "Sports", image: sports, title: "Bring match day home.", subtitle: "Football, combat sports & the big moments.", icon: "trophy" },
     { label: "Movies & series", image: movies, title: "Make tonight a movie night.", subtitle: "Entertainment for every kind of evening.", icon: "film" },
+    { label: "18+", image: adults, title: "Adults only.", subtitle: "A separate 18+ section on supported packages.", icon: "moon" },
   ];
   const current = options[selected];
   return <div className={`ph-preview ${small ? "ph-preview-small" : ""}`}>
@@ -42,7 +44,7 @@ function ViewingPreview({ small = false }: { small?: boolean }) {
       <div><span className="ph-mini-label"><Icon name={current.icon} size={12} /> IPTV ENTERTAINMENT</span><h3>{current.title}</h3><p>{current.subtitle}</p><Link href="/services" className="ph-preview-button">Explore <Icon name="arrow" size={13} /></Link></div>
     </div>
     <div className="ph-preview-lower"><span>Your entertainment, together</span><BrandTiles compact /></div>
-    <div className="ph-preview-foot"><span><i /> Viewing layout preview</span><span>Live TV · Movies · Sports</span></div>
+    <div className="ph-preview-foot"><span><i /> Viewing layout preview</span><span>Live TV · Movies · Sports · 18+</span></div>
   </div>;
 }
 

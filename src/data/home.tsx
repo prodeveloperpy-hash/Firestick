@@ -7,6 +7,10 @@ import svcLive from "../assets/services/live-tv.jpg";
 import svcSports from "../assets/services/sports.jpg";
 import svcMovies from "../assets/services/movies-series.jpg";
 import svcApps from "../assets/services/apps.jpg";
+import svcAdults from "../assets/services/adults.jpg";
+import svcNetflix from "../assets/services/netflix.jpg";
+import adultOne from "../assets/services/adult-1.jpg";
+import adultTwo from "../assets/services/adult-2.jpg";
 
 export const steps = [
   {
@@ -103,10 +107,32 @@ export const services = [
     imageAlt: "Remote, phone and tablet ready for home entertainment",
     title: "Entertainment Apps",
     text: "Enjoy broad streaming app compatibility, subject to supported subscriptions and access.",
-    tags: ["Streaming apps", "Multi-device access", "18+ adult content"],
-    showcase: [["apps", "NETFLIX", "netflix"], ["apps", "Disney+", "disney"], ["play", "Amazon Prime", "prime"], ["film", "18+ Adults", "adults"]],
+    tags: ["Streaming apps", "Multi-device access", "Popular apps"],
+    showcase: [["apps", "NETFLIX", "netflix"], ["apps", "Disney+", "disney"], ["play", "Amazon Prime", "prime"], ["film", "HBO", "hbo"]],
   },
 ];
+
+export const netflixService = {
+  icon: "play",
+  number: "N",
+  image: svcNetflix,
+  imageAlt: "Television in a dark living room ready for Netflix",
+  title: "Netflix",
+  text: "Watch Netflix on your Fire TV Stick or smart TV. We install the app and help you sign in with your own subscription.",
+  tags: ["Your own subscription", "Movies & series", "On your Fire Stick"],
+  showcase: [["film", "Movies", "apps"], ["play", "Series", "apps"], ["layers", "Originals", "apps"], ["tv", "On your Fire Stick", "apps"]],
+};
+
+export const adultService = {
+  icon: "moon",
+  number: "18+",
+  image: svcAdults,
+  imageAlt: "Adult woman in an evening dress in a late-night lounge",
+  title: "18+ Adults",
+  text: "A separate adults section for viewers 18 and over, on supported packages and devices.",
+  tags: ["18+ only", "Adult channels", "Late night"],
+  showcase: [["moon", "18+ Channels", "adults", adultOne], ["film", "Adult movies", "adults", adultTwo], ["play", "Late night", "adults"], ["tv", "On your device", "adults"]],
+};
 
 export const devices = [
   ["tv", "Amazon Fire TV Stick"],

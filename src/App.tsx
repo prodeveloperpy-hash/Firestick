@@ -5,12 +5,12 @@ import { BlogPage, BlogPostPage } from "./pages/Blog";
 import { NotFoundPage } from "./pages/NotFound";
 import { HomePage } from "./pages/Home";
 import { useInitialHashScroll, usePageMeta, usePath } from "./router";
-import { ServiceCarousel } from "./components/ServiceCarousel";
+import { ServiceCarousel, ServiceSpotlight } from "./components/ServiceCarousel";
 import { PageHero, CtaSection } from "./components/PageParts";
 import { useScrollReveal } from "./components/useScrollReveal";
 import { useDifferencePath } from "./components/useDifferencePath";
 import { useSettings } from "./settings";
-import { services } from "./data/home";
+import { adultService, netflixService, services } from "./data/home";
 
 export default function App() {
   const path = usePath().replace(/\/+$/, "") || "/";
@@ -58,6 +58,8 @@ function ServicesPage() {
       <PageHero eyebrow={t("Our Services")} title={<>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></>} lead={t("Explore live TV, premium sports, movies, series and entertainment apps across your compatible devices.")} />
       <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
         <ServiceCarousel items={services} />
+        <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
+        <ServiceSpotlight service={adultService} id="adults" kicker="18+ only" />
       </section>
       <CtaSection />
     </main>

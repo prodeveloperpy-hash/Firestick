@@ -2968,7 +2968,50 @@ section[id] { scroll-margin-top: 90px; }
   transform: none; border-radius: 30px; animation: none;
   box-shadow: 0 60px 130px rgba(0,0,0,.7), 0 0 120px rgba(130,70,255,.28);
 }
-.product-visual .image-frame img { aspect-ratio: 16 / 10; object-fit: cover; }
+.product-visual .image-frame > img { aspect-ratio: 16 / 10; object-fit: cover; }
+.tv-screen {
+  position: absolute;
+  z-index: 2;
+  left: 16.6%;
+  top: 28.6%;
+  width: 66.8%;
+  height: 26%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.3%;
+  padding: 1.2%;
+  box-sizing: border-box;
+  border-radius: 12px;
+  background: #070a12;
+  pointer-events: none;
+}
+.product-visual .chip-top { bottom: 7%; right: 1%; }
+.tv-screen span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6%;
+  min-width: 0;
+  border-radius: 8px;
+  background: #f7f8fc;
+  color: #12141c;
+  font-size: clamp(8px, 0.8vw, 13px);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: center;
+  line-height: 1.05;
+  padding: 6% 4%;
+}
+.tv-screen img {
+  width: auto;
+  height: 42%;
+  max-width: 78%;
+  aspect-ratio: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+.tv-screen svg { width: 28%; height: auto; color: #e23b2f; }
 .product-video {
   display: block;
   width: 100%;
@@ -4218,6 +4261,12 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
 .services.section { padding-top: 64px; padding-bottom: 64px; }
 .services .section-heading.centered { margin-bottom: 32px; }
 .service-category-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 0 var(--section-inset) 24px; }
+.service-spotlight { margin: 36px var(--section-inset) 8px; border-radius: 28px; overflow: hidden; }
+.service-spotlight .service-slide { min-height: 560px; padding-top: 36px; }
+.service-spotlight .service-slide-copy { padding-bottom: 48px; }
+.service-spotlight .service-showcase { margin-bottom: 36px; }
+.spotlight-logo { width: 48px; height: 48px; padding: 8px; box-sizing: border-box; object-fit: contain; background: #000; border-radius: 10px; box-shadow: 0 8px 18px #0008, 0 0 0 1px #e5091455; }
+.service-slide-kicker:has(.spotlight-logo) { color: #e50914; gap: 14px; font-size: 14px; letter-spacing: .18em; text-transform: uppercase; }
 .service-category-tabs button { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 14px; border: 1px solid #ffffff24; border-radius: 14px; background: #151a25; color: #f4f5fa; font-size: 17px; font-weight: 700; cursor: pointer; }
 .service-category-tabs button[aria-pressed="true"] { background: #ff9a3c; color: #211004; border-color: #ff9a3c; }
 .service-category-tabs button:focus-visible { outline: 2px solid #ffad68; outline-offset: 4px; }
@@ -4229,6 +4278,9 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
 .service-carousel .service-slide-copy > h3, .service-carousel .service-slide-copy > p { max-width: 640px; }
 .service-carousel .service-showcase { position: relative; z-index: 2; grid-column: 2; grid-row: 1; align-self: center; top: auto; left: auto; right: auto; width: auto; margin: 0 32px 100px 24px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .service-carousel .service-brand-tile { min-height: 142px; background: #fafbff; border: 1px solid #fff; box-shadow: 0 16px 36px #0005; color: #152038; }
+.service-carousel .service-brand-tile.has-photo { position: relative; padding: 0; overflow: hidden; color: #fff; justify-content: flex-end; }
+.service-carousel .service-brand-tile.has-photo .service-person { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.service-carousel .service-brand-tile.has-photo strong { position: relative; z-index: 1; margin-top: auto; padding: 28px 10px 12px; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,.72)); color: #fff; font-size: 15px; }
 .service-carousel .service-brand-tile > svg { color: inherit; }
 .service-carousel .service-brand-tile strong { font-size: clamp(23px, 2.4vw, 38px); font-weight: 800; }
 .service-carousel .service-brand-netflix { color: #cf1427; }

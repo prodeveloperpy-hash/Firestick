@@ -3,11 +3,11 @@ import { useInitialHashScroll, usePageMeta } from "../router";
 import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WhatsAppButton, WhatsAppIcon } from "../components/ui";
 import { Typewriter } from "../components/Typewriter";
-import { ServiceCarousel } from "../components/ServiceCarousel";
+import { ServiceCarousel, ServiceSpotlight } from "../components/ServiceCarousel";
 import { CompatibilityGrid } from "../components/CompatibilityGrid";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection, HeroNotes, BrandStrip } from "../components/RetainedSections";
-import { services, faqs, steps, why, highlightFeatures, HERO_PHRASES } from "../data/home";
+import { adultService, netflixService, services, faqs, steps, why, highlightFeatures, HERO_PHRASES } from "../data/home";
 import heroStick from "../assets/hero-stick.png";
 import heroStickLight from "../assets/hero-stick-light.png";
 import hlPortable from "../assets/highlights/portable.jpg";
@@ -40,14 +40,14 @@ export function HomePage() {
     <section className="trust-strip" aria-label={t("Why customers choose us")}><div className="container trust-strip-inner">{[["message", "WhatsApp-first support"], ["devices", "Works on 7+ device types"], ["clock", "Guided setup in minutes"], ["globe", "UK & worldwide entertainment"]].map(([icon, label]) => <div key={label}><Icon name={icon} size={20} /><span>{t(label)}</span></div>)}</div></section>
     <BrandStrip />
 
-    <section className="section services" id="our-services"><div className="container"><div className="section-heading centered"><div className="eyebrow">{t("What we offer")}</div><h2>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></h2><p>{t("A complete entertainment experience designed around the way you watch.")}</p></div></div><ServiceCarousel items={services} /></section>
+    <section className="section services" id="our-services"><div className="container"><div className="section-heading centered"><div className="eyebrow">{t("What we offer")}</div><h2>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></h2><p>{t("A complete entertainment experience designed around the way you watch.")}</p></div></div><ServiceCarousel items={services} /><ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" /><ServiceSpotlight service={adultService} id="adults" kicker="18+ only" /></section>
 
     <RetainedSection kind="discovery" />
     <RetainedSection kind="apps" />
 
     <section className="section product-section" id="product">
       <div className="container product-layout">
-        <div className="product-visual"><IPTVLogo className="iptv-section-image" /><div className="product-glow" /><div className="image-frame"><img src={photos.product} alt="Tv Packages streaming stick and remote in front of a television" /></div><div className="floating-card product-chip chip-top"><Icon name="play" size={16} /><span><strong>{t("HD & 4K streaming")}</strong><small>{t("On supported models")}</small></span></div><div className="floating-card product-chip chip-bottom"><Icon name="check" size={16} /><span><strong>{t("Setup in minutes")}</strong><small>{t("Guided on WhatsApp")}</small></span></div></div>
+        <div className="product-visual"><IPTVLogo className="iptv-section-image" /><div className="product-glow" /><div className="image-frame"><img src={photos.product} alt="Tv Packages streaming stick and remote in front of a television" /><div className="tv-screen" aria-label={t("Channels on your TV")}>{[["Netflix", "/logos/netflix.svg"], ["Sky", "/logos/sky.svg"], ["TNT Sports", "/logos/tntsports.svg"], ["Football", ""], ["Disney+", "/logos/disneyplus.svg"], ["Prime Video", "/logos/amazonprime.svg"], ["HBO", "/logos/hbo.svg"]].map(([name, src]) => <span key={name}>{src ? <img src={src} alt="" /> : <Icon name="trophy" size={22} />}{name}</span>)}</div></div><div className="floating-card product-chip chip-top"><Icon name="play" size={16} /><span><strong>{t("HD & 4K streaming")}</strong><small>{t("On supported models")}</small></span></div><div className="floating-card product-chip chip-bottom"><Icon name="check" size={16} /><span><strong>{t("Setup in minutes")}</strong><small>{t("Guided on WhatsApp")}</small></span></div></div>
         <div className="product-copy"><div className="eyebrow"><span />{t("IPTv product overview")}</div><h2>Tv Packages. <em>{t("Stream. Watch. Enjoy.")}</em></h2><p>{t("Discover IPTv with a compact streaming stick that turns any TV with an HDMI port into a smart entertainment hub. Plug it in, connect to Wi-Fi and you’re ready for live TV, sports, movies and series.")}</p><div className="product-features">{[["play", "Stream in HD", "Crisp picture, 4K on supported models"], ["sliders", "Fast performance", "Quick, smooth navigation"], ["box", "Portable design", "Take it anywhere with a TV"], ["globe", "Wi-Fi ready", "Connects to your home network"]].map(([icon, title, text]) => <div className="product-feature" key={title}><span><Icon name={icon} size={18} /></span><div><strong>{t(title)}</strong><small>{t(text)}</small></div></div>)}</div><div className="hero-actions"><WhatsAppButton>Ask About IPTv Packages</WhatsAppButton><a className="secondary-button" href="#how-it-works">{t("How It Works")}<Icon name="arrow" size={18} /></a></div></div>
       </div>
     </section>

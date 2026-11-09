@@ -95,8 +95,8 @@ export function ServiceCarousel({ items }: { items: Service[] }) {
               <img className="service-slide-image" src={service.image} alt={service.imageAlt} loading={index <= 1 ? "eager" : "lazy"} />
               <IPTVLogo className="service-slide-logo" />
               <div className="service-showcase" aria-label={t("Channels and apps")}>
-                {service.showcase.map(([icon, label, brand]) => (
-                  <ServiceBrandTile key={label} icon={icon} label={label} brand={brand} />
+                {service.showcase.map(([icon, label, brand, photo]) => (
+                  <ServiceBrandTile key={label} icon={icon} label={label} brand={brand} photo={photo} />
                 ))}
               </div>
               <div className="service-slide-copy">
@@ -122,5 +122,29 @@ export function ServiceCarousel({ items }: { items: Service[] }) {
         <button type="button" onClick={() => go(active + 1)} aria-label={t("Next service")}><Icon name="arrow" size={20} /></button>
       </div>
     </div>
+  );
+}
+
+export function ServiceSpotlight({ service, id, kicker, logo }: { service: Service; id: string; kicker: string; logo?: string }) {
+  const { t } = useSettings();
+  return (
+    <section className="service-carousel service-spotlight" id={id} aria-label={t(service.title)}>
+      <article className="service-slide">
+        <img className="service-slide-image" src={service.image} alt={service.imageAlt} loading="lazy" />
+        <IPTVLogo className="service-slide-logo" />
+        <div className="service-showcase" aria-label={t(service.title)}>
+          {service.showcase.map(([icon, label, brand, photo]) => (
+            <ServiceBrandTile key={label} icon={icon} label={label} brand={brand} photo={photo} />
+          ))}
+        </div>
+        <div className="service-slide-copy">
+          <span className="service-slide-kicker">{logo ? <img className="spotlight-logo" src={logo} alt="" /> : <Icon name={service.icon} size={20} />} {t(kicker)}</span>
+          <h3>{t(service.title)}</h3>
+          <p>{t(service.text)}</p>
+          <ul>{service.tags.map((tag) => <li key={tag}><Icon name="check" size={15} />{t(tag)}</li>)}</ul>
+          <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+        </div>
+      </article>
+    </section>
   );
 }
