@@ -27,12 +27,8 @@ function PlatformIcon({ name }: { name: string }) {
 export function CompatibilityGrid() {
   const { t } = useSettings();
   return (
-    <section className="section platform-section" aria-labelledby="platform-title">
+    <section className="section platform-section" aria-label={t("Compatible devices and players")}>
       <div className="container">
-        <div className="section-heading centered">
-          <div className="eyebrow">{t("Compatible with all popular devices")}</div>
-          <h2 id="platform-title">{t("Everything you need for perfect ")}<em>{t("IPTV entertainment.")}</em></h2>
-        </div>
         <LogoRail items={platforms.map((platform) => (
             <div className="platform-tile" key={platform.name} style={{ color: platform.color }} aria-label={platform.name}>
               <div className="platform-symbol"><PlatformIcon name={platform.icon} /></div>

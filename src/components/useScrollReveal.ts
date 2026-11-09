@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 
 const SELECTOR = [
   ".section-heading",
   ".page-hero-inner",
   ".devices-copy",
   ".faq-intro",
+  ".faq-item",
   ".cta-panel",
   ".prose",
   ".service-card",
@@ -14,11 +15,33 @@ const SELECTOR = [
   ".post-card",
   ".location-card",
   ".difference-path",
+  ".home-banner",
+  ".channel-strip",
+  ".trust-strip-inner > div",
+  ".ph-hero-bottom",
+  ".service-carousel",
+  ".product-visual",
+  ".product-copy",
+  ".hardware-copy",
+  ".hardware-video-frame",
+  ".hl-copy",
+  ".hl-visual",
+  ".popular-product",
+  ".ph-copy",
+  ".ph-double-phones",
+  ".ph-app-visual",
+  ".ph-device-scene",
+  ".ph-chat",
+  ".ph-centered",
+  ".ph-price-card",
+  ".ph-final-panel > div",
+  ".footer-grid > div",
+  ".footer-bottom",
 ].join(",");
 
-/** Fades text and cards up as they scroll into view. Re-runs on every page change. */
+/** Fades each section, card and column up as it scrolls into view. */
 export function useScrollReveal(path: string) {
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
 
@@ -27,6 +50,7 @@ export function useScrollReveal(path: string) {
 
     // Stagger siblings inside the same grid.
     els.forEach((el) => {
+      el.classList.add("reveal");
       const siblings = el.parentElement ? Array.from(el.parentElement.children) : [];
       el.style.setProperty("--reveal-delay", `${Math.min(siblings.indexOf(el), 5) * 90}ms`);
     });

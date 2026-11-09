@@ -33,8 +33,9 @@ export function HomePage() {
         </div>
         <div className="hero-visual"><IPTVLogo className="iptv-hero" /><div className="visual-glow" /><div className="hero-stick"><img src={theme === "light" ? heroStickLight : heroStick} alt="Tv Packages streaming stick and voice remote" /></div></div>
       </div>
-      <div className="scroll-hint"><span />{t("Scroll to explore")}</div>
     </section>
+
+    <CompatibilityGrid />
 
     <section className="trust-strip" aria-label={t("Why customers choose us")}><div className="container trust-strip-inner">{[["message", "WhatsApp-first support"], ["devices", "Works on 7+ device types"], ["clock", "Guided setup in minutes"], ["globe", "UK & worldwide entertainment"]].map(([icon, label]) => <div key={label}><Icon name={icon} size={20} /><span>{t(label)}</span></div>)}</div></section>
     <BrandStrip />
@@ -57,7 +58,6 @@ export function HomePage() {
     <section className="section highlights-section"><div className="container hl-layout"><div className="hl-copy"><div className="eyebrow"><span />{t("Why Tv Packages")}</div><h2>{t("Small device. ")}<em>{t("Big entertainment.")}</em></h2><div className="hl-features">{highlightFeatures.map(([icon, title, text]) => <div className="hl-feature" key={title}><span><Icon name={icon} size={22} /></span><div><strong>{t(title)}</strong><small>{t(text)}</small></div></div>)}</div><WhatsAppButton>Ask About IPTv Packages</WhatsAppButton></div><div className="hl-visual"><IPTVLogo className="iptv-section-image" /><div className="hl-glow" /><figure className="hl-frame"><img src={hlPortable} alt="Compact and portable: take your entertainment anywhere" loading="lazy" /></figure><div className="hl-chip hl-chip-top"><Icon name="box" size={18} /><span><strong>{t("Portable design")}</strong><small>{t("Take it anywhere with a TV")}</small></span></div><div className="hl-chip hl-chip-bottom"><Icon name="clock" size={18} /><span><strong>{t("Setup in minutes")}</strong><small>{t("Guided on WhatsApp")}</small></span></div></div></div></section>
 
     <RetainedSection kind="devices" />
-    <CompatibilityGrid />
     <RetainedSection kind="support" />
 
     <section className="section why-section"><div className="container"><div className="section-heading split"><div><div className="eyebrow">{t("The Tv Packages difference")}</div><h2>{t("Entertainment made ")}<em>{t("simple.")}</em></h2></div><p>{t("Premium viewing should feel effortless. From your first message to getting set up, we keep everything clear and personal.")}</p></div>{photos.home && <div className="home-banner"><img src={photos.home} alt="Family enjoying entertainment together at home" loading="lazy" /><div className="home-banner-copy"><strong>{t("Home entertainment, upgraded.")}</strong><span>{t("Movies, sports and live TV for the whole family.")}</span></div></div>}<div className="difference-path"><svg className="difference-connector" viewBox="0 0 1200 300" preserveAspectRatio="none" fill="none" aria-hidden="true"><path className="difference-track" d="M-150 230C0 230 0 70 150 70S300 230 450 230S600 70 750 70S900 230 1050 230S1200 70 1350 70" /><path className="difference-flow" d="" /></svg>{why.map(([icon, title, text], index) => <article className="difference-stop" key={title} style={{ animationDelay: `${index * 180}ms` }}><div className="difference-node"><span className="difference-ring">{icon === "message" ? <WhatsAppIcon size={30} /> : <Icon name={icon} size={30} />}</span><span className="difference-number">0{index + 1}</span></div><h3>{t(title)}</h3><p>{t(text)}</p></article>)}</div></div></section>

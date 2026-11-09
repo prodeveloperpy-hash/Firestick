@@ -1809,21 +1809,7 @@ section[id] {
 }
 
 /* ---------- Scroll reveal ---------- */
-.reveal-ready
-  :is(
-    .section-heading,
-    .page-hero-inner,
-    .devices-copy,
-    .faq-intro,
-    .cta-panel,
-    .prose,
-    .service-card,
-    .why-card,
-    .process-card,
-    .price-card,
-    .post-card,
-    .location-card
-  ) {
+.reveal-ready .reveal {
   transition:
     opacity 0.8s ease var(--reveal-delay, 0ms),
     translate 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
@@ -1831,24 +1817,23 @@ section[id] {
     border-color 0.25s ease,
     box-shadow 0.25s ease;
 }
-.reveal-ready
-  :is(
-    .section-heading,
-    .page-hero-inner,
-    .devices-copy,
-    .faq-intro,
-    .cta-panel,
-    .prose,
-    .service-card,
-    .why-card,
-    .process-card,
-    .price-card,
-    .post-card,
-    .location-card
-  ):not(.revealed) {
+.reveal-ready .reveal:not(.revealed) {
   opacity: 0;
   translate: 0 28px;
 }
+
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 22px; }
+  to { opacity: 1; translate: 0 0; }
+}
+.hero-copy > * { animation: rise-in 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.hero-copy > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.14s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.23s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.32s; }
+.hero-copy > *:nth-child(5) { animation-delay: 0.41s; }
+.hero-copy > *:nth-child(6) { animation-delay: 0.5s; }
+.hero-visual { animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.18s both; }
 
 /* ---------- Floating cards ---------- */
 @keyframes card-float {
@@ -2739,7 +2724,7 @@ h1 em, h2 em {
 .navbar { background: rgba(7,9,15,.7); }
 
 /* Hero */
-.hero { min-height: 900px; background:
+.hero { min-height: auto; padding-bottom: 28px; background:
   radial-gradient(ellipse at 72% 40%, rgba(88,48,190,.32), transparent 48%),
   var(--ink); }
 .hero-lead { font-size: 19px; line-height: 1.7; max-width: 560px; margin-bottom: 34px; color: #a9b0c2; }
@@ -4103,7 +4088,8 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
   .channel-arrow-next { right: 12px; }
 }
 
-.platform-section { background: #07090d; }
+.platform-section { background: transparent; }
+.platform-section.section { padding-block: 0 36px; }
 .platform-section .section-heading.centered { max-width: 1000px; margin-bottom: 48px; }
 .platform-section h2 { text-transform: uppercase; font-size: clamp(28px, 3.4vw, 48px); }
 .platform-section .eyebrow { font-size: 12px; }
