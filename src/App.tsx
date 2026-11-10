@@ -5,7 +5,7 @@ import { WHATSAPP_URL, WhatsAppIcon } from "./components/ui";
 import { BlogPage, BlogPostPage } from "./pages/Blog";
 import { NotFoundPage } from "./pages/NotFound";
 import { HomePage } from "./pages/Home";
-import { AdultsPage, ContactPage, DevicesPage, FaqsPage, HowItWorksPage, NetflixPage, PackagesPage, PrivacyPage, ProductsPage, TermsPage } from "./pages/SitePages";
+import { AdultsPage, ContactPage, DevicesPage, FaqsPage, HowItWorksPage, NetflixPage, PackagesPage, PrivacyPage, TermsPage } from "./pages/SitePages";
 import { navigate, useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { ServiceCarousel, ServiceSpotlight } from "./components/ServiceCarousel";
 import { PageHero, CtaSection } from "./components/PageParts";
@@ -17,9 +17,9 @@ import { adultService, netflixService, services } from "./data/home";
 const HASH_TO_PATH: Record<string, string> = {
   "our-services": "/services",
   services: "/services",
-  "popular-products": "/products",
-  products: "/products",
-  product: "/products",
+  "popular-products": "/devices",
+  products: "/devices",
+  product: "/devices",
   "compatible-devices": "/devices",
   devices: "/devices",
   packages: "/packages",
@@ -37,6 +37,10 @@ export default function App() {
   useScrollReveal(path);
   useDifferencePath(path);
   useLayoutEffect(() => {
+    if (path === "/products") {
+      navigate("/devices", { replace: true });
+      return;
+    }
     const id = decodeURIComponent(window.location.hash.replace(/^#/, ""));
     const dest = HASH_TO_PATH[id];
     if (dest) navigate(dest, { replace: true });
@@ -45,8 +49,7 @@ export default function App() {
   let page;
   if (path === "/") page = <HomePage />;
   else if (path === "/services") page = <ServicesPage />;
-  else if (path === "/products") page = <ProductsPage />;
-  else if (path === "/devices") page = <DevicesPage />;
+  else if (path === "/devices" || path === "/products") page = <DevicesPage />;
   else if (path === "/packages") page = <PackagesPage />;
   else if (path === "/faqs") page = <FaqsPage />;
   else if (path === "/contact") page = <ContactPage />;

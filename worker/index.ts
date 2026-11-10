@@ -17,8 +17,13 @@ export default {
       url.hostname = CANONICAL_HOST;
       return Response.redirect(url.toString(), 301);
     }
+    const bare = url.pathname.length > 1 ? url.pathname.replace(/\/+$/, "") : url.pathname;
+    if (bare === "/products") {
+      url.pathname = "/devices";
+      return Response.redirect(url.toString(), 301);
+    }
     if (url.pathname.length > 1 && url.pathname.endsWith("/")) {
-      url.pathname = url.pathname.replace(/\/+$/, "") || "/";
+      url.pathname = bare || "/";
       return Response.redirect(url.toString(), 301);
     }
     return env.ASSETS.fetch(request);

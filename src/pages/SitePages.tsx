@@ -8,30 +8,11 @@ import { adultService, netflixService } from "../data/home";
 import { usePageMeta } from "../router";
 import { useSettings } from "../settings";
 
-export function ProductsPage() {
-  const { t } = useSettings();
-  usePageMeta(
-    "Products | Tv Packages",
-    "Browse the Fire Stick full set and Amazon Fire TV Stick from Tv Packages, then order on WhatsApp.",
-  );
-  return (
-    <main>
-      <PageHero
-        eyebrow={t("Pick your device")}
-        title={<>{t("Our Popular Products")}</>}
-        lead={t("Choose a streaming stick and send your order on WhatsApp.")}
-      />
-      <PopularProducts showHeading={false} />
-      <CtaSection />
-    </main>
-  );
-}
-
 export function DevicesPage() {
   const { t } = useSettings();
   usePageMeta(
     "Devices | Tv Packages",
-    "Tv Packages works with Fire TV Stick, smart TVs, Android TV boxes, phones and tablets. Message us to check your device.",
+    "Order a Fire TV Stick or use your own smart TV, phone or tablet. Tv Packages helps you check the device and get set up.",
   );
   return (
     <main>
@@ -42,6 +23,7 @@ export function DevicesPage() {
       />
       <CompatibilityGrid />
       <RetainedSection kind="devices" />
+      <PopularProducts />
       <CtaSection />
     </main>
   );
