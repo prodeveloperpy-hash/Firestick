@@ -4337,6 +4337,64 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
 .services.section { padding-top: 64px; padding-bottom: 64px; }
 .services .section-heading.centered { margin-bottom: 32px; }
 .service-category-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; padding: 0 var(--section-inset) 24px; }
+.service-full { padding: 118px var(--section-inset) 8px; }
+.service-full-hero { border-radius: 28px; overflow: hidden; background: #070910; line-height: 0; }
+.service-full-photo { display: block; width: 100%; height: auto; max-width: 100%; object-fit: contain; object-position: center; }
+.service-full-copy { max-width: 1120px; padding-top: 36px; }
+.service-full-copy h1 { margin: 14px 0 16px; font-size: clamp(40px, 5vw, 72px); line-height: 1.05; letter-spacing: -0.045em; }
+.service-full-copy > p { max-width: 680px; font-size: 18px; }
+.service-full-copy .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+.service-full-tags { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 22px 0; list-style: none; }
+.service-full-tags li { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; background: #ffffff14; border: 1px solid #ffffff35; border-radius: 99px; font-size: 13px; }
+.service-full-tags svg { color: #8aebaa; }
+.channel-group h2 { margin: 10px 0 0; font-size: clamp(28px, 3vw, 42px); letter-spacing: -0.04em; }
+.service-full-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; margin: 18px 0 34px; }
+.service-full-tiles.is-posters { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); }
+.service-full .service-brand-tile {
+  min-height: 188px;
+  padding: 24px 18px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #ffffff, #f3f5fb);
+  border: 1px solid #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  color: #152038;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-full .service-brand-tile:hover { transform: translateY(-5px); box-shadow: 0 26px 48px rgba(0, 0, 0, 0.36); }
+.service-full .service-brand-tile > svg { width: 52px; height: 52px; color: inherit; }
+.service-full .service-brand-tile strong { font-size: 24px; font-weight: 800; color: inherit; }
+.service-full .service-brand-netflix { color: #e50914; }
+.service-full .service-brand-hbo { color: #111; }
+.service-full .service-brand-disney { color: #113984; }
+.service-full .service-brand-prime { color: #00a8e1; }
+.service-full .service-brand-sky { color: #bf217a; }
+.service-full .service-brand-tnt, .service-full .service-brand-sports { color: #5b2d90; }
+.service-full .service-brand-ufc { color: #d20a0a; }
+.service-full .service-brand-live { color: #0f766e; }
+.service-full .service-brand-adults { color: #9a3412; }
+.service-full .service-channel-logo { display: block; width: 78%; height: 86px; max-width: none; object-fit: contain; }
+.service-full .channel-caption { margin-top: 12px; font-size: 15px; font-weight: 800; letter-spacing: -0.02em; color: #152038; }
+.service-full .service-brand-prime > .service-channel-logo { width: 92%; height: 96px; }
+.service-full .service-brand-netflix > .service-channel-logo { width: auto; max-width: 64%; height: 92px; }
+html[data-theme="light"] .service-full-tiles { filter: invert(1) hue-rotate(180deg); }
+html[data-theme="light"] .service-full-tiles img { filter: none; }
+.service-full .service-brand-tile.is-poster { aspect-ratio: 3 / 4; min-height: 0; padding: 0; }
+.service-full .service-brand-tile.is-poster .service-person { object-position: center center; }
+.service-full .service-brand-tile.is-poster strong { font-size: 18px; }
+.service-full .service-brand-tile.has-photo { position: relative; padding: 0; overflow: hidden; color: #fff; justify-content: flex-end; min-height: 188px; }
+.service-full .service-brand-tile.has-photo .service-person { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.service-full .service-brand-tile.has-photo strong { position: relative; z-index: 1; margin-top: auto; padding: 28px 10px 12px; width: 100%; background: linear-gradient(transparent, rgba(0,0,0,.72)); color: #fff; font-size: 15px; }
+.service-full .service-brand-tile.is-poster { min-height: 0; aspect-ratio: 3 / 4; }
+.service-full .service-brand-tile.is-poster .service-person { object-position: center center; }
+.service-full .service-brand-tile.is-poster strong { font-size: 18px; }
+@media (max-width: 800px) {
+  .service-full { padding-top: 96px; }
+  .service-full-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.service-more-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.service-more-grid a { display: flex; align-items: center; gap: 10px; min-height: 64px; padding: 14px 16px; border-radius: 16px; color: #f4f6fb; background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12); }
+.service-more-grid a:hover { background: rgba(255, 255, 255, 0.12); }
+.service-more-grid svg { color: #ffb168; flex-shrink: 0; }
 .service-spotlight { margin: 36px var(--section-inset) 8px; border-radius: 28px; overflow: hidden; }
 .service-spotlight .service-slide { min-height: 560px; padding-top: 36px; }
 .service-spotlight .service-slide-copy { padding-bottom: 48px; }
@@ -4505,3 +4563,32 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
 .difference-number { width: calc(28 * var(--k)); height: calc(28 * var(--k)); font-size: max(7px, calc(10 * var(--k))); }
 .difference-stop h3 { font-size: max(11px, calc(18 * var(--k))); margin-bottom: calc(12 * var(--k)); }
 .difference-stop p { font-size: max(9px, calc(13 * var(--k))); line-height: 1.6; }
+
+/* Netflix browse: dark shelves of our own cinema stills */
+.netflix-browse { background: #141414; color: #fff; }
+.netflix-billboard { position: relative; min-height: 72vh; display: flex; align-items: flex-end; overflow: hidden; }
+.netflix-billboard > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.netflix-billboard::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20, 20, 20, 0.94) 0%, rgba(20, 20, 20, 0.55) 46%, rgba(20, 20, 20, 0.05) 72%), linear-gradient(transparent 42%, #141414); }
+.netflix-billboard-copy { position: relative; z-index: 1; width: min(620px, calc(100% - 40px)); margin: 120px 0 9vh 4vw; }
+.netflix-mark { width: 58px; height: 58px; padding: 10px; background: #000; border-radius: 12px; }
+.netflix-browse h1 { margin: 16px 0 12px; color: #fff; font-size: clamp(40px, 5vw, 64px); }
+.netflix-billboard-copy p { max-width: 460px; color: #e5e5e5; font-size: 18px; }
+.netflix-play { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 12px 22px; border-radius: 6px; background: #fff; color: #111; font-weight: 800; }
+.netflix-play:hover { background: #e6e6e6; }
+.netflix-row-block { padding: 6px 0 8px; }
+.netflix-row-block h2 { margin: 0 0 8px 4vw; color: #fff; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+.netflix-row { display: flex; gap: 8px; overflow-x: auto; padding: 6px 4vw 18px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.netflix-row::-webkit-scrollbar { display: none; }
+.netflix-card { position: relative; flex: 0 0 268px; aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden; scroll-snap-align: start; background: #222; transition: transform 0.2s ease; }
+.netflix-card:hover { transform: scale(1.06); z-index: 2; }
+.netflix-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.netflix-card::after { content: ""; position: absolute; inset: auto 0 0; height: 58%; background: linear-gradient(transparent, rgba(0, 0, 0, 0.82)); }
+.netflix-badge { position: absolute; left: 10px; bottom: 40px; z-index: 1; padding: 3px 7px; border-radius: 2px; background: #e50914; color: #fff; font-size: 11px; font-weight: 800; }
+.netflix-card strong { position: absolute; left: 12px; right: 12px; bottom: 10px; z-index: 1; color: #fff; font-size: 18px; text-shadow: 0 2px 10px #000; }
+.netflix-note { max-width: 720px; margin: 0; padding: 8px 4vw 40px; color: #b3b3b3; font-size: 14px; }
+html[data-theme="light"] .netflix-browse { filter: invert(1) hue-rotate(180deg); }
+html[data-theme="light"] .netflix-browse img { filter: none; }
+@media (max-width: 700px) {
+  .netflix-card { flex-basis: 220px; }
+  .netflix-billboard { min-height: 78vh; }
+}

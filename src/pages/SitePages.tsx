@@ -3,8 +3,6 @@ import { FaqSection, HowItWorksSection } from "../components/HomeSections";
 import { CtaSection, PageHero } from "../components/PageParts";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection } from "../components/RetainedSections";
-import { ServiceSpotlight } from "../components/ServiceCarousel";
-import { adultService, netflixService } from "../data/home";
 import { usePageMeta } from "../router";
 import { useSettings } from "../settings";
 
@@ -100,42 +98,6 @@ export function HowItWorksPage() {
       />
       <HowItWorksSection showHeading={false} />
       <CtaSection />
-    </main>
-  );
-}
-
-export function NetflixPage() {
-  const { t } = useSettings();
-  usePageMeta(
-    "Netflix | Tv Packages",
-    "We install Netflix on your Fire TV Stick or smart TV and help you sign in with your own Netflix subscription.",
-  );
-  return (
-    <main>
-      <PageHero
-        eyebrow="Netflix"
-        title={<>Netflix on your <em>Fire TV Stick.</em></>}
-        lead={t("Watch Netflix on your Fire TV Stick or smart TV. We install the app and help you sign in with your own subscription.")}
-      />
-      <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
-    </main>
-  );
-}
-
-export function AdultsPage() {
-  const { t } = useSettings();
-  usePageMeta(
-    "18+ Adults | Tv Packages",
-    "A separate 18+ adults section for viewers 18 and over, on supported Tv Packages plans and devices.",
-  );
-  return (
-    <main>
-      <PageHero
-        eyebrow={t("18+ only")}
-        title={<>{t("18+ Adults")}</>}
-        lead={t("A separate adults section for viewers 18 and over, on supported packages and devices.")}
-      />
-      <ServiceSpotlight service={adultService} id="adults" kicker="18+ only" />
     </main>
   );
 }

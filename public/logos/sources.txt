@@ -14,3 +14,9 @@ https://commons.wikimedia.org/wiki/File:TNT_Sports_(2023).svg
 https://upload.wikimedia.org/wikipedia/commons/8/83/TNT_Sports_%282023%29.svg
 
 Wikimedia source pages identify these as public-domain text logos; trademarks remain with their respective owners.
+
+Channel 4, ITVX, NOW, CNN, FOX, DAZN, Paramount+, Apple TV, Premier League, WWE, Animal Planet, Crunchyroll, MUBI, Showtime, STARZ, Max, Warner Bros., Tubi, NBA, Bilibili, Rakuten, Jio, Fubo and YouTube TV:
+https://github.com/simple-icons/simple-icons/tree/14.0.0/icons
+Distributed by Simple Icons under CC0; original trademarks belong to their respective owners.
+
+Cinema category photographs in public/cinema are original images made for this site. They are not film posters or channel logos.

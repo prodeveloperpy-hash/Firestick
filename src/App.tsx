@@ -1,11 +1,17 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { WHATSAPP_URL, WhatsAppIcon } from "./components/ui";
 import { BlogPage, BlogPostPage } from "./pages/Blog";
 import { NotFoundPage } from "./pages/NotFound";
 import { HomePage } from "./pages/Home";
-import { AdultsPage, ContactPage, DevicesPage, FaqsPage, HowItWorksPage, NetflixPage, PackagesPage, PrivacyPage, TermsPage } from "./pages/SitePages";
+import { ContactPage, DevicesPage, FaqsPage, HowItWorksPage, PackagesPage, PrivacyPage, TermsPage } from "./pages/SitePages";
+import { AdultsPage } from "./pages/services/AdultsPage";
+import { AppsPage } from "./pages/services/AppsPage";
+import { LiveTvPage } from "./pages/services/LiveTvPage";
+import { MoviesPage } from "./pages/services/MoviesPage";
+import { NetflixPage } from "./pages/services/NetflixPage";
+import { SportsPage } from "./pages/services/SportsPage";
 import { navigate, useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { ServiceCarousel, ServiceSpotlight } from "./components/ServiceCarousel";
 import { PageHero, CtaSection } from "./components/PageParts";
@@ -49,10 +55,10 @@ export default function App() {
   let page;
   if (path === "/") page = <HomePage />;
   else if (path === "/services") page = <ServicesPage />;
-  else if (path.startsWith("/services/")) {
-    const slug = decodeURIComponent(path.slice("/services/".length));
-    page = services.some((service) => service.slug === slug) ? <ServicesPage slug={slug} /> : <NotFoundPage />;
-  }
+  else if (path === "/services/live-tv") page = <LiveTvPage />;
+  else if (path === "/services/sports") page = <SportsPage />;
+  else if (path === "/services/movies") page = <MoviesPage />;
+  else if (path === "/services/apps") page = <AppsPage />;
   else if (path === "/devices" || path === "/products") page = <DevicesPage />;
   else if (path === "/packages") page = <PackagesPage />;
   else if (path === "/faqs") page = <FaqsPage />;
@@ -84,25 +90,15 @@ export default function App() {
   );
 }
 
-function ServicesPage({ slug }: { slug?: string }) {
+function ServicesPage() {
   const { t } = useSettings();
-  const index = slug ? services.findIndex((service) => service.slug === slug) : -1;
-  const current = index >= 0 ? services[index] : null;
-  usePageMeta(
-    current ? `${current.title} | Tv Packages` : "Services | Tv Packages",
-    current ? current.text : "Explore live TV, sports, movies, series and entertainment apps with Tv Packages. Get compatible-device guidance and personal support on WhatsApp.",
-  );
+  usePageMeta("Services | Tv Packages", "Explore live TV, sports, movies, series and entertainment apps with Tv Packages. Get compatible-device guidance and personal support on WhatsApp.");
   useInitialHashScroll();
-  useEffect(() => {
-    if (!current) return;
-    const frame = requestAnimationFrame(() => document.getElementById("our-services")?.scrollIntoView({ block: "start" }));
-    return () => cancelAnimationFrame(frame);
-  }, [current]);
   return (
     <main>
       <PageHero eyebrow={t("Our Services")} title={<>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></>} lead={t("Explore live TV, premium sports, movies, series and entertainment apps across your compatible devices.")} />
       <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
-        <ServiceCarousel key={current?.slug ?? "all"} items={services} initial={index >= 0 ? index : 0} autoplay={!current} />
+        <ServiceCarousel items={services} />
         <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
         <ServiceSpotlight service={adultService} id="adults" kicker="18+ only" />
       </section>
