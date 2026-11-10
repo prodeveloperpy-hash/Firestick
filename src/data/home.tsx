@@ -11,6 +11,7 @@ import svcAdults from "../assets/services/adults.jpg";
 import svcNetflix from "../assets/services/netflix.jpg";
 import adultOne from "../assets/services/adult-1.jpg";
 import adultTwo from "../assets/services/adult-2.jpg";
+import adultThree from "../assets/services/adult-3.jpg";
 
 export const steps = [
   {
@@ -131,11 +132,11 @@ export const adultService = {
   icon: "moon",
   number: "18+",
   image: svcAdults,
-  imageAlt: "Adult woman in an evening dress in a late-night lounge",
+  imageAlt: "Adult couple in evening clothes sharing a candlelit dinner",
   title: "18+ Adults",
   text: "A separate adults section for viewers 18 and over, on supported packages and devices.",
   tags: ["18+ only", "Adult channels", "Late night"],
-  showcase: [["moon", "18+ Channels", "adults", adultOne], ["film", "Adult movies", "adults", adultTwo], ["play", "Late night", "adults"], ["tv", "On your device", "adults"]],
+  showcase: [["moon", "18+ Channels", "adults", adultOne], ["film", "Adult movies", "adults", adultTwo], ["play", "Late night", "adults", adultThree], ["tv", "On your device", "adults", svcAdults]],
 };
 
 export const devices = [
