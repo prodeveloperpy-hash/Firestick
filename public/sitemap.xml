@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://tvpackages.uk/</loc></url>
   <url><loc>https://tvpackages.uk/services</loc></url>
+  <url><loc>https://tvpackages.uk/services/live-tv</loc></url>
+  <url><loc>https://tvpackages.uk/services/sports</loc></url>
+  <url><loc>https://tvpackages.uk/services/movies</loc></url>
+  <url><loc>https://tvpackages.uk/services/apps</loc></url>
   <url><loc>https://tvpackages.uk/devices</loc></url>
   <url><loc>https://tvpackages.uk/packages</loc></url>
   <url><loc>https://tvpackages.uk/faqs</loc></url>

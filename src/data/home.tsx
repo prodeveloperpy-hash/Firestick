@@ -72,6 +72,7 @@ export const HERO_PHRASES = [
 export const services = [
   {
     icon: "tv",
+    slug: "live-tv",
     number: "01",
     image: svcLive,
     imageAlt: "Broadcast news studio with London skyline and a world map",
@@ -82,6 +83,7 @@ export const services = [
   },
   {
     icon: "trophy",
+    slug: "sports",
     number: "02",
     image: svcSports,
     imageAlt: "Live football match in a floodlit stadium",
@@ -92,6 +94,7 @@ export const services = [
   },
   {
     icon: "film",
+    slug: "movies",
     number: "03",
     image: svcMovies,
     imageAlt: "Professional cinema camera on a film production set",
@@ -102,6 +105,7 @@ export const services = [
   },
   {
     icon: "apps",
+    slug: "apps",
     number: "04",
     image: svcApps,
     imageAlt: "Remote, phone and tablet ready for home entertainment",

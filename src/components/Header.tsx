@@ -4,6 +4,13 @@ import { useSettings } from "../settings";
 import { BrandMark, Icon, WhatsAppButton } from "./ui";
 import { LanguageDropdown } from "./LanguageDropdown";
 import { ThemeToggle } from "./ThemeToggle";
+import { adultService, netflixService, services } from "../data/home";
+
+const serviceMenu = [
+  ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}`, icon: service.icon })),
+  { label: netflixService.title, href: "/netflix", icon: netflixService.icon },
+  { label: adultService.title, href: "/adults", icon: adultService.icon },
+];
 
 const navItems = [
   ["Home", "/"],
@@ -35,6 +42,7 @@ export function Header() {
   }, []);
 
   const close = () => setMenuOpen(false);
+  const servicesActive = path.startsWith("/services") || path === "/netflix" || path === "/adults";
 
   const navLink = ([label, href]: string[]) => {
     const active = href === "/" ? path === "/" : href === "/blog" ? path.startsWith("/blog") : path === href;
@@ -55,7 +63,25 @@ export function Header() {
           </span>
         </Link>
         <nav className={`nav-links ${menuOpen ? "open" : ""}`} aria-label="Main navigation">
-          {navItems.map(navLink)}
+          {navItems.map(([label, href]) =>
+            label === "Services" ? (
+              <div className="nav-dropdown" key={label}>
+                <Link href="/services" onClick={close} className={servicesActive ? "active" : undefined} aria-haspopup="true">
+                  {t("Services")} <Icon name="chevron" size={14} />
+                </Link>
+                <div className="services-menu" role="menu" aria-label={t("Services")}>
+                  {serviceMenu.map((item) => (
+                    <Link key={item.href} href={item.href} role="menuitem" onClick={close} className={path === item.href ? "active" : undefined}>
+                      <Icon name={item.icon} size={16} />
+                      <span>{t(item.label)}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              navLink([label, href])
+            ),
+          )}
           <div className="nav-menu-tools">
             <ThemeToggle />
             <LanguageDropdown />

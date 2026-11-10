@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { WHATSAPP_URL, WhatsAppIcon } from "./components/ui";
@@ -49,6 +49,10 @@ export default function App() {
   let page;
   if (path === "/") page = <HomePage />;
   else if (path === "/services") page = <ServicesPage />;
+  else if (path.startsWith("/services/")) {
+    const slug = decodeURIComponent(path.slice("/services/".length));
+    page = services.some((service) => service.slug === slug) ? <ServicesPage slug={slug} /> : <NotFoundPage />;
+  }
   else if (path === "/devices" || path === "/products") page = <DevicesPage />;
   else if (path === "/packages") page = <PackagesPage />;
   else if (path === "/faqs") page = <FaqsPage />;
@@ -80,15 +84,25 @@ export default function App() {
   );
 }
 
-function ServicesPage() {
+function ServicesPage({ slug }: { slug?: string }) {
   const { t } = useSettings();
-  usePageMeta("Services | Tv Packages", "Explore live TV, sports, movies, series and entertainment apps with Tv Packages. Get compatible-device guidance and personal support on WhatsApp.");
+  const index = slug ? services.findIndex((service) => service.slug === slug) : -1;
+  const current = index >= 0 ? services[index] : null;
+  usePageMeta(
+    current ? `${current.title} | Tv Packages` : "Services | Tv Packages",
+    current ? current.text : "Explore live TV, sports, movies, series and entertainment apps with Tv Packages. Get compatible-device guidance and personal support on WhatsApp.",
+  );
   useInitialHashScroll();
+  useEffect(() => {
+    if (!current) return;
+    const frame = requestAnimationFrame(() => document.getElementById("our-services")?.scrollIntoView({ block: "start" }));
+    return () => cancelAnimationFrame(frame);
+  }, [current]);
   return (
     <main>
       <PageHero eyebrow={t("Our Services")} title={<>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></>} lead={t("Explore live TV, premium sports, movies, series and entertainment apps across your compatible devices.")} />
       <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
-        <ServiceCarousel items={services} />
+        <ServiceCarousel key={current?.slug ?? "all"} items={services} initial={index >= 0 ? index : 0} autoplay={!current} />
         <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
         <ServiceSpotlight service={adultService} id="adults" kicker="18+ only" />
       </section>

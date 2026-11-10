@@ -7,10 +7,10 @@ type Service = { icon: string; number: string; image: string; imageAlt: string; 
 
 const supportedDevices = [["tv", "Fire Stick"], ["tv", "Smart TV"], ["phone", "Android"], ["box", "MAG / Msg Box"], ["tablet", "Tablet"], ["phone", "iPhone"], ["tablet", "iPad"]];
 
-export function ServiceCarousel({ items }: { items: Service[] }) {
+export function ServiceCarousel({ items, initial = 0, autoplay = true }: { items: Service[]; initial?: number; autoplay?: boolean }) {
   const { t } = useSettings();
-  const [active, setActive] = useState(0);
-  const [position, setPosition] = useState(1);
+  const [active, setActive] = useState(initial);
+  const [position, setPosition] = useState(initial + 1);
   const [resetting, setResetting] = useState(false);
   const moving = useRef(false);
   const [hovered, setHovered] = useState(false);
@@ -63,12 +63,12 @@ export function ServiceCarousel({ items }: { items: Service[] }) {
   }, []);
 
   useEffect(() => {
-    if (hovered || focused || !visible || reducedMotion) return;
+    if (!autoplay || hovered || focused || !visible || reducedMotion) return;
     const timer = window.setInterval(() => {
       if (!document.hidden) go(active + 1);
     }, 2000);
     return () => window.clearInterval(timer);
-  }, [hovered, focused, visible, reducedMotion, active, go]);
+  }, [autoplay, hovered, focused, visible, reducedMotion, active, go]);
 
   return (
     <div ref={root} className="service-carousel" role="region" aria-roledescription="carousel" aria-label={t("What we offer")}
