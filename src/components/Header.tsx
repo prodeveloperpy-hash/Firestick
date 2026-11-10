@@ -8,16 +8,16 @@ import { ThemeToggle } from "./ThemeToggle";
 const navItems = [
   ["Home", "/"],
   ["Services", "/services"],
-  ["Products", "/#popular-products"],
-  ["Devices", "/#compatible-devices"],
-  ["Packages", "/#packages"],
-  ["FAQs", "/#faqs"],
-  ["Contact", "/#contact"],
+  ["Products", "/products"],
+  ["Devices", "/devices"],
+  ["Packages", "/packages"],
+  ["FAQs", "/faqs"],
+  ["Contact", "/contact"],
   ["Blog", "/blog"],
 ];
 
 export function Header() {
-  const path = usePath();
+  const path = usePath().replace(/\/+$/, "") || "/";
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useSettings();
   const [scrolled, setScrolled] = useState(false);
@@ -38,7 +38,7 @@ export function Header() {
   const close = () => setMenuOpen(false);
 
   const navLink = ([label, href]: string[]) => {
-    const active = href === "/blog" ? path.startsWith("/blog") : href === "/services" && path === "/services";
+    const active = href === "/" ? path === "/" : href === "/blog" ? path.startsWith("/blog") : path === href;
     return (
       <Link key={label} href={href} onClick={close} className={active ? "active" : undefined}>
         {t(label)}

@@ -8,15 +8,17 @@ const products = [
   { name: "Amazon Fire TV Stick", image: stick, alt: "Streaming stick and matching voice remote", price: 60, original: 80, discount: 25 },
 ];
 
-export function PopularProducts() {
+export function PopularProducts({ showHeading = true }: { showHeading?: boolean }) {
   const { t } = useSettings();
   return (
-    <section className="section popular-products-section" id="popular-products" aria-labelledby="popular-products-title">
+    <section className="section popular-products-section" id="popular-products" aria-labelledby={showHeading ? "popular-products-title" : undefined}>
       <div className="container">
-        <div className="section-heading centered">
-          <div className="eyebrow">{t("Pick your device")}</div>
-          <h2 id="popular-products-title">{t("Our Popular Products")}</h2>
-        </div>
+        {showHeading && (
+          <div className="section-heading centered">
+            <div className="eyebrow">{t("Pick your device")}</div>
+            <h2 id="popular-products-title">{t("Our Popular Products")}</h2>
+          </div>
+        )}
         <div className="popular-products-grid">
           {products.map((product) => {
             const enquiry = new URL(WHATSAPP_URL);

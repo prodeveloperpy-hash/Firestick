@@ -876,6 +876,9 @@ p {
   gap: 100px;
   align-items: start;
 }
+.faq-layout-full { grid-template-columns: minmax(0, 860px); }
+.legal-copy { max-width: 760px; }
+.legal-copy p + p { margin-top: 16px; }
 .faq-intro {
   position: sticky;
   top: 110px;

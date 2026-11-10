@@ -21,12 +21,16 @@ function scrollToHash(hash: string) {
   else window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
 }
 
-export function navigate(href: string) {
+export function navigate(href: string, options?: { replace?: boolean }) {
   const url = new URL(href, window.location.href);
-  const samePage = url.pathname === window.location.pathname;
-  window.history.pushState(null, "", url.pathname + url.search + url.hash);
-  listeners.forEach((l) => l());
-  if (samePage && url.hash) {
+  const next = url.pathname + url.search + url.hash;
+  const current = window.location.pathname + window.location.search + window.location.hash;
+  if (next !== current) {
+    if (options?.replace) window.history.replaceState(null, "", next);
+    else window.history.pushState(null, "", next);
+    listeners.forEach((l) => l());
+  }
+  if (url.pathname === window.location.pathname && url.hash) {
     scrollToHash(url.hash);
   } else {
     // Wait for the new page to render before scrolling.
@@ -54,13 +58,27 @@ export function Link({
 export function usePageMeta(title: string, description: string) {
   useEffect(() => {
     document.title = title;
-    let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.name = "description";
-      document.head.appendChild(meta);
-    }
-    meta.content = description;
+    const named = (name: string) => {
+      let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.name = name;
+        document.head.appendChild(tag);
+      }
+      return tag;
+    };
+    const property = (name: string) => {
+      let tag = document.querySelector<HTMLMetaElement>(`meta[property="${name}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", name);
+        document.head.appendChild(tag);
+      }
+      return tag;
+    };
+    named("description").content = description;
+    property("og:title").content = title;
+    property("og:description").content = description;
 
     const href = `https://tvpackages.uk${window.location.pathname}`;
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -71,13 +89,7 @@ export function usePageMeta(title: string, description: string) {
     }
     canonical.href = href;
 
-    let ogUrl = document.querySelector<HTMLMetaElement>('meta[property="og:url"]');
-    if (!ogUrl) {
-      ogUrl = document.createElement("meta");
-      ogUrl.setAttribute("property", "og:url");
-      document.head.appendChild(ogUrl);
-    }
-    ogUrl.content = href;
+    property("og:url").content = href;
   }, [title, description]);
 }
 

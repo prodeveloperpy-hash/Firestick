@@ -28,8 +28,11 @@ export function Footer() {
           <h4>{t("Explore")}</h4>
           <Link href="/">{t("Home")}</Link>
           <Link href="/services">{t("Our Services")}</Link>
-          <Link href="/#compatible-devices">{t("Compatible Devices")}</Link>
-          <Link href="/#packages">{t("Packages")}</Link>
+          <Link href="/products">{t("Products")}</Link>
+          <Link href="/devices">{t("Compatible Devices")}</Link>
+          <Link href="/packages">{t("Packages")}</Link>
+          <Link href="/faqs">{t("FAQs")}</Link>
+          <Link href="/contact">{t("Contact")}</Link>
           <Link href="/blog">{t("Blog")}</Link>
         </div>
         <div>
@@ -51,8 +54,8 @@ export function Footer() {
           © {new Date().getFullYear()} Tv Packages. {t("All rights reserved.")}
         </span>
         <div>
-          <a href="#">{t("Privacy Policy")}</a>
-          <a href="#">{t("Terms & Conditions")}</a>
+          <Link href="/privacy">{t("Privacy Policy")}</Link>
+          <Link href="/terms">{t("Terms & Conditions")}</Link>
         </div>
         <p>
           {t(

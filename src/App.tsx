@@ -1,10 +1,12 @@
+import { useLayoutEffect } from "react";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { WHATSAPP_URL, WhatsAppIcon } from "./components/ui";
 import { BlogPage, BlogPostPage } from "./pages/Blog";
 import { NotFoundPage } from "./pages/NotFound";
 import { HomePage } from "./pages/Home";
-import { useInitialHashScroll, usePageMeta, usePath } from "./router";
+import { AdultsPage, ContactPage, DevicesPage, FaqsPage, HowItWorksPage, NetflixPage, PackagesPage, PrivacyPage, ProductsPage, TermsPage } from "./pages/SitePages";
+import { navigate, useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { ServiceCarousel, ServiceSpotlight } from "./components/ServiceCarousel";
 import { PageHero, CtaSection } from "./components/PageParts";
 import { useScrollReveal } from "./components/useScrollReveal";
@@ -12,24 +14,50 @@ import { useDifferencePath } from "./components/useDifferencePath";
 import { useSettings } from "./settings";
 import { adultService, netflixService, services } from "./data/home";
 
+const HASH_TO_PATH: Record<string, string> = {
+  "our-services": "/services",
+  services: "/services",
+  "popular-products": "/products",
+  products: "/products",
+  product: "/products",
+  "compatible-devices": "/devices",
+  devices: "/devices",
+  packages: "/packages",
+  faqs: "/faqs",
+  faq: "/faqs",
+  contact: "/contact",
+  "how-it-works": "/how-it-works",
+  netflix: "/netflix",
+  adults: "/adults",
+};
+
 export default function App() {
   const path = usePath().replace(/\/+$/, "") || "/";
   const { t } = useSettings();
   useScrollReveal(path);
   useDifferencePath(path);
+  useLayoutEffect(() => {
+    const id = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+    const dest = HASH_TO_PATH[id];
+    if (dest) navigate(dest, { replace: true });
+  }, [path]);
 
   let page;
-  if (path === "/") {
-    page = <HomePage />;
-  } else if (path === "/services") {
-    page = <ServicesPage />;
-  } else if (path === "/blog") {
-    page = <BlogPage />;
-  } else if (path.startsWith("/blog/")) {
-    page = <BlogPostPage slug={path.slice("/blog/".length)} />;
-  } else {
-    page = <NotFoundPage />;
-  }
+  if (path === "/") page = <HomePage />;
+  else if (path === "/services") page = <ServicesPage />;
+  else if (path === "/products") page = <ProductsPage />;
+  else if (path === "/devices") page = <DevicesPage />;
+  else if (path === "/packages") page = <PackagesPage />;
+  else if (path === "/faqs") page = <FaqsPage />;
+  else if (path === "/contact") page = <ContactPage />;
+  else if (path === "/how-it-works") page = <HowItWorksPage />;
+  else if (path === "/netflix") page = <NetflixPage />;
+  else if (path === "/adults") page = <AdultsPage />;
+  else if (path === "/privacy") page = <PrivacyPage />;
+  else if (path === "/terms") page = <TermsPage />;
+  else if (path === "/blog") page = <BlogPage />;
+  else if (path.startsWith("/blog/")) page = <BlogPostPage slug={path.slice("/blog/".length)} />;
+  else page = <NotFoundPage />;
 
   return (
     <div className="site-shell">
