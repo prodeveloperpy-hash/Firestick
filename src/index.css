@@ -4592,3 +4592,24 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
   .netflix-card { flex-basis: 220px; }
   .netflix-billboard { min-height: 78vh; }
 }
+
+.iptv-faq .section-heading { margin-bottom: 28px; }
+.faq-answer > div {
+  overflow: hidden;
+  padding-left: 43px;
+  font-size: 11px;
+}
+.faq-item.active .faq-answer > div { margin: -5px 0 24px; }
+.faq-table-wrap { overflow-x: auto; }
+.faq-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.faq-table th,
+.faq-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.faq-table th { color: #aa8bff; font-weight: 600; }

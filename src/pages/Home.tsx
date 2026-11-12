@@ -6,16 +6,18 @@ import { ServiceCarousel, ServiceSpotlight } from "../components/ServiceCarousel
 import { CompatibilityGrid } from "../components/CompatibilityGrid";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection, HeroNotes, BrandStrip } from "../components/RetainedSections";
-import { FaqSection, HowItWorksSection } from "../components/HomeSections";
-import { adultService, netflixService, services, why, highlightFeatures, HERO_PHRASES } from "../data/home";
+import { FaqSection, HowItWorksSection, IptvFaqSection } from "../components/HomeSections";
+import { useHomeSchema } from "../components/HomeSchema";
+import { adultService, netflixService, services, why, highlightFeatures } from "../data/home";
 import heroStick from "../assets/hero-stick.png";
 import heroStickLight from "../assets/hero-stick-light.png";
 import hlPortable from "../assets/highlights/portable.jpg";
 import { photos } from "../photos";
 
 export function HomePage() {
-  const { t, lang, theme } = useSettings();
-  usePageMeta("Tv Packages | " + t("Premium IPTV Entertainment"), "Explore IPTV entertainment, compatible devices, and flexible plans, then contact a UK-based provider on WhatsApp for personalized guidance.");
+  const { t, theme } = useSettings();
+  useHomeSchema();
+  usePageMeta("Best IPTV Service UK | TV Packages & Setup | TVPackages.uk", "The best UK IPTV packages in 2027. Live TV, sports, movies and 4K streaming — set up on any device via WhatsApp. No contract. UK-based team.");
 
   return <main>
     <section className="hero" id="home">
@@ -23,8 +25,8 @@ export function HomePage() {
       <div className="container hero-grid">
         <div className="hero-copy">
           <div className="eyebrow"><span />{t("Premium IPTV Entertainment")}</div>
-          <h1 aria-label={t("Your Ultimate Entertainment, ") + t("All in One Place.")}><span aria-hidden="true">{t("Your Ultimate Entertainment, ")}</span><Typewriter key={lang} phrases={HERO_PHRASES.map(t)} /></h1>
-          <p className="hero-lead">{t("Enjoy live TV, sports, movies and entertainment across your favourite devices with flexible IPTV solutions.")}</p>
+          <h1>Best IPTV Service UK - Live TV, Sports &amp; Entertainment</h1>
+          <p className="hero-lead">TV Packages is a UK-based IPTV service that gives you live TV channels, premium sports, movies, TV series, and entertainment apps; including Netflix, HBO, Disney+, and Amazon Prime - all through the device you already own. Compatible with Fire Stick, Smart TV, Android, MAG box, iPhone, iPad, Xbox, Nvidia Shield, and web browsers. Message us on WhatsApp to get started today.</p>
           <div className="hero-actions"><WhatsAppButton>Enquire on WhatsApp</WhatsAppButton><Link className="secondary-button" href="/services">{t("Explore Our Services")}<Icon name="arrow" size={18} /></Link></div>
           <HeroNotes />
           <div className="trust-line"><span className="avatar-stack"><i>UK</i><i>+</i></span><span><strong>{t("Friendly, personal support")}</strong><small>{t("Helping viewers across the UK & beyond")}</small></span></div>
@@ -67,5 +69,7 @@ export function HomePage() {
     <FaqSection />
 
     <RetainedSection kind="final" />
+
+    <IptvFaqSection />
   </main>;
 }
