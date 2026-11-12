@@ -14,6 +14,8 @@ import { NetflixPage } from "./pages/services/NetflixPage";
 import { SportsPage } from "./pages/services/SportsPage";
 import { navigate, useInitialHashScroll, usePageMeta, usePath } from "./router";
 import { ServiceCarousel, ServiceSpotlight } from "./components/ServiceCarousel";
+import { IptvFaqSection, SERVICES_FAQS } from "./components/HomeSections";
+import { useServicesSchema } from "./components/HomeSchema";
 import { PageHero, CtaSection } from "./components/PageParts";
 import { useScrollReveal } from "./components/useScrollReveal";
 import { useDifferencePath } from "./components/useDifferencePath";
@@ -92,16 +94,18 @@ export default function App() {
 
 function ServicesPage() {
   const { t } = useSettings();
-  usePageMeta("Services | Tv Packages", "Explore live TV, sports, movies, series and entertainment apps with Tv Packages. Get compatible-device guidance and personal support on WhatsApp.");
+  usePageMeta("UK IPTV Service: Live Channels, Sports, Movies & Apps | TVPackages.uk", "Our UK IPTV service gives you live TV, Sky Sports, Premier League, movies and 4K streaming on Firestick, Smart TV and more. WhatsApp setup included.");
   useInitialHashScroll();
+  useServicesSchema();
   return (
     <main>
-      <PageHero eyebrow={t("Our Services")} title={<>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></>} lead={t("Explore live TV, premium sports, movies, series and entertainment apps across your compatible devices.")} />
+      <PageHero eyebrow={t("Our Services")} title={t("UK IPTV Service: Live Channels, Sports, Movies & On-Demand Apps")} lead={t("A UK IPTV service delivers live television channels, sports including Premier League and Sky Sports, movies, series and catch-up TV over your broadband connection, no satellite dish or cable contract required. TVPackages.uk includes personalised WhatsApp setup on your chosen device, so you're watching within the hour of signing up.")} />
       <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
         <ServiceCarousel items={services} />
         <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
         <ServiceSpotlight service={adultService} id="adults" kicker="18+ only" />
       </section>
+      <IptvFaqSection faqs={SERVICES_FAQS} heading="Frequently Asked Questions: UK IPTV Service" id="services-faq" />
       <CtaSection />
     </main>
   );

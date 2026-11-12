@@ -1,5 +1,6 @@
 import { CompatibilityGrid } from "../components/CompatibilityGrid";
-import { FaqSection, HowItWorksSection } from "../components/HomeSections";
+import { DEVICES_FAQS, FaqSection, HowItWorksSection, IptvFaqSection, PACKAGES_FAQS } from "../components/HomeSections";
+import { useDevicesSchema, usePackagesSchema } from "../components/HomeSchema";
 import { CtaSection, PageHero } from "../components/PageParts";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection } from "../components/RetainedSections";
@@ -9,19 +10,21 @@ import { useSettings } from "../settings";
 export function DevicesPage() {
   const { t } = useSettings();
   usePageMeta(
-    "Devices | Tv Packages",
-    "Order a Fire TV Stick or use your own smart TV, phone or tablet. Tv Packages helps you check the device and get set up.",
+    "IPTV on Firestick UK: All Compatible Devices Listed | TVPackages.uk",
+    "Set up IPTV on Firestick, Samsung Smart TV, LG, iPhone, Android box and more. UK-based WhatsApp setup support included with every plan. Any device, any room.",
   );
+  useDevicesSchema();
   return (
     <main>
       <PageHero
         eyebrow={t("Compatible devices and players")}
-        title={<>{t("At home.")} {t("On the move.")}</>}
-        lead={t("You don’t have to start from scratch. Our services work with a range of popular streaming devices, smart TVs, phones and tablets. We’ll help you check yours.")}
+        title={t("IPTV on Firestick UK: Set Up IPTV on Any Device With Our Help")}
+        lead={t("IPTV works on Amazon Firestick, Samsung and LG Smart TVs, Android TV boxes, iPhones, iPads, Android phones, and Windows PCs. Any device with an internet connection and an IPTV app can run a UK subscription. TVPackages.uk sets up IPTV on any of these devices via WhatsApp, no technical knowledge needed.")}
       />
       <CompatibilityGrid />
       <RetainedSection kind="devices" />
       <PopularProducts />
+      <IptvFaqSection faqs={DEVICES_FAQS} heading="Frequently Asked Questions: IPTV Devices UK" id="devices-faq" />
       <CtaSection />
     </main>
   );
@@ -30,17 +33,19 @@ export function DevicesPage() {
 export function PackagesPage() {
   const { t } = useSettings();
   usePageMeta(
-    "Packages | Tv Packages",
-    "Compare Basic, Standard and Premium setup help from Tv Packages. Setup fees are separate from your own streaming subscriptions.",
+    "IPTV Setup UK: Packages & Pricing | TVPackages.uk",
+    "Choose your IPTV setup package. One-off UK-based installation support via WhatsApp: Firestick, Smart TV or any device. Flexible plans, no long-term contract.",
   );
+  usePackagesSchema();
   return (
     <main>
       <PageHero
         eyebrow={t("A LITTLE HELP GOES A LONG WAY")}
-        title={<>{t("Make your setup")} <em>{t("feel premium.")}</em></>}
-        lead={t("Choose the level of setup support that suits you. Clear one-off fees, friendly guidance, and your own streaming subscriptions.")}
+        title={t("IPTV Setup UK: Choose Your Package & Get Started Today")}
+        lead={t("UK IPTV subscriptions typically cost £10–£20 per month, compared to £80–£120/month for a full Sky TV package with sports. TVPackages.uk offers flexible plans with no long-term contract, plus one-off setup support so your chosen device is ready to stream on the same day.")}
       />
       <RetainedSection kind="plans" />
+      <IptvFaqSection faqs={PACKAGES_FAQS} heading="Frequently Asked Questions: Pricing & Setup" id="packages-faq" />
       <CtaSection />
     </main>
   );

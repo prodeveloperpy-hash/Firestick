@@ -90,21 +90,92 @@ export const IPTV_FAQS: [string, string][] = [
   ],
 ];
 
-export function IptvFaqSection() {
+export const SERVICES_FAQS: [string, string][] = [
+  [
+    "What does a UK IPTV service include?",
+    "A UK IPTV service includes live TV channels (BBC, ITV, Channel 4, Sky Sports, TNT Sports), Premier League and Champions League football, movies, series and catch-up TV, all streamed over your broadband connection with no satellite dish or cable contract.",
+  ],
+  [
+    "Do I need a TV licence to use IPTV in the UK?",
+    "Yes. If you watch or record live TV on any channel, including through IPTV, you legally need a TV licence in the UK. This is a requirement under the Communications Act, regardless of which device or service you use.",
+  ],
+  [
+    "What is the difference between IPTV and a Firestick package?",
+    "IPTV is the technology, it delivers TV channels over the internet. A Firestick is a device that plays IPTV. You need both: an IPTV subscription for the channels, and a compatible device such as a Firestick, Smart TV or phone to watch them on. TVPackages.uk supplies both the subscription and the device setup.",
+  ],
+  [
+    "Does IPTV include Netflix and Disney+?",
+    "No. Netflix, Disney+, Prime Video and similar services are separate subscriptions paid directly to those providers. IPTV gives you live TV channels and on-demand content, it does not replace or include Netflix or Disney+. We help you set them up alongside your IPTV service.",
+  ],
+  [
+    "Can I use IPTV on more than one device at the same time?",
+    "This depends on your plan. Message us on WhatsApp and we'll confirm how many devices your plan covers and help you set up each one.",
+  ],
+];
+
+export const PACKAGES_FAQS: [string, string][] = [
+  [
+    "How much does IPTV setup cost in the UK?",
+    "TVPackages.uk charges a one-off setup support fee, we configure your chosen device via WhatsApp so it is ready to stream. Your IPTV subscription (the channels) is a separate cost paid directly to the provider, typically £10–£20 per month. Everything is confirmed transparently before you pay.",
+  ],
+  [
+    "What is included in the TVPackages.uk setup service?",
+    "Our setup service includes: device configuration via WhatsApp, IPTV app installation (TiviMate, IPTV Smarters or the right app for your device), subscription credential entry, EPG (TV guide) setup, and a test stream to confirm all channels and sports are working correctly.",
+  ],
+  [
+    "Do I need to pay a monthly fee to TVPackages.uk?",
+    "No. TVPackages.uk charges a one-off setup support fee. Your monthly IPTV subscription payment goes directly to your provider, we do not take ongoing fees. We are available on WhatsApp if you need help at any point after setup.",
+  ],
+  [
+    "What happens if my IPTV stops working after setup?",
+    "Message us on WhatsApp and our UK-based team will troubleshoot the issue with you. Common fixes include refreshing your subscription credentials, reconnecting to Wi-Fi, or clearing the app cache.",
+  ],
+];
+
+export const DEVICES_FAQS: [string, string][] = [
+  [
+    "What devices can I use IPTV on in the UK?",
+    "IPTV works on Amazon Firestick (all models), Samsung Smart TVs (Tizen OS), LG Smart TVs (webOS), Android TV boxes, Sony TVs (Android TV), iPhones and iPads, Android smartphones and tablets, and Windows PCs. Any device with an internet connection and an IPTV app can run a UK IPTV subscription.",
+  ],
+  [
+    "How do I set up IPTV on a Firestick?",
+    "Enable apps from unknown sources in Firestick settings. Download the Downloader app. Use it to install TiviMate or IPTV Smarters Pro. Enter your subscription credentials (M3U URL or Xtream Codes). TVPackages.uk completes this entire process for you via WhatsApp, no technical knowledge required.",
+  ],
+  [
+    "What is the best IPTV app for Firestick UK?",
+    "Popular IPTV apps for Firestick in the UK include TiviMate and IPTV Smarters Pro, both known for a clear TV guide (EPG) and easy channel switching. We install and configure the right app for you via WhatsApp.",
+  ],
+  [
+    "Does IPTV work on Samsung Smart TV?",
+    "Yes. IPTV works on Samsung Smart TVs running Tizen OS. TVPackages.uk provides WhatsApp setup support for Samsung Smart TVs and will check that your model is compatible.",
+  ],
+  [
+    "What internet speed do I need for IPTV in 4K?",
+    "For 4K IPTV streaming, a minimum of 25 Mbps download speed is recommended. For HD (1080p), 10 Mbps is sufficient. We'll check your connection speed as part of the setup process.",
+  ],
+];
+
+export function IptvFaqSection({
+  faqs = IPTV_FAQS,
+  heading = "Frequently Asked Questions About IPTV in the UK",
+  id = "iptv-faq",
+}: { faqs?: [string, string][]; heading?: string; id?: string } = {}) {
   const [open, setOpen] = useState<number | null>(null);
   return (
-    <section className="section faq-section iptv-faq" id="iptv-faq">
+    <section className="section faq-section iptv-faq" id={id}>
       <div className="container faq-layout faq-layout-full">
         <div className="section-heading">
-          <h2>Frequently Asked Questions About IPTV in the UK</h2>
+          <h2>{heading}</h2>
         </div>
         <div className="accordion">
-          {IPTV_FAQS.map(([question, answer], index) => (
+          {faqs.map(([question, answer], index) => (
             <article className={`faq-item ${open === index ? "active" : ""}`} key={question}>
-              <button type="button" onClick={() => setOpen(open === index ? null : index)} aria-expanded={open === index} aria-controls={`iptv-faq-answer-${index}`}>
-                <span>{String(index + 1).padStart(2, "0")}</span>{question}
-                <i><Icon name={open === index ? "close" : "chevron"} size={18} /></i>
-              </button>
+              <h3>
+                <button type="button" onClick={() => setOpen(open === index ? null : index)} aria-expanded={open === index} aria-controls={`iptv-faq-answer-${index}`}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>{question}
+                  <i><Icon name={open === index ? "close" : "chevron"} size={18} /></i>
+                </button>
+              </h3>
               <div className="faq-answer" id={`iptv-faq-answer-${index}`}><p>{answer}</p></div>
             </article>
           ))}

@@ -4613,3 +4613,9 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
   border-bottom: 1px solid var(--line);
 }
 .faq-table th { color: #aa8bff; font-weight: 600; }
+
+.iptv-faq .faq-item h3 {
+  margin: 0;
+  font: inherit;
+  letter-spacing: inherit;
+}
