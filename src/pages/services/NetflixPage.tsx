@@ -83,7 +83,7 @@ export function NetflixPage() {
             </div>
           </section>
         ))}
-        <p className="netflix-note">{t("Setup help only. Your Netflix subscription is paid directly to Netflix.")}</p>
+        <p className="netflix-note">{t("Netflix is included in your IPTV package, together with Disney+, Amazon Prime Video and all world TV channels.")}</p>
       </article>
       <MoreServices except="/netflix" />
       <CtaSection />

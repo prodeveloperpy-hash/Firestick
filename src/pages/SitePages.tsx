@@ -141,12 +141,12 @@ export function TermsPage() {
       <PageHero
         eyebrow={t("Terms & Conditions")}
         title={<>Terms & <em>Conditions.</em></>}
-        lead={t("Setup fees only. Streaming subscriptions are paid directly to their providers.")}
+        lead={t("Netflix, Disney+, Amazon Prime and all world TV channels are included in your IPTV package.")}
       />
       <section className="section">
         <div className="container legal-copy">
-          <p>{t("Device setup and guidance are the services described on this site. Apps such as Netflix, Disney+ and Prime Video need your own subscription.")}</p>
-          <p>{t("What you can watch depends on your device, your subscriptions, and the access rules of each service. Message us on WhatsApp before you order if you want to check a device or a package.")}</p>
+          <p>{t("Device setup and guidance are the services described on this site. Netflix, Disney+, Amazon Prime Video and all world TV channels are included in your IPTV package.")}</p>
+          <p>{t("What you can watch depends on your device and the access rules of each service. Message us on WhatsApp before you order if you want to check a device or a package.")}</p>
         </div>
       </section>
     </main>

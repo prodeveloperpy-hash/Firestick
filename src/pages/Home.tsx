@@ -6,7 +6,7 @@ import { ServiceCarousel, ServiceSpotlight } from "../components/ServiceCarousel
 import { CompatibilityGrid } from "../components/CompatibilityGrid";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection, HeroNotes, BrandStrip } from "../components/RetainedSections";
-import { FaqSection, HowItWorksSection, IPTV_FAQS } from "../components/HomeSections";
+import { HowItWorksSection } from "../components/HomeSections";
 import { useHomeSchema } from "../components/HomeSchema";
 import { adultService, netflixService, services, why, highlightFeatures } from "../data/home";
 import heroStick from "../assets/hero-stick.png";
@@ -65,8 +65,6 @@ export function HomePage() {
     <HowItWorksSection />
 
     <RetainedSection kind="plans" />
-
-    <FaqSection items={IPTV_FAQS} heading="Frequently Asked Questions About IPTV in the UK" />
 
     <RetainedSection kind="final" />
   </main>;

@@ -3,7 +3,7 @@ import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WHATSAPP_URL } from "./ui";
 import { ServiceBrandTile } from "./ServiceBrandTile";
 
-type Service = { icon: string; number: string; image: string; imageAlt: string; title: string; text: string; tags: string[]; showcase: string[][] };
+type Service = { icon: string; number: string; image: string; imageAlt: string; title: string; text: string; detail?: string; tags: string[]; showcase: string[][] };
 
 const supportedDevices = [["tv", "Fire Stick"], ["tv", "Smart TV"], ["phone", "Android"], ["box", "MAG / Msg Box"], ["tablet", "Tablet"], ["phone", "iPhone"], ["tablet", "iPad"]];
 
@@ -103,6 +103,7 @@ export function ServiceCarousel({ items, initial = 0, autoplay = true }: { items
                 <span className="service-slide-kicker"><Icon name={service.icon} size={20} /> {service.number} / {String(items.length).padStart(2, "0")}</span>
                 <h3>{t(service.title)}</h3>
                 <p>{t(service.text)}</p>
+                {service.detail && <p className="service-slide-detail">{t(service.detail)}</p>}
                 <ul>{service.tags.map((tag) => <li key={tag}><Icon name="check" size={15} />{t(tag)}</li>)}</ul>
                 <div className="service-supported-devices">
                   <span>{t("Load your compatible device")}</span>

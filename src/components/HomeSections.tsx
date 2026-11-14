@@ -111,7 +111,7 @@ export const SERVICES_FAQS: [string, string][] = [
   ],
   [
     "Does IPTV include Netflix and Disney+?",
-    "No. Netflix, Disney+, Prime Video and similar services are separate subscriptions paid directly to those providers. IPTV gives you live TV channels and on-demand content, it does not replace or include Netflix or Disney+. We help you set them up alongside your IPTV service.",
+    "Yes. Our IPTV package includes Netflix, Disney+ and Amazon Prime Video, together with all world TV channels, live sports, movies and series, all in one package. We help you set everything up on your device via WhatsApp.",
   ],
   [
     "Can I use IPTV on more than one device at the same time?",

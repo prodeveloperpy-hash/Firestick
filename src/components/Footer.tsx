@@ -58,7 +58,7 @@ export function Footer() {
         </div>
         <p>
           {t(
-            "Services and availability are subject to supported subscriptions, access and applicable rights.",
+            "Services and availability are subject to device support, access and applicable rights.",
           )}
         </p>
       </div>

@@ -4620,3 +4620,5 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
   font: inherit;
   letter-spacing: inherit;
 }
+
+.service-carousel .service-slide-copy > p.service-slide-detail { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; margin-top: 12px; }
