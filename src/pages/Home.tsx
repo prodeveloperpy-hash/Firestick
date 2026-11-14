@@ -6,7 +6,7 @@ import { ServiceCarousel, ServiceSpotlight } from "../components/ServiceCarousel
 import { CompatibilityGrid } from "../components/CompatibilityGrid";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection, HeroNotes, BrandStrip } from "../components/RetainedSections";
-import { FaqSection, HowItWorksSection, IptvFaqSection } from "../components/HomeSections";
+import { FaqSection, HowItWorksSection, IPTV_FAQS } from "../components/HomeSections";
 import { useHomeSchema } from "../components/HomeSchema";
 import { adultService, netflixService, services, why, highlightFeatures } from "../data/home";
 import heroStick from "../assets/hero-stick.png";
@@ -40,7 +40,7 @@ export function HomePage() {
     <section className="trust-strip" aria-label={t("Why customers choose us")}><div className="container trust-strip-inner">{[["message", "WhatsApp-first support"], ["devices", "Works on 7+ device types"], ["clock", "Guided setup in minutes"], ["globe", "UK & worldwide entertainment"]].map(([icon, label]) => <div key={label}><Icon name={icon} size={20} /><span>{t(label)}</span></div>)}</div></section>
     <BrandStrip />
 
-    <section className="section services" id="our-services"><div className="container"><div className="section-heading centered"><div className="eyebrow">{t("What we offer")}</div><h2>{t("Everything You Love. ")}<em>{t("All in One Place.")}</em></h2><p>{t("A complete entertainment experience designed around the way you watch.")}</p></div></div><ServiceCarousel items={services} /><ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" /><ServiceSpotlight service={adultService} id="adults" kicker="18+ only" /></section>
+    <section className="section services" id="our-services"><div className="container"><div className="section-heading centered"><div className="eyebrow">{t("What we offer")}</div><h2>{t("What Does a UK IPTV Services Actually Include?")}</h2><p>{t("TV Packages gives you access to 10,000+ live channels, full HD and 4K streaming, premium sports, movies, TV series, and UK-based setup support - all over your existing broadband connection, with no dish, no engineer visit, and no long-term contract.")}</p></div></div><ServiceCarousel items={services} /><ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" /><ServiceSpotlight service={adultService} id="adults" kicker="18+ only" /></section>
 
     <RetainedSection kind="discovery" />
     <RetainedSection kind="apps" />
@@ -66,10 +66,8 @@ export function HomePage() {
 
     <RetainedSection kind="plans" />
 
-    <FaqSection />
+    <FaqSection items={IPTV_FAQS} heading="Frequently Asked Questions About IPTV in the UK" />
 
     <RetainedSection kind="final" />
-
-    <IptvFaqSection />
   </main>;
 }

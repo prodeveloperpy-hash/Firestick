@@ -37,7 +37,11 @@ export function HowItWorksSection({ showHeading = true }: { showHeading?: boolea
   );
 }
 
-export function FaqSection({ showIntro = true }: { showIntro?: boolean }) {
+export function FaqSection({
+  showIntro = true,
+  items = faqs as [string, string][],
+  heading,
+}: { showIntro?: boolean; items?: [string, string][]; heading?: string }) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const { t } = useSettings();
   return (
@@ -46,18 +50,20 @@ export function FaqSection({ showIntro = true }: { showIntro?: boolean }) {
         {showIntro && (
           <div className="faq-intro">
             <div className="eyebrow">{t("Common questions")}</div>
-            <h2>{t("Everything you need to ")}<em>{t("know.")}</em></h2>
+            {heading ? <h2>{heading}</h2> : <h2>{t("Everything you need to ")}<em>{t("know.")}</em></h2>}
             <p>{t("Can’t find your answer? Send us a message and our team will be happy to help.")}</p>
             <WhatsAppButton>Ask Us on WhatsApp</WhatsAppButton>
           </div>
         )}
         <div className="accordion">
-          {faqs.map(([question, answer], index) => (
+          {items.map(([question, answer], index) => (
             <article className={`faq-item ${openFaq === index ? "active" : ""}`} key={question}>
-              <button type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index} aria-controls={`faq-answer-${index}`}>
-                <span>{String(index + 1).padStart(2, "0")}</span>{t(question)}
-                <i><Icon name={openFaq === index ? "close" : "chevron"} size={18} /></i>
-              </button>
+              <h3>
+                <button type="button" onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index} aria-controls={`faq-answer-${index}`}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>{t(question)}
+                  <i><Icon name={openFaq === index ? "close" : "chevron"} size={18} /></i>
+                </button>
+              </h3>
               <div className="faq-answer" id={`faq-answer-${index}`}><p>{t(answer)}</p></div>
             </article>
           ))}
