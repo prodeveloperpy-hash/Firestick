@@ -138,7 +138,7 @@ export const adultService = {
   image: svcAdults,
   imageAlt: "Adult couple in evening clothes sharing a candlelit dinner",
   title: "18+ Adults",
-  text: "A separate adults section for viewers 18 and over, on supported packages and devices.",
+  text: "TVPackages.uk includes a separate 18+ adults section available on supported packages and compatible devices. This includes adult channels, late-night programming and adult movies, all accessible from your existing device with no additional hardware required. The 18+ section is PIN-protected and enabled only for verified adult subscribers. Available on Fire Stick, Smart TV, Android box and MAG devices.",
   tags: ["18+ only", "Adult channels", "Late night"],
   showcase: [["moon", "18+ Channels", "adults", adultOne], ["film", "Adult movies", "adults", adultTwo], ["play", "Late night", "adults", adultThree], ["tv", "On your device", "adults", svcAdults]],
 };
