@@ -76,7 +76,7 @@ export function FaqSection({
 export const IPTV_FAQS: [string, string][] = [
   [
     "What is the best IPTV service in the UK?",
-    "TV Packages provides UK-based IPTV setup support and subscription guidance, with live TV, sports, movies and 4K on-demand from £10/month, on any device, with no contract. We set everything up for you via WhatsApp.",
+    "TV Packages provides UK-based IPTV setup support and subscription guidance, with live TV, sports, movies and 4K on-demand from £15/month, on any device, with no contract. We set everything up for you via WhatsApp.",
   ],
   [
     "Is IPTV legal in the UK?",
@@ -84,7 +84,7 @@ export const IPTV_FAQS: [string, string][] = [
   ],
   [
     "How much does IPTV cost in the UK?",
-    "UK IPTV subscriptions typically cost £10 to £20 per month, compared to £80 to £120 per month for a full Sky TV package with sports. Our plans start from £10/month with no long-term contract.",
+    "UK IPTV subscriptions typically cost £15 to £20 per month, compared to £80 to £120 per month for a full Sky TV package with sports. Our plans start from £15 for 1 month, £25 for 3 months, £35 for 6 months and £60 for 1 year, with no long-term contract.",
   ],
   [
     "What internet speed do I need for IPTV?",
@@ -121,8 +121,8 @@ export const SERVICES_FAQS: [string, string][] = [
 
 export const PACKAGES_FAQS: [string, string][] = [
   [
-    "How much does IPTV setup cost in the UK?",
-    "TV Packages charges a one-off setup support fee, we configure your chosen device via WhatsApp so it is ready to stream. Your IPTV subscription (the channels) is a separate cost paid directly to the provider, typically £10–£20 per month. Everything is confirmed transparently before you pay.",
+    "How much does IPTV cost in the UK?",
+    "TV Packages plans are simple: £15 for 1 month, £25 for 3 months, £35 for 6 months or £60 for 1 year. Each plan includes all world TV channels, Netflix, Disney+, Amazon Prime Video and WhatsApp setup on your device, with no long-term contract. Everything is confirmed transparently before you pay.",
   ],
   [
     "What is included in the TV Packages setup service?",
@@ -130,7 +130,7 @@ export const PACKAGES_FAQS: [string, string][] = [
   ],
   [
     "Do I need to pay a monthly fee to TV Packages?",
-    "No. TV Packages charges a one-off setup support fee. Your monthly IPTV subscription payment goes directly to your provider, we do not take ongoing fees. We are available on WhatsApp if you need help at any point after setup.",
+    "No. TV Packages plans are paid up front for the length you choose (1 month, 3 months, 6 months or 1 year), with no contract and no hidden ongoing fees. We are available on WhatsApp if you need help at any point after setup.",
   ],
   [
     "What happens if my IPTV stops working after setup?",

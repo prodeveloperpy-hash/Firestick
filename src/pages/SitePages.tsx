@@ -34,7 +34,7 @@ export function PackagesPage() {
   const { t } = useSettings();
   usePageMeta(
     "IPTV Setup UK: Packages & Pricing | TV Packages",
-    "Choose your IPTV setup package. One-off UK-based installation support via WhatsApp: Firestick, Smart TV or any device. Flexible plans, no long-term contract.",
+    "IPTV plans from £15: 1 month £15, 3 months £25, 6 months £35, 1 year £60. UK-based WhatsApp setup on Firestick, Smart TV or any device. No long-term contract.",
   );
   usePackagesSchema();
   return (
@@ -42,7 +42,7 @@ export function PackagesPage() {
       <PageHero
         eyebrow={t("A LITTLE HELP GOES A LONG WAY")}
         title={t("IPTV Setup UK: Choose Your Package & Get Started Today")}
-        lead={t("UK IPTV subscriptions typically cost £10–£20 per month, compared to £80–£120/month for a full Sky TV package with sports. TV Packages offers flexible plans with no long-term contract, plus one-off setup support so your chosen device is ready to stream on the same day.")}
+        lead={t("A full Sky TV package with sports can cost £80–£120 per month. TV Packages plans start from £15 for 1 month, £25 for 3 months, £35 for 6 months and £60 for 1 year, with no long-term contract and WhatsApp setup so your chosen device is ready to stream on the same day.")}
       />
       <RetainedSection kind="plans" />
       <IptvFaqSection faqs={PACKAGES_FAQS} heading="Frequently Asked Questions: Pricing & Setup" id="packages-faq" />

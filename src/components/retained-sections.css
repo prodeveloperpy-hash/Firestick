@@ -241,7 +241,7 @@
 .retained-ui .ph-setup-card h3 { margin: 12px 0 10px; font-size: 17px; }
 .retained-ui .ph-setup-card p { margin: 0; font-size: 12px; line-height: 1.8; }
 .ph-plans { background: radial-gradient(ellipse at 45% 60%, #5b263227, transparent 68%); }
-.ph-pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; max-width: 1180px; margin-inline: auto; }
+.ph-pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; max-width: 1180px; margin-inline: auto; }
 .ph-price-card { position: relative; display: flex; flex-direction: column; border: 1px solid #ffffff15; border-radius: 15px; background: #111620; padding: 32px; }
 .ph-price-card.featured { background: linear-gradient(150deg, #301d21, #121721 70%); border-color: #ff926280; box-shadow: 0 0 50px #ff754711; }
 .ph-plan-label { font-size: 8px; letter-spacing: .15em; font-weight: 800; color: #8e9ab0; }
