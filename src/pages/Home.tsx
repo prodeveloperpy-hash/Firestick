@@ -17,7 +17,7 @@ import { photos } from "../photos";
 export function HomePage() {
   const { t, theme } = useSettings();
   useHomeSchema();
-  usePageMeta("Best IPTV Service UK | TV Packages & Setup | TVPackages.uk", "The best UK IPTV packages in 2027. Live TV, sports, movies and 4K streaming — set up on any device via WhatsApp. No contract. UK-based team.");
+  usePageMeta("Best IPTV Service UK | TV Packages & Setup", "The best UK IPTV packages in 2027. Live TV, sports, movies and 4K streaming — set up on any device via WhatsApp. No contract. UK-based team.");
 
   return <main>
     <section className="hero" id="home">

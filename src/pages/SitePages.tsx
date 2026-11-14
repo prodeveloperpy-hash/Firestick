@@ -10,7 +10,7 @@ import { useSettings } from "../settings";
 export function DevicesPage() {
   const { t } = useSettings();
   usePageMeta(
-    "IPTV on Firestick UK: All Compatible Devices Listed | TVPackages.uk",
+    "IPTV on Firestick UK: All Compatible Devices Listed | TV Packages",
     "Set up IPTV on Firestick, Samsung Smart TV, LG, iPhone, Android box and more. UK-based WhatsApp setup support included with every plan. Any device, any room.",
   );
   useDevicesSchema();
@@ -19,7 +19,7 @@ export function DevicesPage() {
       <PageHero
         eyebrow={t("Compatible devices and players")}
         title={t("IPTV on Firestick UK: Set Up IPTV on Any Device With Our Help")}
-        lead={t("IPTV works on Amazon Firestick, Samsung and LG Smart TVs, Android TV boxes, iPhones, iPads, Android phones, and Windows PCs. Any device with an internet connection and an IPTV app can run a UK subscription. TVPackages.uk sets up IPTV on any of these devices via WhatsApp, no technical knowledge needed.")}
+        lead={t("IPTV works on Amazon Firestick, Samsung and LG Smart TVs, Android TV boxes, iPhones, iPads, Android phones, and Windows PCs. Any device with an internet connection and an IPTV app can run a UK subscription. TV Packages sets up IPTV on any of these devices via WhatsApp, no technical knowledge needed.")}
       />
       <CompatibilityGrid />
       <RetainedSection kind="devices" />
@@ -33,7 +33,7 @@ export function DevicesPage() {
 export function PackagesPage() {
   const { t } = useSettings();
   usePageMeta(
-    "IPTV Setup UK: Packages & Pricing | TVPackages.uk",
+    "IPTV Setup UK: Packages & Pricing | TV Packages",
     "Choose your IPTV setup package. One-off UK-based installation support via WhatsApp: Firestick, Smart TV or any device. Flexible plans, no long-term contract.",
   );
   usePackagesSchema();
@@ -42,7 +42,7 @@ export function PackagesPage() {
       <PageHero
         eyebrow={t("A LITTLE HELP GOES A LONG WAY")}
         title={t("IPTV Setup UK: Choose Your Package & Get Started Today")}
-        lead={t("UK IPTV subscriptions typically cost £10–£20 per month, compared to £80–£120/month for a full Sky TV package with sports. TVPackages.uk offers flexible plans with no long-term contract, plus one-off setup support so your chosen device is ready to stream on the same day.")}
+        lead={t("UK IPTV subscriptions typically cost £10–£20 per month, compared to £80–£120/month for a full Sky TV package with sports. TV Packages offers flexible plans with no long-term contract, plus one-off setup support so your chosen device is ready to stream on the same day.")}
       />
       <RetainedSection kind="plans" />
       <IptvFaqSection faqs={PACKAGES_FAQS} heading="Frequently Asked Questions: Pricing & Setup" id="packages-faq" />
@@ -54,8 +54,8 @@ export function PackagesPage() {
 export function FaqsPage() {
   const { t } = useSettings();
   usePageMeta(
-    "FAQs | Tv Packages",
-    "Answers about supported devices, channels, UK and international entertainment, and how Tv Packages setup works.",
+    "FAQs | TV Packages",
+    "Answers about supported devices, channels, UK and international entertainment, and how TV Packages setup works.",
   );
   return (
     <main>
@@ -73,8 +73,8 @@ export function FaqsPage() {
 export function ContactPage() {
   const { t } = useSettings();
   usePageMeta(
-    "Contact | Tv Packages",
-    "Message the Tv Packages team on WhatsApp. Tell us your device and what you want to watch.",
+    "Contact | TV Packages",
+    "Message the TV Packages team on WhatsApp. Tell us your device and what you want to watch.",
   );
   return (
     <main>
@@ -91,8 +91,8 @@ export function ContactPage() {
 export function HowItWorksPage() {
   const { t } = useSettings();
   usePageMeta(
-    "How It Works | Tv Packages",
-    "Four steps to get set up with Tv Packages: get a device, plug it in, message us on WhatsApp, and start watching.",
+    "How It Works | TV Packages",
+    "Four steps to get set up with TV Packages: get a device, plug it in, message us on WhatsApp, and start watching.",
   );
   return (
     <main>
@@ -110,8 +110,8 @@ export function HowItWorksPage() {
 export function PrivacyPage() {
   const { t } = useSettings();
   usePageMeta(
-    "Privacy Policy | Tv Packages",
-    "How Tv Packages handles messages you send on WhatsApp and the information shown on this website.",
+    "Privacy Policy | TV Packages",
+    "How TV Packages handles messages you send on WhatsApp and the information shown on this website.",
   );
   return (
     <main>
@@ -133,8 +133,8 @@ export function PrivacyPage() {
 export function TermsPage() {
   const { t } = useSettings();
   usePageMeta(
-    "Terms & Conditions | Tv Packages",
-    "Setup help from Tv Packages is separate from streaming subscriptions, which you pay to each provider.",
+    "Terms & Conditions | TV Packages",
+    "Terms for TV Packages: Netflix, Disney+, Amazon Prime Video and all world TV channels are included in one IPTV package.",
   );
   return (
     <main>

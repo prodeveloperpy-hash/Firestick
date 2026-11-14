@@ -86,7 +86,7 @@ const devicesFaqPage = {
     ],
     [
       "How do I set up IPTV on a Firestick?",
-      "To set up IPTV on a Firestick: (1) Enable apps from unknown sources in Firestick settings. (2) Download the Downloader app from the Amazon App Store. (3) Use Downloader to install TiviMate or IPTV Smarters Pro. (4) Enter your subscription credentials (M3U URL or Xtream Codes). TVPackages.uk completes this entire setup for you via WhatsApp.",
+      "To set up IPTV on a Firestick: (1) Enable apps from unknown sources in Firestick settings. (2) Download the Downloader app from the Amazon App Store. (3) Use Downloader to install TiviMate or IPTV Smarters Pro. (4) Enter your subscription credentials (M3U URL or Xtream Codes). TV Packages completes this entire setup for you via WhatsApp.",
     ],
     [
       "What is the best IPTV app for Firestick UK?",
@@ -94,7 +94,7 @@ const devicesFaqPage = {
     ],
     [
       "Does IPTV work on Samsung Smart TV?",
-      "Yes. IPTV works on Samsung Smart TVs running Tizen OS. TVPackages.uk provides WhatsApp setup support for Samsung Smart TVs and will check that your model is compatible.",
+      "Yes. IPTV works on Samsung Smart TVs running Tizen OS. TV Packages provides WhatsApp setup support for Samsung Smart TVs and will check that your model is compatible.",
     ],
     [
       "What internet speed do I need for IPTV on 4K?",
@@ -122,15 +122,15 @@ const packagesFaqPage = {
   mainEntity: [
     [
       "How much does IPTV setup cost in the UK?",
-      "TVPackages.uk charges a one-off setup support fee, we configure your chosen device via WhatsApp so it is ready to stream. Your IPTV subscription (the channels) is a separate cost paid directly to the provider, typically £10–£20 per month.",
+      "TV Packages charges a one-off setup support fee, we configure your chosen device via WhatsApp so it is ready to stream. Your IPTV subscription (the channels) is a separate cost paid directly to the provider, typically £10–£20 per month.",
     ],
     [
-      "What is included in the TVPackages.uk setup service?",
+      "What is included in the TV Packages setup service?",
       "Our setup service includes: device configuration via WhatsApp, IPTV app installation, subscription credential entry, EPG (TV guide) setup, and a test to confirm all channels and sports are working correctly. We support Firestick, Smart TV, Android box, iPhone and more.",
     ],
     [
-      "Do I need to pay a monthly fee to TVPackages.uk?",
-      "No. TVPackages.uk charges a one-off setup fee. Your monthly subscription payment goes directly to your IPTV provider, we do not take ongoing fees. We are available on WhatsApp if you need help at any point after setup.",
+      "Do I need to pay a monthly fee to TV Packages?",
+      "No. TV Packages charges a one-off setup fee. Your monthly subscription payment goes directly to your IPTV provider, we do not take ongoing fees. We are available on WhatsApp if you need help at any point after setup.",
     ],
     [
       "What happens if my IPTV stops working after setup?",
@@ -147,7 +147,7 @@ const packagesService = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "IPTV Setup Support UK",
-  provider: { "@type": "LocalBusiness", name: "TVPackages.uk", url: SITE },
+  provider: { "@type": "LocalBusiness", name: "TV Packages", url: SITE },
   areaServed: { "@type": "Country", name: "United Kingdom" },
   description: "One-off IPTV setup support via WhatsApp. We configure your Firestick, Smart TV or any device so it is ready to stream live TV, sports and 4K content.",
 };

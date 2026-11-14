@@ -79,7 +79,7 @@ export const services = [
     imageAlt: "Broadcast news studio with London skyline and a world map",
     title: "Live TV Channels",
     text: "Stay connected to the programmes that matter, from familiar UK favourites to international entertainment.",
-    detail: "Live TV Channels are the foundation of any good IPTV package. TVPackages.uk gives you access to 10,000+ live channels covering UK free-to-air television (BBC One, ITV, Channel 4, Channel 5), premium UK channels (Sky Atlantic, Sky Cinema, BT Sport), and international content across Europe, the Middle East, South Asia and beyond. Every channel streams in HD or Full HD, with 4K available on selected content.",
+    detail: "Live TV Channels are the foundation of any good IPTV package. TV Packages gives you access to 10,000+ live channels covering UK free-to-air television (BBC One, ITV, Channel 4, Channel 5), premium UK channels (Sky Atlantic, Sky Cinema, BT Sport), and international content across Europe, the Middle East, South Asia and beyond. Every channel streams in HD or Full HD, with 4K available on selected content.",
     tags: ["UK + worldwide live TV", "All Sky channels", "News & entertainment"],
     showcase: [["tv", "UK + Worldwide", "live"], ["tv", "sky", "sky"], ["film", "Entertainment", "live"], ["globe", "International TV", "live"]],
   },
@@ -138,7 +138,7 @@ export const adultService = {
   image: svcAdults,
   imageAlt: "Adult couple in evening clothes sharing a candlelit dinner",
   title: "18+ Adults",
-  text: "TVPackages.uk includes a separate 18+ adults section available on supported packages and compatible devices. This includes adult channels, late-night programming and adult movies, all accessible from your existing device with no additional hardware required. The 18+ section is PIN-protected and enabled only for verified adult subscribers. Available on Fire Stick, Smart TV, Android box and MAG devices.",
+  text: "TV Packages includes a separate 18+ adults section available on supported packages and compatible devices. This includes adult channels, late-night programming and adult movies, all accessible from your existing device with no additional hardware required. The 18+ section is PIN-protected and enabled only for verified adult subscribers. Available on Fire Stick, Smart TV, Android box and MAG devices.",
   tags: ["18+ only", "Adult channels", "Late night"],
   showcase: [["moon", "18+ Channels", "adults", adultOne], ["film", "Adult movies", "adults", adultTwo], ["play", "Late night", "adults", adultThree], ["tv", "On your device", "adults", svcAdults]],
 };

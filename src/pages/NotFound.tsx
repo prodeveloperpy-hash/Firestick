@@ -3,7 +3,7 @@ import { Icon } from "../components/ui";
 import { Link, usePageMeta } from "../router";
 
 export function NotFoundPage() {
-  usePageMeta("Page not found | Tv Packages", "The page you’re looking for doesn’t exist.");
+  usePageMeta("Page not found | TV Packages", "The page you’re looking for doesn’t exist.");
   return (
     <main>
       <PageHero

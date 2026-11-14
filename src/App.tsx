@@ -94,12 +94,12 @@ export default function App() {
 
 function ServicesPage() {
   const { t } = useSettings();
-  usePageMeta("UK IPTV Service: Live Channels, Sports, Movies & Apps | TVPackages.uk", "Our UK IPTV service gives you live TV, Sky Sports, Premier League, movies and 4K streaming on Firestick, Smart TV and more. WhatsApp setup included.");
+  usePageMeta("UK IPTV Service: Live Channels, Sports, Movies & Apps | TV Packages", "Our UK IPTV service gives you live TV, Sky Sports, Premier League, movies and 4K streaming on Firestick, Smart TV and more. WhatsApp setup included.");
   useInitialHashScroll();
   useServicesSchema();
   return (
     <main>
-      <PageHero eyebrow={t("Our Services")} title={t("UK IPTV Service: Live Channels, Sports, Movies & On-Demand Apps")} lead={t("A UK IPTV service delivers live television channels, sports including Premier League and Sky Sports, movies, series and catch-up TV over your broadband connection, no satellite dish or cable contract required. TVPackages.uk includes personalised WhatsApp setup on your chosen device, so you're watching within the hour of signing up.")} />
+      <PageHero eyebrow={t("Our Services")} title={t("UK IPTV Service: Live Channels, Sports, Movies & On-Demand Apps")} lead={t("A UK IPTV service delivers live television channels, sports including Premier League and Sky Sports, movies, series and catch-up TV over your broadband connection, no satellite dish or cable contract required. TV Packages includes personalised WhatsApp setup on your chosen device, so you're watching within the hour of signing up.")} />
       <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
         <ServiceCarousel items={services} />
         <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />

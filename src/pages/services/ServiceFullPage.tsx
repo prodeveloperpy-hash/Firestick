@@ -50,7 +50,7 @@ export function MoreServices({ except }: { except: string }) {
 export function ServiceFullPage({ service, href, kicker, logo, channels, groups }: { service: ServicePageData; href: string; kicker: string; logo?: string; channels?: ChannelTile[]; groups?: GuideGroup[] }) {
   const { t } = useSettings();
   const tiles = channels ?? service.showcase;
-  usePageMeta(`${service.title} | Tv Packages`, service.text);
+  usePageMeta(`${service.title} | TV Packages`, service.text);
   return (
     <main>
       <article className="service-full">

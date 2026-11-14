@@ -54,7 +54,7 @@ const rows: { title: string; items: [string, string, string][] }[] = [
 
 export function NetflixPage() {
   const { t } = useSettings();
-  usePageMeta(`${netflixService.title} | Tv Packages`, netflixService.text);
+  usePageMeta(`${netflixService.title} | TV Packages`, netflixService.text);
   return (
     <main>
       <article className="netflix-browse">
