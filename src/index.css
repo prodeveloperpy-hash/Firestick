@@ -4347,7 +4347,12 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
 .service-full-tags { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 22px 0; list-style: none; }
 .service-full-tags li { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px; background: #ffffff14; border: 1px solid #ffffff35; border-radius: 99px; font-size: 13px; }
 .service-full-tags svg { color: #8aebaa; }
+.service-about { max-width: 820px; margin: 0 0 34px; padding: 18px 22px; background: #ffffff0d; border: 1px solid #ffffff25; border-left: 3px solid #8b5cf6; border-radius: 12px; }
+.service-about p { margin: 0; font-size: 15px; line-height: 1.7; }
+.service-about strong { color: #fff; }
 .channel-group h2 { margin: 10px 0 0; font-size: clamp(28px, 3vw, 42px); letter-spacing: -0.04em; }
+.channel-group > p { max-width: 680px; margin: 10px 0 0; font-size: 18px; }
+.channel-group > p.channel-group-subtitle { margin: 26px 0 0; font-size: clamp(20px, 2vw, 26px); line-height: 1.25; letter-spacing: -0.02em; color: #fff; }
 .service-full-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; margin: 18px 0 34px; }
 .service-full-tiles.is-posters { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); }
 .service-full .service-brand-tile {
@@ -4594,6 +4599,7 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
 }
 
 .iptv-faq .section-heading { margin-bottom: 28px; }
+#live-tv-faq .faq-layout-full { justify-content: center; }
 .faq-answer > div {
   overflow: hidden;
   padding-left: 43px;

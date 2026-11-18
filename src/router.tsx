@@ -55,7 +55,7 @@ export function Link({
 }
 
 /** Sets the document title and meta description for the current page. */
-export function usePageMeta(title: string, description: string) {
+export function usePageMeta(title: string, description: string, og?: { title: string; description: string }) {
   useEffect(() => {
     document.title = title;
     const named = (name: string) => {
@@ -77,8 +77,8 @@ export function usePageMeta(title: string, description: string) {
       return tag;
     };
     named("description").content = description;
-    property("og:title").content = title;
-    property("og:description").content = description;
+    property("og:title").content = og?.title ?? title;
+    property("og:description").content = og?.description ?? description;
 
     const href = `https://tvpackages.uk${window.location.pathname}`;
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -90,7 +90,7 @@ export function usePageMeta(title: string, description: string) {
     canonical.href = href;
 
     property("og:url").content = href;
-  }, [title, description]);
+  }, [title, description, og?.title, og?.description]);
 }
 
 /** Scrolls to the URL hash on first render (e.g. arriving at /#packages from another page). */

@@ -203,6 +203,54 @@ export function useServicesSchema() {
   }, []);
 }
 
+/**
+ * Adds Live TV page JSON-LD (Service + FAQPage + BreadcrumbList) to <head> and removes it on leave.
+ * The FAQPage is built from the same list rendered on the page so markup always matches visible content.
+ */
+export function useLiveTvSchema(faqs: [string, string][]) {
+  useEffect(() => {
+    const url = SITE + "/services/live-tv";
+    const service = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: "Live TV Channels UK — IPTV Service",
+      serviceType: "IPTV Live Television Streaming",
+      description: "TVPackages.uk provides 10,000+ live UK and international TV channels via IPTV, including BBC, ITV, Sky Sports, TNT Sports and Asian channels, streamed in HD and 4K on Firestick, Smart TV and Android devices.",
+      provider: {
+        "@type": "LocalBusiness",
+        name: "TVPackages.uk",
+        url: SITE,
+        areaServed: "GB",
+        contactPoint: { "@type": "ContactPoint", contactType: "customer support", availableLanguage: "English" },
+      },
+      areaServed: "GB",
+      url,
+    };
+    const faqPage = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(([name, text]) => ({ "@type": "Question", name, acceptedAnswer: { "@type": "Answer", text } })),
+    };
+    const breadcrumb = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: "Services", item: SITE + "/services" },
+        { "@type": "ListItem", position: 3, name: "Live TV Channels UK", item: url },
+      ],
+    };
+    const tags = [service, faqPage, breadcrumb].map((data) => {
+      const el = document.createElement("script");
+      el.type = "application/ld+json";
+      el.text = JSON.stringify(data);
+      document.head.appendChild(el);
+      return el;
+    });
+    return () => tags.forEach((el) => el.remove());
+  }, [faqs]);
+}
+
 /** Adds homepage-only JSON-LD to <head> and removes it when leaving the page. */
 export function useHomeSchema() {
   useEffect(() => {

@@ -78,6 +78,8 @@ export const services = [
     image: svcLive,
     imageAlt: "Broadcast news studio with London skyline and a world map",
     title: "Live TV Channels",
+    heading: "Live TV Channels UK — Stream BBC, ITV, Sky Sports & More in HD",
+    pageText: "TVPackages.uk delivers 10,000+ live TV channels in the UK, including BBC One, ITV, Sky Sports, TNT Sports, CNN, FOX, and international channels from Asia and beyond — all streamed in Full HD and 4K on your existing Firestick, Smart TV or Android device via your broadband connection.",
     text: "Stay connected to the programmes that matter, from familiar UK favourites to international entertainment.",
     detail: "Live TV Channels are the foundation of any good IPTV package. TV Packages gives you access to 10,000+ live channels covering UK free-to-air television (BBC One, ITV, Channel 4, Channel 5), premium UK channels (Sky Atlantic, Sky Cinema, BT Sport), and international content across Europe, the Middle East, South Asia and beyond. Every channel streams in HD or Full HD, with 4K available on selected content.",
     tags: ["UK + worldwide live TV", "All Sky channels", "News & entertainment"],

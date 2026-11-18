@@ -1,3 +1,4 @@
+import { IptvFaqSection } from "../../components/HomeSections";
 import { CtaSection } from "../../components/PageParts";
 import { ServiceBrandTile } from "../../components/ServiceBrandTile";
 import { Icon, WHATSAPP_URL } from "../../components/ui";
@@ -10,6 +11,8 @@ type ServicePageData = {
   image: string;
   imageAlt: string;
   title: string;
+  heading?: string;
+  pageText?: string;
   text: string;
   tags: string[];
   showcase: string[][];
@@ -17,7 +20,7 @@ type ServicePageData = {
 
 type ChannelTile = [string, string, string, string?];
 
-type GuideGroup = { title: string; items: ChannelTile[]; posters?: boolean };
+type GuideGroup = { title: string; intro?: string; subtitle?: string; items: ChannelTile[]; posters?: boolean };
 
 const serviceLinks = [
   ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}`, icon: service.icon })),
@@ -47,10 +50,10 @@ export function MoreServices({ except }: { except: string }) {
   );
 }
 
-export function ServiceFullPage({ service, href, kicker, logo, channels, groups }: { service: ServicePageData; href: string; kicker: string; logo?: string; channels?: ChannelTile[]; groups?: GuideGroup[] }) {
+export function ServiceFullPage({ service, href, kicker, logo, channels, groups, about, faqs, cta, meta }: { service: ServicePageData; href: string; kicker: string; logo?: string; channels?: ChannelTile[]; groups?: GuideGroup[]; about?: { label: string; text: string }; meta?: { title: string; description: string; og?: { title: string; description: string } }; cta?: { title: string; text: string }; faqs?: { heading: string; id: string; items: [string, string][] } }) {
   const { t } = useSettings();
   const tiles = channels ?? service.showcase;
-  usePageMeta(`${service.title} | TV Packages`, service.text);
+  usePageMeta(meta?.title ?? `${service.title} | TV Packages`, meta?.description ?? service.text, meta?.og);
   return (
     <main>
       <article className="service-full">
@@ -59,12 +62,15 @@ export function ServiceFullPage({ service, href, kicker, logo, channels, groups 
         </div>
         <div className="container service-full-copy">
           <div className="eyebrow">{logo ? <img className="spotlight-logo" src={logo} alt="" /> : <Icon name={service.icon} size={18} />} {t(kicker)}</div>
-          <h1>{t(service.title)}</h1>
-          <p>{t(service.text)}</p>
+          <h1>{t(service.heading ?? service.title)}</h1>
+          <p>{t(service.pageText ?? service.text)}</p>
           <ul className="service-full-tags">{service.tags.map((tag) => <li key={tag}><Icon name="check" size={15} />{t(tag)}</li>)}</ul>
+          {about && <aside className="service-about"><p><strong>{t(about.label)}</strong> {t(about.text)}</p></aside>}
           {groups ? groups.map((group) => (
             <section key={group.title} className="channel-group" aria-label={t(group.title)}>
               <h2>{t(group.title)}</h2>
+              {group.intro && <p>{t(group.intro)}</p>}
+              {group.subtitle && <p className="channel-group-subtitle"><strong>{t(group.subtitle)}</strong></p>}
               <div className={`service-full-tiles${group.posters ? " is-posters" : ""}`}>
                 {group.items.map(([icon, label, brand, photo]) => (
                   <ServiceBrandTile key={label} icon={icon} label={t(label)} brand={brand} photo={photo} caption poster={Boolean(group.posters && photo)} />
@@ -81,8 +87,9 @@ export function ServiceFullPage({ service, href, kicker, logo, channels, groups 
           <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
         </div>
       </article>
+      {faqs && <IptvFaqSection faqs={faqs.items} heading={faqs.heading} id={faqs.id} />}
       <MoreServices except={href} />
-      <CtaSection />
+      <CtaSection title={cta?.title} text={cta?.text} />
     </main>
   );
 }
