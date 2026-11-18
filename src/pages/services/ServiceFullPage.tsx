@@ -20,13 +20,24 @@ type ServicePageData = {
 
 type ChannelTile = [string, string, string, string?];
 
-type GuideGroup = { title: string; intro?: string; subtitle?: string; items: ChannelTile[]; posters?: boolean };
+type GuideGroup = { title: string; intro?: string | string[]; subtitle?: string; outro?: string; items: ChannelTile[]; posters?: boolean };
 
 const serviceLinks = [
   ...services.map((service) => ({ label: service.title, href: `/services/${service.slug}`, icon: service.icon })),
   { label: netflixService.title, href: "/netflix", icon: netflixService.icon },
   { label: adultService.title, href: "/adults", icon: adultService.icon },
 ];
+
+/** Turns each anchor phrase found in `text` into an internal link; everything else stays plain text. */
+function linkify(text: string, links?: Record<string, string>) {
+  if (!links) return text;
+  const phrases = Object.keys(links);
+  if (phrases.length === 0) return text;
+  const escaped = phrases.map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  return text.split(new RegExp(`(${escaped.join("|")})`)).map((part, index) =>
+    links[part] ? <Link key={index} href={links[part]}>{part}</Link> : part,
+  );
+}
 
 export function MoreServices({ except }: { except: string }) {
   const { t } = useSettings();
@@ -50,7 +61,7 @@ export function MoreServices({ except }: { except: string }) {
   );
 }
 
-export function ServiceFullPage({ service, href, kicker, logo, channels, groups, about, faqs, cta, meta }: { service: ServicePageData; href: string; kicker: string; logo?: string; channels?: ChannelTile[]; groups?: GuideGroup[]; about?: { label: string; text: string }; meta?: { title: string; description: string; og?: { title: string; description: string } }; cta?: { title: string; text: string }; faqs?: { heading: string; id: string; items: [string, string][] } }) {
+export function ServiceFullPage({ service, href, kicker, logo, channels, groups, about, faqs, cta, meta, after, links }: { service: ServicePageData; href: string; kicker: string; logo?: string; channels?: ChannelTile[]; groups?: GuideGroup[]; about?: { label: string; text: string }; links?: Record<string, string>; after?: { title: string; intro: string; subtitle: string; points: string[]; outro?: string }; meta?: { title: string; description: string; og?: { title: string; description: string } }; cta?: { title: string; text: string }; faqs?: { heading: string; id: string; items: [string, string][] } }) {
   const { t } = useSettings();
   const tiles = channels ?? service.showcase;
   usePageMeta(meta?.title ?? `${service.title} | TV Packages`, meta?.description ?? service.text, meta?.og);
@@ -63,19 +74,20 @@ export function ServiceFullPage({ service, href, kicker, logo, channels, groups,
         <div className="container service-full-copy">
           <div className="eyebrow">{logo ? <img className="spotlight-logo" src={logo} alt="" /> : <Icon name={service.icon} size={18} />} {t(kicker)}</div>
           <h1>{t(service.heading ?? service.title)}</h1>
-          <p>{t(service.pageText ?? service.text)}</p>
+          <p>{linkify(t(service.pageText ?? service.text), links)}</p>
           <ul className="service-full-tags">{service.tags.map((tag) => <li key={tag}><Icon name="check" size={15} />{t(tag)}</li>)}</ul>
           {about && <aside className="service-about"><p><strong>{t(about.label)}</strong> {t(about.text)}</p></aside>}
           {groups ? groups.map((group) => (
             <section key={group.title} className="channel-group" aria-label={t(group.title)}>
               <h2>{t(group.title)}</h2>
-              {group.intro && <p>{t(group.intro)}</p>}
+              {[group.intro ?? []].flat().map((paragraph) => <p key={paragraph}>{t(paragraph)}</p>)}
               {group.subtitle && <p className="channel-group-subtitle"><strong>{t(group.subtitle)}</strong></p>}
               <div className={`service-full-tiles${group.posters ? " is-posters" : ""}`}>
                 {group.items.map(([icon, label, brand, photo]) => (
                   <ServiceBrandTile key={label} icon={icon} label={t(label)} brand={brand} photo={photo} caption poster={Boolean(group.posters && photo)} />
                 ))}
               </div>
+              {group.outro && <p className="channel-group-outro">{linkify(t(group.outro), links)}</p>}
             </section>
           )) : (
             <div className="service-full-tiles" aria-label={t(service.title)}>
@@ -85,6 +97,20 @@ export function ServiceFullPage({ service, href, kicker, logo, channels, groups,
             </div>
           )}
           <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+          {after && (
+            <section className="channel-group service-after" aria-label={t(after.title)}>
+              <h2>{t(after.title)}</h2>
+              <p>{linkify(t(after.intro), links)}</p>
+              <p className="channel-group-subtitle"><strong>{t(after.subtitle)}</strong></p>
+              <ul className="service-after-list">
+                {after.points.map((point) => {
+                  const [lead, ...rest] = point.split(" — ");
+                  return <li key={point}><Icon name="check" size={16} /><span><strong>{t(lead)}</strong>{rest.length > 0 && <> — {t(rest.join(" — "))}</>}</span></li>;
+                })}
+              </ul>
+              {after.outro && <p className="service-after-outro">{linkify(t(after.outro), links)}</p>}
+            </section>
+          )}
         </div>
       </article>
       {faqs && <IptvFaqSection faqs={faqs.items} heading={faqs.heading} id={faqs.id} />}

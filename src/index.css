@@ -4353,6 +4353,15 @@ html[data-theme="light"] .channel-logo-card { filter: invert(1) hue-rotate(180de
 .channel-group h2 { margin: 10px 0 0; font-size: clamp(28px, 3vw, 42px); letter-spacing: -0.04em; }
 .channel-group > p { max-width: 680px; margin: 10px 0 0; font-size: 18px; }
 .channel-group > p.channel-group-subtitle { margin: 26px 0 0; font-size: clamp(20px, 2vw, 26px); line-height: 1.25; letter-spacing: -0.02em; color: #fff; }
+.channel-group.service-after { margin-top: 64px; max-width: 820px; }
+.channel-group > p.channel-group-outro { margin: -12px 0 34px; }
+.channel-group > p.service-after-outro { margin-top: 22px; }
+.service-full-copy p a { color: #a78bfa; text-decoration: underline; text-underline-offset: 3px; }
+.service-full-copy p a:hover { color: #c4b5fd; }
+.service-after-list { display: grid; gap: 12px; padding: 0; margin: 18px 0 0; list-style: none; }
+.service-after-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 16px; line-height: 1.6; }
+.service-after-list svg { flex: none; margin-top: 4px; color: #8aebaa; }
+.service-after-list strong { color: #fff; }
 .service-full-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; margin: 18px 0 34px; }
 .service-full-tiles.is-posters { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); }
 .service-full .service-brand-tile {
@@ -4599,7 +4608,7 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
 }
 
 .iptv-faq .section-heading { margin-bottom: 28px; }
-#live-tv-faq .faq-layout-full { justify-content: center; }
+#live-tv-faq .faq-layout-full, #sports-faq .faq-layout-full, #movies-faq .faq-layout-full, #apps-faq .faq-layout-full, #netflix-faq .faq-layout-full, #adults-faq .faq-layout-full { justify-content: center; }
 .faq-answer > div {
   overflow: hidden;
   padding-left: 43px;

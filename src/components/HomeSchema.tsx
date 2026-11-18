@@ -203,28 +203,86 @@ export function useServicesSchema() {
   }, []);
 }
 
+type ServiceSchemaConfig = { path: string; name: string; serviceType: string; description: string; crumb: string; offer?: Record<string, unknown>; audience?: string };
+
+const liveTvSchemaConfig: ServiceSchemaConfig = {
+  path: "/services/live-tv",
+  name: "Live TV Channels UK — IPTV Service",
+  serviceType: "IPTV Live Television Streaming",
+  description: "TV Packages provides 10,000+ live UK and international TV channels via IPTV, including BBC, ITV, Sky Sports, TNT Sports and Asian channels, streamed in HD and 4K on Firestick, Smart TV and Android devices.",
+  crumb: "Live TV Channels UK",
+};
+
+const sportsSchemaConfig: ServiceSchemaConfig = {
+  path: "/services/sports",
+  name: "Premium Sports Channels UK — IPTV Sports Package",
+  serviceType: "IPTV Sports Streaming",
+  description: "TV Packages provides access to all major UK sports channels via IPTV, including Sky Sports (all channels), TNT Sports 1–4, Premier League, Champions League, Formula 1, cricket, boxing, rugby and golf — streamed in HD and 4K on Firestick, Smart TV and Android devices over UK broadband.",
+  crumb: "Premium Sports Channels UK",
+};
+
+const moviesSchemaConfig: ServiceSchemaConfig = {
+  path: "/services/movies",
+  name: "Movies & TV Series — IPTV On-Demand Service UK",
+  serviceType: "IPTV Video On Demand Streaming",
+  description: "TV Packages provides on-demand access to movies and TV series including Hollywood, Bollywood, Lollywood, Tollywood, Kollywood, Mollywood, Korean, Chinese and UK cinema, across 12 genre categories, with studio and app compatibility including Netflix, HBO, Disney+, Max, Prime Video, Apple TV, Paramount+, Warner Bros., STARZ, Showtime, MUBI, Tubi and Crunchyroll, streamed in HD and 4K on Firestick, Smart TV and Android devices.",
+  crumb: "Movies & TV Series",
+};
+
+const netflixSchemaConfig: ServiceSchemaConfig = {
+  path: "/netflix",
+  name: "Netflix Included in IPTV Package",
+  serviceType: "IPTV Streaming Service with Netflix",
+  description: "Netflix is included in every TV Packages IPTV subscription. We install Netflix directly onto your Fire TV Stick or Smart TV — covering Bollywood, Hollywood, Korean cinema, Lollywood, Nollywood and more — with WhatsApp-guided setup.",
+  crumb: "Netflix",
+  offer: {
+    priceCurrency: "GBP",
+    price: "20.00",
+    description: "Monthly IPTV subscription including Netflix, Disney+, Prime Video and world TV channels",
+    availability: "https://schema.org/InStock",
+  },
+};
+
+const adultsSchemaConfig: ServiceSchemaConfig = {
+  path: "/adults",
+  name: "18+ Adult Channels — IPTV UK",
+  serviceType: "IPTV Adult Content Subscription",
+  description: "TV Packages includes a dedicated 18+ adults section within its UK IPTV subscription. PIN-protected and enabled only for verified adult subscribers. Available on Fire TV Stick, Smart TV, Android box and MAG devices with no additional hardware required.",
+  crumb: "18+ Adults",
+  audience: "Adults aged 18 and over",
+  offer: {
+    priceCurrency: "GBP",
+    price: "20.00",
+    description: "Monthly IPTV subscription including 18+ adults section, live channels, movies and entertainment apps",
+    availability: "https://schema.org/InStock",
+    eligibleRegion: { "@type": "Country", name: "GB" },
+  },
+};
+
 /**
- * Adds Live TV page JSON-LD (Service + FAQPage + BreadcrumbList) to <head> and removes it on leave.
+ * Adds a service page’s JSON-LD (Service + FAQPage + BreadcrumbList) to <head> and removes it on leave.
  * The FAQPage is built from the same list rendered on the page so markup always matches visible content.
  */
-export function useLiveTvSchema(faqs: [string, string][]) {
+function useServicePageSchema(config: ServiceSchemaConfig, faqs: [string, string][]) {
   useEffect(() => {
-    const url = SITE + "/services/live-tv";
+    const url = SITE + config.path;
     const service = {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: "Live TV Channels UK — IPTV Service",
-      serviceType: "IPTV Live Television Streaming",
-      description: "TVPackages.uk provides 10,000+ live UK and international TV channels via IPTV, including BBC, ITV, Sky Sports, TNT Sports and Asian channels, streamed in HD and 4K on Firestick, Smart TV and Android devices.",
+      name: config.name,
+      serviceType: config.serviceType,
+      description: config.description,
       provider: {
         "@type": "LocalBusiness",
-        name: "TVPackages.uk",
+        name: "TV Packages",
         url: SITE,
         areaServed: "GB",
         contactPoint: { "@type": "ContactPoint", contactType: "customer support", availableLanguage: "English" },
       },
       areaServed: "GB",
       url,
+      ...(config.audience && { audience: { "@type": "Audience", audienceType: config.audience } }),
+      ...(config.offer && { offers: { "@type": "Offer", ...config.offer } }),
     };
     const faqPage = {
       "@context": "https://schema.org",
@@ -237,7 +295,7 @@ export function useLiveTvSchema(faqs: [string, string][]) {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: SITE + "/" },
         { "@type": "ListItem", position: 2, name: "Services", item: SITE + "/services" },
-        { "@type": "ListItem", position: 3, name: "Live TV Channels UK", item: url },
+        { "@type": "ListItem", position: 3, name: config.crumb, item: url },
       ],
     };
     const tags = [service, faqPage, breadcrumb].map((data) => {
@@ -248,7 +306,27 @@ export function useLiveTvSchema(faqs: [string, string][]) {
       return el;
     });
     return () => tags.forEach((el) => el.remove());
-  }, [faqs]);
+  }, [config, faqs]);
+}
+
+export function useLiveTvSchema(faqs: [string, string][]) {
+  useServicePageSchema(liveTvSchemaConfig, faqs);
+}
+
+export function useSportsSchema(faqs: [string, string][]) {
+  useServicePageSchema(sportsSchemaConfig, faqs);
+}
+
+export function useMoviesSchema(faqs: [string, string][]) {
+  useServicePageSchema(moviesSchemaConfig, faqs);
+}
+
+export function useNetflixSchema(faqs: [string, string][]) {
+  useServicePageSchema(netflixSchemaConfig, faqs);
+}
+
+export function useAdultsSchema(faqs: [string, string][]) {
+  useServicePageSchema(adultsSchemaConfig, faqs);
 }
 
 /** Adds homepage-only JSON-LD to <head> and removes it when leaving the page. */
