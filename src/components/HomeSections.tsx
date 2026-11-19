@@ -2,6 +2,7 @@ import { useState } from "react";
 import { faqs, steps } from "../data/home";
 import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WhatsAppButton, WhatsAppIcon } from "./ui";
+import { LinkChip } from "./InternalLinks";
 
 export function HowItWorksSection({ showHeading = true }: { showHeading?: boolean }) {
   const { t } = useSettings();
@@ -41,11 +42,12 @@ export function FaqSection({
   showIntro = true,
   items = faqs as [string, string][],
   heading,
-}: { showIntro?: boolean; items?: [string, string][]; heading?: string }) {
+  centered = false,
+}: { showIntro?: boolean; items?: [string, string][]; heading?: string; centered?: boolean }) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const { t } = useSettings();
   return (
-    <section className="section faq-section" id="faqs">
+    <section className={`section faq-section${centered ? " faq-centered" : ""}`} id="faqs">
       <div className={`container faq-layout${showIntro ? "" : " faq-layout-full"}`}>
         {showIntro && (
           <div className="faq-intro">
@@ -165,7 +167,8 @@ export function IptvFaqSection({
   faqs = IPTV_FAQS,
   heading = "Frequently Asked Questions About IPTV in the UK",
   id = "iptv-faq",
-}: { faqs?: [string, string][]; heading?: string; id?: string } = {}) {
+  links,
+}: { faqs?: [string, string][]; heading?: string; id?: string; links?: [string, string][] } = {}) {
   const [open, setOpen] = useState<number | null>(null);
   return (
     <section className="section faq-section iptv-faq" id={id}>
@@ -182,7 +185,7 @@ export function IptvFaqSection({
                   <i><Icon name={open === index ? "close" : "chevron"} size={18} /></i>
                 </button>
               </h3>
-              <div className="faq-answer" id={`iptv-faq-answer-${index}`}><p>{answer}</p></div>
+              <div className="faq-answer" id={`iptv-faq-answer-${index}`}><p>{answer}</p>{links?.[index] && <LinkChip href={links[index][0]} className="faq-link">{links[index][1]}</LinkChip>}</div>
             </article>
           ))}
         </div>

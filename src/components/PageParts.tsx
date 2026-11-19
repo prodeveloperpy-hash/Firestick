@@ -7,14 +7,16 @@ export function PageHero({
   title,
   lead,
   children,
+  className = "",
 }: {
   eyebrow: ReactNode;
   title: ReactNode;
   lead?: ReactNode;
   children?: ReactNode;
+  className?: string;
 }) {
   return (
-    <section className="page-hero">
+    <section className={`page-hero${className ? " " + className : ""}`}>
       <div className="ambient ambient-one" />
       <div className="container page-hero-inner">
         <div className="eyebrow">{eyebrow}</div>

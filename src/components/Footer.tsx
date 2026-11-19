@@ -1,5 +1,6 @@
 import { Link } from "../router";
 import { useSettings } from "../settings";
+import { adultService, netflixService, services } from "../data/home";
 import { BrandMark, Icon, IPTVLogo, WHATSAPP_URL, WhatsAppIcon } from "./ui";
 
 export function Footer() {
@@ -33,6 +34,14 @@ export function Footer() {
           <Link href="/faqs">{t("FAQs")}</Link>
           <Link href="/contact">{t("Contact")}</Link>
           <Link href="/blog">{t("Blog")}</Link>
+        </div>
+        <div>
+          <h4>{t("Services")}</h4>
+          {services.map((service) => (
+            <Link key={service.slug} href={`/services/${service.slug}`}>{t(service.title)}</Link>
+          ))}
+          <Link href="/netflix">{t(netflixService.title)}</Link>
+          <Link href="/adults">{t(adultService.title)}</Link>
         </div>
         <div>
           <h4>{t("Get in touch")}</h4>

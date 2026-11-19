@@ -102,8 +102,8 @@ function ServicesPage() {
       <PageHero eyebrow={t("Our Services")} title={t("UK IPTV Service: Live Channels, Sports, Movies & On-Demand Apps")} lead={t("A UK IPTV service delivers live television channels, sports including Premier League and Sky Sports, movies, series and catch-up TV over your broadband connection, no satellite dish or cable contract required. TV Packages includes personalised WhatsApp setup on your chosen device, so you're watching within the hour of signing up.")} />
       <section className="services services-page-carousel" id="our-services" aria-label={t("Our Services")}>
         <ServiceCarousel items={services} />
-        <ServiceSpotlight service={netflixService} id="netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
-        <ServiceSpotlight service={adultService} id="adults" kicker="18+ only" />
+        <ServiceSpotlight service={netflixService} id="netflix" href="/netflix" linkLabel="Learn About Netflix" kicker="Movies & series" logo="/logos/netflix.svg" />
+        <ServiceSpotlight service={adultService} id="adults" href="/adults" linkLabel="Learn About 18+ Adults" kicker="18+ only" />
       </section>
       <IptvFaqSection faqs={SERVICES_FAQS} heading="Frequently Asked Questions: UK IPTV Service" id="services-faq" />
       <CtaSection />

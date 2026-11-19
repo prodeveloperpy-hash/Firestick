@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Link } from "../router";
 import { useSettings } from "../settings";
 import { Icon, IPTVLogo, WHATSAPP_URL } from "./ui";
 import { ServiceBrandTile } from "./ServiceBrandTile";
 
-type Service = { icon: string; number: string; image: string; imageAlt: string; title: string; text: string; detail?: string; tags: string[]; showcase: string[][] };
+type Service = { slug?: string; icon: string; number: string; image: string; imageAlt: string; title: string; text: string; detail?: string; tags: string[]; showcase: string[][] };
 
 const supportedDevices = [["tv", "Fire Stick"], ["tv", "Smart TV"], ["phone", "Android"], ["box", "MAG / Msg Box"], ["tablet", "Tablet"], ["phone", "iPhone"], ["tablet", "iPad"]];
 
@@ -109,7 +110,10 @@ export function ServiceCarousel({ items, initial = 0, autoplay = true }: { items
                   <span>{t("Load your compatible device")}</span>
                   <div>{supportedDevices.map(([icon, label]) => <span key={label}><Icon name={icon} size={16} />{label}</span>)}</div>
                 </div>
-                <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+                <div className="service-slide-actions">
+                  <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+                  {service.slug && <Link className="secondary-button" href={`/services/${service.slug}`}>{t(`Learn About ${service.title}`)} <Icon name="arrow" size={18} /></Link>}
+                </div>
               </div>
             </article>
           ))}
@@ -126,7 +130,7 @@ export function ServiceCarousel({ items, initial = 0, autoplay = true }: { items
   );
 }
 
-export function ServiceSpotlight({ service, id, kicker, logo }: { service: Service; id: string; kicker: string; logo?: string }) {
+export function ServiceSpotlight({ service, id, kicker, logo, href, linkLabel }: { service: Service; id: string; kicker: string; logo?: string; href?: string; linkLabel?: string }) {
   const { t } = useSettings();
   return (
     <section className="service-carousel service-spotlight" id={id} aria-label={t(service.title)}>
@@ -143,7 +147,10 @@ export function ServiceSpotlight({ service, id, kicker, logo }: { service: Servi
           <h3>{t(service.title)}</h3>
           <p>{t(service.text)}</p>
           <ul>{service.tags.map((tag) => <li key={tag}><Icon name="check" size={15} />{t(tag)}</li>)}</ul>
-          <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+          <div className="service-slide-actions">
+            <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+            {href && linkLabel && <Link className="secondary-button" href={href}>{t(linkLabel)} <Icon name="arrow" size={18} /></Link>}
+          </div>
         </div>
       </article>
     </section>

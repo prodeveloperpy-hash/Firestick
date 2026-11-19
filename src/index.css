@@ -4608,7 +4608,7 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
 }
 
 .iptv-faq .section-heading { margin-bottom: 28px; }
-#live-tv-faq .faq-layout-full, #sports-faq .faq-layout-full, #movies-faq .faq-layout-full, #apps-faq .faq-layout-full, #netflix-faq .faq-layout-full, #adults-faq .faq-layout-full { justify-content: center; }
+#devices-faq .faq-layout-full, #packages-faq .faq-layout-full,#live-tv-faq .faq-layout-full, #sports-faq .faq-layout-full, #movies-faq .faq-layout-full, #apps-faq .faq-layout-full, #netflix-faq .faq-layout-full, #adults-faq .faq-layout-full { justify-content: center; }
 .faq-answer > div {
   overflow: hidden;
   padding-left: 43px;
@@ -4637,3 +4637,20 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
 }
 
 .service-carousel .service-slide-copy > p.service-slide-detail { font-size: 0.95rem; line-height: 1.6; opacity: 0.9; margin-top: 12px; }
+
+/* /faqs page: centred hero text and FAQ column */
+.page-hero-centered .page-hero-inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.page-hero-centered .hero-lead { margin-left: auto; margin-right: auto; }
+.faq-centered .faq-layout-full { justify-content: center; }
+
+/* ---- Internal link components ---- */
+.link-chip { display: inline-flex; align-items: center; gap: 7px; align-self: center; margin-top: 14px; padding: 7px 13px; border: 1px solid rgba(135,88,255,.35); border-radius: 999px; background: rgba(135,88,255,.1); color: #c4b1ff; font-size: 12px; font-weight: 700; line-height: 1.3; transition: background .2s, gap .2s, border-color .2s; }
+.link-chip:hover { gap: 11px; background: rgba(135,88,255,.22); border-color: rgba(135,88,255,.6); }
+.difference-stop .link-chip { margin-inline: auto; }
+.faq-answer .link-chip.faq-link { margin: 4px 0 24px 57px; }
+.ph-actions-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
+.ph-actions-row .link-chip { margin-top: 0; }
+.ph-actions-center { justify-content: center; margin-top: 18px; }
+@media (max-width: 620px) { .faq-answer .link-chip.faq-link { margin-left: 47px; } }
+
+.service-slide-actions { display: flex; flex-wrap: wrap; gap: 12px; }

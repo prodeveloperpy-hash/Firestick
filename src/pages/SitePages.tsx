@@ -60,11 +60,12 @@ export function FaqsPage() {
   return (
     <main>
       <PageHero
+        className="page-hero-centered"
         eyebrow={t("Common questions")}
         title={<>{t("Everything you need to ")}<em>{t("know.")}</em></>}
         lead={t("Can’t find your answer? Send us a message and our team will be happy to help.")}
       />
-      <FaqSection showIntro={false} />
+      <FaqSection showIntro={false} centered />
       <CtaSection />
     </main>
   );

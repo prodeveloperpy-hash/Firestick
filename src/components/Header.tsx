@@ -15,11 +15,9 @@ const serviceMenu = [
 const navItems = [
   ["Home", "/"],
   ["Services", "/services"],
-  ["Devices", "/devices"],
   ["Packages", "/packages"],
   ["FAQs", "/faqs"],
   ["Contact", "/contact"],
-  ["Blog", "/blog"],
 ];
 
 export function Header() {
