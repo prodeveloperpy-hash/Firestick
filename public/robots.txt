@@ -1,4 +1,192 @@
-User-agent: *
+# ==================================================
+# robots.txt for tvpackages.uk
+# Last updated: November 2026
+# Strategy: Allow all search engines + GEO/AEO AI platforms
+#            Block fake/scraper bots and training-only crawlers
+# ==================================================
+
+
+# --------------------------------------------------
+# GOOGLE — Full access (search + indexing)
+# --------------------------------------------------
+User-agent: Googlebot
 Allow: /
 
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Google AI Overviews & Gemini (GEO target — allow)
+User-agent: Google-Extended
+Allow: /
+
+
+# --------------------------------------------------
+# BING & MICROSOFT — Full access
+# --------------------------------------------------
+User-agent: Bingbot
+Allow: /
+
+# Bing Copilot (feeds Microsoft AI answers — allow)
+User-agent: msnbot
+Allow: /
+
+User-agent: msnbot-media
+Allow: /
+
+
+# --------------------------------------------------
+# OPENAI — ChatGPT Search + AI Overviews (GEO target)
+# Allow search/retrieval crawlers ONLY
+# --------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Block training-only crawler (does not affect ChatGPT citations)
+User-agent: GPTBot
+Disallow: /
+
+
+# --------------------------------------------------
+# ANTHROPIC — Claude AI (GEO target — allow)
+# --------------------------------------------------
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+
+# --------------------------------------------------
+# PERPLEXITY — Most citation-heavy AI search engine (GEO target)
+# --------------------------------------------------
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+
+# --------------------------------------------------
+# APPLE — Siri & Spotlight suggestions
+# --------------------------------------------------
+User-agent: Applebot
+Allow: /
+
+# Block Apple training crawler
+User-agent: Applebot-Extended
+Disallow: /
+
+
+# --------------------------------------------------
+# OTHER LEGITIMATE SEARCH ENGINES
+# --------------------------------------------------
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+
+# --------------------------------------------------
+# FAKE & SCRAPER BOTS — BLOCK ALL
+# --------------------------------------------------
+
+# ByteDance / TikTok scraper (aggressive crawler)
+User-agent: Bytespider
+Disallow: /
+
+# Common Crawl (mass data harvester — no SEO value)
+User-agent: CCBot
+Disallow: /
+
+# DataForSEO scraper
+User-agent: DataForSeoBot
+Disallow: /
+
+# Semrush bot (competitor intelligence — optional block)
+User-agent: SemrushBot
+Disallow: /
+
+# Ahrefs bot (optional block)
+User-agent: AhrefsBot
+Disallow: /
+
+# Majestic SEO crawler
+User-agent: MJ12bot
+Disallow: /
+
+# DotBot / Moz
+User-agent: dotbot
+Disallow: /
+
+# Rogerbot / Moz
+User-agent: rogerbot
+Disallow: /
+
+# PetalBot (Huawei scraper)
+User-agent: PetalBot
+Disallow: /
+
+# Amazonbot (training crawler — not Alexa search)
+User-agent: Amazonbot
+Disallow: /
+
+# ImagesiftBot
+User-agent: ImagesiftBot
+Disallow: /
+
+# Omgilibot / Webz.io data scraper
+User-agent: omgilibot
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+# Diffbot
+User-agent: Diffbot
+Disallow: /
+
+
+# --------------------------------------------------
+# DEFAULT RULE — All other bots: allow
+# (covers any unlisted legitimate crawler)
+# --------------------------------------------------
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /admin/
+Disallow: /api/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /*?*replytocom=
+Disallow: /*?*s=
+
+
+# --------------------------------------------------
+# SITEMAP
+# --------------------------------------------------
 Sitemap: https://tvpackages.uk/sitemap.xml

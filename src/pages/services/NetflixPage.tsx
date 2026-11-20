@@ -3,7 +3,7 @@ import { IptvFaqSection } from "../../components/HomeSections";
 import { CtaSection } from "../../components/PageParts";
 import { Icon, WHATSAPP_URL } from "../../components/ui";
 import { netflixService } from "../../data/home";
-import { usePageMeta } from "../../router";
+import { Link, usePageMeta } from "../../router";
 import { useSettings } from "../../settings";
 import { MoreServices } from "./ServiceFullPage";
 
@@ -97,9 +97,12 @@ export function NetflixPage() {
             <img className="netflix-mark" src="/logos/netflix.svg" alt="" />
             <h1>{t("Netflix Movies & Series on IPTV")}</h1>
             <p>{t(netflixService.text)}</p>
-            <a className="netflix-play" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-              <Icon name="play" size={18} /> {t("Ask about this service")}
-            </a>
+            <div className="service-actions">
+              <a className="netflix-play" href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+                <Icon name="play" size={18} /> {t("Ask about this service")}
+              </a>
+              <Link className="packages-button" href="/packages">{t("Our Packages")} <Icon name="arrow" size={18} /></Link>
+            </div>
           </div>
         </section>
         {rows.map((row) => (

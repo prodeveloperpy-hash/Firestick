@@ -55,6 +55,8 @@ const entries: Record<string, [string, string, string, string]> = {
     "مقرنا في المملكة المتحدة • ترفيه عالمي",
   ],
   Explore: ["Explorar", "Explorer", "Entdecken", "استكشف"],
+  "Learn about IPTV Services": ["Conoce los servicios IPTV", "Découvrez les services IPTV", "Mehr über IPTV-Dienste erfahren", "تعرف على خدمات IPTV"],
+  "Our Packages": ["Nuestros paquetes", "Nos forfaits", "Unsere Pakete", "باقاتنا"],
   "Our Services": ["Nuestros servicios", "Nos services", "Unsere Leistungen", "خدماتنا"],
   "More services": ["Más servicios", "Plus de services", "Weitere Leistungen", "المزيد من الخدمات"],
   "Compatible Devices": ["Dispositivos compatibles", "Appareils compatibles", "Kompatible Geräte", "الأجهزة المتوافقة"],

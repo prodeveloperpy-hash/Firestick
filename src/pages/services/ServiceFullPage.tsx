@@ -96,7 +96,10 @@ export function ServiceFullPage({ service, href, kicker, logo, channels, groups,
               ))}
             </div>
           )}
-          <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+          <div className="service-actions">
+            <a className="secondary-button" href={WHATSAPP_URL} target="_blank" rel="noreferrer">{t("Ask about this service")} <Icon name="arrow" size={18} /></a>
+            <Link className="packages-button" href="/packages">{t("Our Packages")} <Icon name="arrow" size={18} /></Link>
+          </div>
           {after && (
             <section className="channel-group service-after" aria-label={t(after.title)}>
               <h2>{t(after.title)}</h2>

@@ -16,7 +16,6 @@ import hlPortable from "../assets/highlights/portable.jpg";
 import { photos } from "../photos";
 
 const whyLinks = [["/services", "Browse UK IPTV services"], ["/devices", "See compatible devices"], ["/packages", "View IPTV packages & pricing"], ["/contact", "Talk to our UK support team"]];
-const faqLinks: [string, string][] = [["/services/live-tv", "Explore live TV channels in the UK"], ["/faqs", "Read more IPTV FAQs"], ["/packages", "See IPTV packages & prices"], ["/contact", "Ask us to check your broadband"], ["/devices", "Check Firestick compatibility"]];
 
 export function HomePage() {
   const { t, theme } = useSettings();
@@ -70,7 +69,7 @@ export function HomePage() {
 
     <RetainedSection kind="plans" />
 
-    <IptvFaqSection faqs={IPTV_FAQS} links={faqLinks} id="iptv-faq" />
+    <IptvFaqSection faqs={IPTV_FAQS} id="iptv-faq" />
 
     <RetainedSection kind="final" />
   </main>;

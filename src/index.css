@@ -4608,7 +4608,7 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
 }
 
 .iptv-faq .section-heading { margin-bottom: 28px; }
-#devices-faq .faq-layout-full, #packages-faq .faq-layout-full,#live-tv-faq .faq-layout-full, #sports-faq .faq-layout-full, #movies-faq .faq-layout-full, #apps-faq .faq-layout-full, #netflix-faq .faq-layout-full, #adults-faq .faq-layout-full { justify-content: center; }
+#services-faq .faq-layout-full, #devices-faq .faq-layout-full, #packages-faq .faq-layout-full,#live-tv-faq .faq-layout-full, #sports-faq .faq-layout-full, #movies-faq .faq-layout-full, #apps-faq .faq-layout-full, #netflix-faq .faq-layout-full, #adults-faq .faq-layout-full { justify-content: center; }
 .faq-answer > div {
   overflow: hidden;
   padding-left: 43px;
@@ -4654,3 +4654,23 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
 @media (max-width: 620px) { .faq-answer .link-chip.faq-link { margin-left: 47px; } }
 
 .service-slide-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Service page actions: "Ask about this service" + solid "Our Packages" button */
+.service-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; }
+.service-actions .netflix-play { margin-top: 0; }
+.packages-button {
+  min-height: 48px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #9f7bff, #6b3df0);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 10px 28px rgba(120, 72, 255, 0.38);
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+.packages-button:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 14px 34px rgba(120, 72, 255, 0.5); }
