@@ -1,6 +1,6 @@
 import { CompatibilityGrid } from "../components/CompatibilityGrid";
 import { DEVICES_FAQS, FaqSection, HowItWorksSection, IptvFaqSection, PACKAGES_FAQS } from "../components/HomeSections";
-import { useDevicesSchema, usePackagesSchema } from "../components/HomeSchema";
+import { useDevicesSchema, useFaqsSchema, usePackagesSchema } from "../components/HomeSchema";
 import { CtaSection, PageHero } from "../components/PageParts";
 import { PopularProducts } from "../components/PopularProducts";
 import { RetainedSection } from "../components/RetainedSections";
@@ -57,6 +57,7 @@ export function FaqsPage() {
     "FAQs | TV Packages",
     "Answers about supported devices, channels, UK and international entertainment, and how TV Packages setup works.",
   );
+  useFaqsSchema();
   return (
     <main>
       <PageHero
