@@ -4,6 +4,7 @@ import { useSettings } from "../settings";
 import { BrandMark, Icon, WhatsAppButton } from "./ui";
 import { LanguageDropdown } from "./LanguageDropdown";
 import { ThemeToggle } from "./ThemeToggle";
+import { blogCategories } from "../data/posts";
 import { adultService, netflixService, services } from "../data/home";
 
 const serviceMenu = [
@@ -16,6 +17,7 @@ const navItems = [
   ["Home", "/"],
   ["Services", "/services"],
   ["Packages", "/packages"],
+  ["Blogs", "/blog"],
   ["FAQs", "/faqs"],
   ["Contact", "/contact"],
 ];
@@ -72,6 +74,20 @@ export function Header() {
                     <Link key={item.href} href={item.href} role="menuitem" onClick={close} className={path === item.href ? "active" : undefined}>
                       <Icon name={item.icon} size={16} />
                       <span>{t(item.label)}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : label === "Blogs" ? (
+              <div className="nav-dropdown" key={label}>
+                <Link href="/blog" onClick={close} className={path.startsWith("/blog") ? "active" : undefined} aria-haspopup="true">
+                  {t("Blogs")} <Icon name="chevron" size={14} />
+                </Link>
+                <div className="services-menu blogs-menu" role="menu" aria-label={t("Blogs")}>
+                  {blogCategories.map((c) => (
+                    <Link key={c.slug} href={`/blog/category/${c.slug}`} role="menuitem" onClick={close} className={path === `/blog/category/${c.slug}` ? "active" : undefined}>
+                      <Icon name={c.slug === "guide" ? "layers" : "sliders"} size={16} />
+                      <span>{t(c.label)}</span>
                     </Link>
                   ))}
                 </div>

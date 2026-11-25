@@ -1,12 +1,19 @@
 import firestickRemote from "../assets/firestick-remote.jpg";
 import heroDevices from "../assets/hero-devices.jpg";
 import deviceLineup from "../assets/device-lineup.jpg";
+import { freeTrialPost } from "./post-iptv-free-trial";
 
 export type PostBlock =
   | { type: "h2"; text: string }
   | { type: "p"; text: string }
   | { type: "ul"; items: string[] }
-  | { type: "ol"; items: string[] };
+  | { type: "h3"; text: string }
+  | { type: "ol"; items: string[] }
+  | { type: "checklist"; items: string[] }
+  | { type: "callout"; variant: "answer" | "tip" | "warn" | "good"; title: string; text?: string; items?: string[] }
+  | { type: "table"; head: string[]; rows: string[][] }
+  | { type: "faq"; items: [string, string][] }
+  | { type: "cta"; text: string; buttons: { label: string; href: string; secondary?: boolean }[] };
 
 export type Post = {
   slug: string;
@@ -18,9 +25,26 @@ export type Post = {
   image: string;
   imageAlt: string;
   body: PostBlock[];
+  /** Optional SEO overrides and structured-data inputs. */
+  seoTitle?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  keywords?: string[];
+  /** [question, answer] pairs emitted as FAQPage schema. */
+  faqs?: [string, string][];
 };
 
+/** Category label to URL slug, e.g. "Guide" becomes "guide". */
+export const categorySlug = (category: string) => category.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+/** Categories shown in the header "Blogs" dropdown. */
+export const blogCategories = [
+  { label: "Comparison", slug: "comparison", blurb: "Side-by-side comparisons to help you choose the right device or service." },
+  { label: "Guide", slug: "guide", blurb: "Step-by-step guides, checklists and expert tips for getting more from IPTV." },
+];
+
 export const posts: Post[] = [
+  freeTrialPost,
   {
     slug: "how-to-set-up-iptv-on-fire-tv-stick",
     image: firestickRemote,
@@ -28,7 +52,7 @@ export const posts: Post[] = [
     title: "How to Set Up IPTV on an Amazon Fire TV Stick",
     excerpt:
       "A simple, step-by-step walkthrough for getting your Fire TV Stick ready for IPTV, from first power-on to your first channel.",
-    category: "Setup Guides",
+    category: "Guide",
     date: "2026-10-28",
     readTime: "5 min read",
     body: [
@@ -81,7 +105,7 @@ export const posts: Post[] = [
     title: "What Internet Speed Do You Need for Smooth Streaming?",
     excerpt:
       "Buffering is usually a connection problem, not a service problem. Here’s how much speed you really need for HD and 4K, and how to get more from your setup.",
-    category: "Streaming Tips",
+    category: "Guide",
     date: "2026-10-14",
     readTime: "4 min read",
     body: [
@@ -124,7 +148,7 @@ export const posts: Post[] = [
     title: "Fire TV Stick vs Android TV Box vs Smart TV: Which Is Best for IPTV?",
     excerpt:
       "Not sure which device to use? We compare the three most popular options on price, ease of use and performance.",
-    category: "Devices",
+    category: "Comparison",
     date: "2026-09-30",
     readTime: "6 min read",
     body: [

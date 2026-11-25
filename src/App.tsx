@@ -71,6 +71,7 @@ export default function App() {
   else if (path === "/privacy") page = <PrivacyPage />;
   else if (path === "/terms") page = <TermsPage />;
   else if (path === "/blog") page = <BlogPage />;
+  else if (path.startsWith("/blog/category/")) page = <BlogPage categorySlug={path.slice("/blog/category/".length)} />;
   else if (path.startsWith("/blog/")) page = <BlogPostPage slug={path.slice("/blog/".length)} />;
   else page = <NotFoundPage />;
 
