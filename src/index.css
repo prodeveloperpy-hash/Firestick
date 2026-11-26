@@ -2410,7 +2410,7 @@ section[id] {
    ========================================================= */
 .post-cover {
   margin: -26px -26px 20px;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
   border-radius: 17px 17px 0 0;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
@@ -2426,7 +2426,7 @@ section[id] {
 }
 .article-cover {
   margin: 0 0 36px;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2 / 1;
   border-radius: 18px;
   overflow: hidden;
   border: 1px solid var(--line);

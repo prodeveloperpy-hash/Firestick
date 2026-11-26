@@ -7,7 +7,6 @@ const SELECTOR = [
   ".faq-intro",
   ".faq-item",
   ".cta-panel",
-  ".prose",
   ".service-card",
   ".why-card",
   ".process-card",
