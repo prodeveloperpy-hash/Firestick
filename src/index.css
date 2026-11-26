@@ -4846,3 +4846,4 @@ html[data-theme="light"] .netflix-browse img { filter: none; }
   border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow: none;
 }
+.blog-empty { text-align: center; color: #9ca3b5; padding: 30px 0; }

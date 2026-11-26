@@ -64,11 +64,12 @@ export function BlogPage({ categorySlug: activeSlug }: { categorySlug?: string }
               All
             </Link>
             {blogCategories.map((c) => (
-              <Link key={c.slug} href={`/blog/category/${c.slug}`} className={c.slug === category?.slug ? "active" : undefined}>
+              <Link key={c.slug} href={`/blog/${c.slug}`} className={c.slug === category?.slug ? "active" : undefined}>
                 {c.label}
               </Link>
             ))}
           </nav>
+          {list.length === 0 && <p className="blog-empty">New {category?.label.toLowerCase()} articles are coming soon.</p>}
           <div className="post-grid">
             {list.map((post) => (
               <PostCard key={post.slug} post={post} />

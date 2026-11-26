@@ -85,7 +85,7 @@ export function Header() {
                 </Link>
                 <div className="services-menu blogs-menu" role="menu" aria-label={t("Blogs")}>
                   {blogCategories.map((c) => (
-                    <Link key={c.slug} href={`/blog/category/${c.slug}`} role="menuitem" onClick={close} className={path === `/blog/category/${c.slug}` ? "active" : undefined}>
+                    <Link key={c.slug} href={`/blog/${c.slug}`} role="menuitem" onClick={close} className={path === `/blog/${c.slug}` ? "active" : undefined}>
                       <Icon name={c.slug === "guide" ? "layers" : "sliders"} size={16} />
                       <span>{t(c.label)}</span>
                     </Link>

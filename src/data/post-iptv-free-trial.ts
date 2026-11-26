@@ -45,7 +45,7 @@ export const freeTrialFaqs: [string, string, string][] = [
   ],
   [
     "Why is my IPTV trial buffering?",
-    "Buffering during a trial can have several causes: a congested Wi-Fi signal, a slow broadband connection, an overloaded provider server during peak hours, or a Firestick that needs a restart. Before concluding the service is poor, check your connection speed (you need 25 Mbps or more for 4K, see our [internet speed guide](/blog/internet-speed-for-smooth-streaming)), restart your Firestick, and try again during an off-peak time. If buffering persists across all those conditions, the provider's server infrastructure is likely the issue.",
+    "Buffering during a trial can have several causes: a congested Wi-Fi signal, a slow broadband connection, an overloaded provider server during peak hours, or a Firestick that needs a restart. Before concluding the service is poor, check your connection speed (you need 25 Mbps or more for 4K), restart your Firestick, and try again during an off-peak time. If buffering persists across all those conditions, the provider's server infrastructure is likely the issue.",
     "Buffering during a trial can be caused by a congested Wi-Fi signal, slow broadband, an overloaded provider server during peak hours, or a Firestick that needs a restart. You need 25 Mbps or more for 4K streams. If buffering persists after restarting and testing at an off-peak time, the provider's server infrastructure is likely the issue.",
   ],
   [
@@ -120,8 +120,8 @@ export const freeTrialPost: Post = {
     {
       type: "ul",
       items: [
-        "**An Amazon Fire TV Stick:** the Fire TV Stick 4K or 4K Max is recommended for IPTV. The standard HD model works for SD and HD streams but cannot play 4K content. Not sure which device suits you? Read our [Fire TV Stick vs Android Box vs Smart TV comparison](/blog/fire-tv-stick-vs-android-box-vs-smart-tv).",
-        "**A stable broadband connection:** you need at least 10 Mbps for HD streams and 25 Mbps for 4K. See our guide to [internet speed requirements for smooth IPTV streaming](/blog/internet-speed-for-smooth-streaming).",
+        "**An Amazon Fire TV Stick:** the Fire TV Stick 4K or 4K Max is recommended for IPTV. The standard HD model works for SD and HD streams but cannot play 4K content. Not sure which device suits you? See our [devices page](/devices).",
+        "**A stable broadband connection:** you need at least 10 Mbps for HD streams and 25 Mbps for 4K. Internet speed matters for smooth IPTV streaming, so run a speed test first.",
         "**The Downloader app:** free from the Amazon App Store. This is how you sideload IPTV player apps onto a Firestick.",
         "**Developer Options enabled:** go to Settings → My Fire TV → Developer Options and turn on \"Apps from Unknown Sources.\"",
       ],
@@ -194,7 +194,7 @@ export const freeTrialPost: Post = {
     },
     {
       type: "p",
-      text: "For a full installation walkthrough, see our dedicated guide: [How to Set Up IPTV on a Fire TV Stick](/blog/how-to-set-up-iptv-on-fire-tv-stick).",
+      text: "Our team can walk you through the full installation on WhatsApp if you get stuck, so [Contact Our Team](/contact).",
     },
 
     { type: "h3", text: "Step 4: Enter Your Trial Credentials" },
@@ -415,7 +415,7 @@ export const freeTrialPost: Post = {
     { type: "h3", text: "If You Are Still Unsure Which Device to Use" },
     {
       type: "p",
-      text: "Read our [comparison of Fire TV Stick vs Android Box vs Smart TV for IPTV in the UK](/blog/fire-tv-stick-vs-android-box-vs-smart-tv) to make sure you are testing on the right hardware.",
+      text: "Check our [devices page](/devices) to make sure you are testing on the right hardware.",
     },
 
     { type: "h2", text: "Frequently Asked Questions" },

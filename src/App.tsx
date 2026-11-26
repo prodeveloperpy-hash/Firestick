@@ -3,6 +3,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { WHATSAPP_URL, WhatsAppIcon } from "./components/ui";
 import { BlogPage, BlogPostPage } from "./pages/Blog";
+import { blogCategories } from "./data/posts";
 import { NotFoundPage } from "./pages/NotFound";
 import { HomePage } from "./pages/Home";
 import { ContactPage, DevicesPage, FaqsPage, HowItWorksPage, PackagesPage, PrivacyPage, TermsPage } from "./pages/SitePages";
@@ -71,8 +72,10 @@ export default function App() {
   else if (path === "/privacy") page = <PrivacyPage />;
   else if (path === "/terms") page = <TermsPage />;
   else if (path === "/blog") page = <BlogPage />;
-  else if (path.startsWith("/blog/category/")) page = <BlogPage categorySlug={path.slice("/blog/category/".length)} />;
-  else if (path.startsWith("/blog/")) page = <BlogPostPage slug={path.slice("/blog/".length)} />;
+  else if (path.startsWith("/blog/")) {
+    const slug = path.slice("/blog/".length);
+    page = blogCategories.some((c) => c.slug === slug) ? <BlogPage categorySlug={slug} /> : <BlogPostPage slug={slug} />;
+  }
   else page = <NotFoundPage />;
 
   return (
